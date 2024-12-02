@@ -1,0 +1,252 @@
+
+
+/* Hero Section Styles */
+.hero-section {
+    background: url('../../../../assets/images/modern.webp') no-repeat center center;
+    background-size: cover; /* Ensures the image covers the entire section */
+    height: 100vh; /* Full screen height */
+    color: #ffffff;
+    padding: 0;
+}
+.my-circle{
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+font-family: Roboto;
+font-size: 32px;
+font-weight: 700;
+line-height: 41.6px;
+text-align: center;
+background: var(--pr_Color);
+margin: auto;
+color: #fff;
+
+}
+.overlay-dark{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 50%;
+}
+
+.hero-section h1 {
+font-family: Roboto;
+font-size: 56px;
+font-weight: 700;
+line-height: 67.2px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+}
+
+.hero-section p {
+font-family: Roboto;
+font-size: 18px;
+font-weight: 400;
+line-height: 27px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+/* .hero-section button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+} */
+/* / /////////////////////// */
+
+.section h1{
+color: black;
+font-family: Roboto;
+font-size: 48px;
+font-weight: 700;
+line-height: 57.6px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+.section p{
+
+font-family: Roboto;
+font-size: 18px;
+font-weight: 400;
+line-height: 27px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+.section h2{
+    font-family: Roboto;
+font-size: 40px;
+font-weight: 700;
+line-height: 48px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+
+}
+.gradiantttt{
+  font-size: 2rem; /* Adjust as needed */
+  font-weight: bold; /* Optional */
+  background: linear-gradient(90deg, #22C55E, #88E76D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  display: inline-block; /* To make sure the gradient only applies to the text */
+}
+
+
+
+.section h5{
+
+font-family: Roboto;
+font-size: 32px;
+font-weight: 700;
+line-height: 41.6px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+.service-step{
+  padding-bottom: 20px;
+  box-shadow:  0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.5;
+}
+
+.service-step:hover{
+box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.service-step img {
+    width: 60px;
+    height: 60px;
+    background-color: #f0f0f0;
+    display: block;
+    margin: 0 auto 10px;
+  }
+  .service-step h5 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .service-step p {
+    color: #6c757d;
+  }
+  /*  */
+  .service-card img {
+
+    margin: 0 auto 10px;
+  }
+  .service-card h5 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .service-card p {
+    color: #6c757d;
+  }
+  .see-all-btn {
+    margin-top: 20px;
+  }
+/*  */
+/* General Section Styling */
+.pricing-section {
+    background-color: #f8f9fa; /* Light grey background */
+    text-align: center;
+  }
+  
+  .pricing-section h2 {
+    font-weight: bold;
+  }
+  
+  /* Toggle Button Styling */
+  .toggle-btn {
+    font-weight: bold;
+    border: none;
+    background-color: #f0f0f0;
+    color: #000;
+    padding: 8px 20px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .toggle-btn.active {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  /* Pricing Card Styling */
+  .pricing-card {
+
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    min-width: 320px;
+  }
+  
+  .pricing-card .package-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .pricing-card .price {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .pricing-card .price span {
+    font-size: 16px;
+    font-weight: normal;
+    color: #6c757d;
+  }
+  
+  .pricing-card .package-features {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  .pricing-card .package-features li {
+    margin: 20px 0;
+  }
+  
+  .pricing-card button {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .bg-dark-my{
+    width: 100%;
+    height: 75%;
+    top: 0;
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    background: url(../../../../assets/images/Layout/Background.png);
+    opacity: 70%;
+}
+  .swiper-slide {
+    width: 50%;
+  }

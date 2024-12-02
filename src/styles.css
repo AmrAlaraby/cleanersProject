@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --primary:black;
+    --pr_Color:#22C55E;
+}
+body{
+    font-family:  "Roboto", sans-serif;
+}
+
+.color-pr{
+  color: var(--pr_Color) !important;
+}
+.bg-color-pr{
+  background: var(--pr_Color) !important;
+}
+.border-pr{
+
+  border-color:  var(--pr_Color) !important;
+}
+.pr-btn {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 400;
+
+  text-align: center;
+  border: 3px solid  var(--pr_Color);
+  background-color:  var(--pr_Color);
+  color: white;
+  box-sizing: border-box;
+  transition: all 0.5s;
+  border-radius: 0.25rem;
+}
+
+.pr-btn:hover {
+  background-color: #157e3c;
+  border-color:  #157e3c;
+  
+}
+
+.pr-sec-btn {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 400;
+
+  letter-spacing: 0.1em;
+  text-align: center;
+  border: 1px solid  var(--pr_Color);
+  background-color: transparent;
+  color:  var(--pr_Color);
+  box-sizing: border-box;
+  transition: all 0.5s;
+  border-radius: 0.25rem;
+}
+
+.pr-sec-btn:hover {
+  background-color:  var(--pr_Color);
+  color: white;
+}
+
+.swiper-pagination-bullet{
+    background: gray !important;
+    height: 10px !important;
+    width: 10px !important;
+    margin: 5px !important;
+  }
+  .swiper-pagination-bullet-active{
+    background: black!important;
+    height: 10px !important;
+    width: 10px !important;
+    position: relative;
+    opacity: 1 !important;
+  }
+
+  .gradiant-pr{
+    font-size: 2rem; /* Adjust as needed */
+    font-weight: bold; /* Optional */
+    background: linear-gradient(90deg, #22C55E, #88E76D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  
+    display: inline-block; /* To make sure the gradient only applies to the text */
+  }

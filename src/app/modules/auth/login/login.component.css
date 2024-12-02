@@ -1,0 +1,147 @@
+.login-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Left Section */
+  .login-image {
+    margin-top: 66px;
+    background:url(../../../../assets/images/12.webp) center top no-repeat;
+    background-size: cover;
+    flex: 1;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  
+  /* Right Section */
+  .login-form {
+    flex: 1;
+    padding: 40px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    /* background-color: #f9f9f9; */
+  }
+  
+  label .icon {
+    margin-left: 10px;
+    color: #888;
+  }
+  
+  .input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    margin: 0 !important;
+    padding-left: 10px;
+  }
+  
+  /* Form Options */
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .btn-primary {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+  
+  .divider {
+
+    margin: 20px 0;
+
+  }
+  
+
+  
+  .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .btn-secondary img {
+    width: 20px;
+    margin-right: 10px;
+  }
+  
+  .signup-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+  }
+  
+  .signup-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-text a:hover {
+    text-decoration: underline;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .divider span {
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #000;
+    margin: 0 10px;
+  }
+  

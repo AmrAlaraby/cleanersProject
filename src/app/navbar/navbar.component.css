@@ -1,0 +1,42 @@
+.nav-link{
+
+font-family: Roboto;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+position: relative;
+}
+.navbar-border{
+    border-bottom: 1px solid var(--primary, #000000)
+}
+.max{
+    max-height: 40px;
+}
+
+.nav-link:before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: 2px;
+    left: 0.5rem;
+    width: 0;
+    background-color: var(--pr_Color);
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    }
+
+    .nav-link:hover:before, .active:before {
+    visibility: visible;
+    width: 80%;
+   
+    }
+
+    .nav-link:focus, .nav-link:hover {
+        color: var(--pr_Color);
+    }

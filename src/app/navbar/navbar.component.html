@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-white px-5  fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" ><img src="../../assets/Footer/1/Frame 55.png" class="img-fluid max" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home']"
+            [routerLinkActive]="['active']" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/about']"
+            [routerLinkActive]="['active']" aria-current="page" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/services']"
+            [routerLinkActive]="['active']" aria-current="page" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/services']"
+            [routerLinkActive]="['active']" aria-current="page" href="#">Contact Us</a>
+          </li>
+
+          
+        </ul>
+        <div class="">
+            <button class="pr-btn mx-2 py-1 px-3" [routerLink]="['/auth']"
+            [routerLinkActive]="['d-none']" type="submit">sign up/Login</button>
+            <button class="pr-sec-btn mx-2 py-1 px-3" type="submit">Become a Cleaner</button>
+        </div>
+        
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,48 @@
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.footer .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer form input {
+    border: 1px solid var(--primary);
+    border-radius: 0.25rem;
+}
+
+.footer form button {
+    border-radius: 0.25rem;
+}
+
+.footer hr {
+    margin: 2rem 0;
+    
+}
+
+.footer small {
+    font-size: 0.75rem;
+    color: #666;
+}

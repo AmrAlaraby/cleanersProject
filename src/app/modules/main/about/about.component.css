@@ -1,0 +1,96 @@
+/* Hero Section Styles */
+.hero-section {
+    height: 100vh; /* Full screen height */
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text color */
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hero-section .btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+    /* height: 400px; Adjust based on design */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6e6e6; /* Light grey background for placeholder */
+}
+/*  */
+/* Team Section Styles */
+/* .team-section {
+    background-color: #f9f9f9; Light grey background
+} */
+
+.team-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #ffffff;
+    transition: box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.team-card .image-placeholder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6e6e6;
+}
+
+.team-card h5 {
+    margin: 0.5rem 0;
+}
+
+.social-icons a {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+/*  
+*/
+.accordion-button:not(.collapsed) {
+
+    background-color: transparent !important;
+
+}
+.accordion-button:focus {
+
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.25) !important;
+}
+
+.accordion-button{
+    font-weight: 700;
+}
+
+.accordion-item {
+    border:  2px solid black !important;
+    border-right:0 !important;
+    border-left: 0 !important;
+    border-top: 0 !important;
+    border-radius: 0 !important;
+    position: relative;
+}
+
+
