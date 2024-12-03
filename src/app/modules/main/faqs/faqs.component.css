@@ -1,0 +1,27 @@
+.accordion-button:not(.collapsed) {
+
+    background-color: transparent !important;
+
+}
+.accordion-button:focus {
+
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.25) !important;
+}
+
+.accordion-button{
+    font-weight: 700;
+}
+
+.accordion-item {
+    border:  2px solid black !important;
+    border-right:0 !important;
+    border-left: 0 !important;
+    border-top: 0 !important;
+    border-radius: 0 !important;
+    position: relative;
+}
+
+.accordion-button:not(.collapsed) {
+
+     box-shadow: unset; 
+}

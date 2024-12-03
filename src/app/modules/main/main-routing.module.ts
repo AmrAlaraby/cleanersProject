@@ -5,6 +5,9 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AllServicesComponent } from './all-services/all-services.component';
+import { CleanersComponent } from './cleaners/cleaners.component';
 
 const routes: Routes = [
   {path:"",component:LayoutComponent,
@@ -20,7 +23,20 @@ const routes: Routes = [
         path:'about',component:AboutComponent,
       },
       {
-        path:'services',component:ServicesComponent,
+        path:'services',component:ServicesComponent,children:[
+          {
+            path:'',redirectTo:'allservices', pathMatch: "full" 
+          },
+          {
+            path:'allservices',component:AllServicesComponent
+          },
+          {
+            path:'cleaners',component:CleanersComponent
+          },
+          {
+            path:'payment',component:PaymentComponent
+          }
+        ]
       },
       {
         path:'contact',component:ContactUsComponent,

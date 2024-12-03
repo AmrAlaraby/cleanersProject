@@ -37,6 +37,6 @@ position: relative;
    
     }
 
-    .nav-link:focus, .nav-link:hover {
+    .nav-link:focus, .nav-link:hover, .navbar-nav, .nav-link.active, .navbar-nav, .nav-link.show{
         color: var(--pr_Color);
     }

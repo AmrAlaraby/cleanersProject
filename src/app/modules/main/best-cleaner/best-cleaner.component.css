@@ -1,0 +1,14 @@
+.service-card img {
+
+    margin: 0 auto 10px;
+  }
+  .service-card h5 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .service-card p {
+    color: #6c757d;
+  }
+  .see-all-btn {
+    margin-top: 20px;
+  }

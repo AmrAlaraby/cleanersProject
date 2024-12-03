@@ -1,0 +1,172 @@
+.card {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  .card-img-top {
+
+    object-fit: cover;
+  }
+  input{
+    border: 1px solid #01161E99 !important
+  }
+  .bold{
+    font-weight: 600 !important;
+    color: var(--pr_Color, #22C55E);
+    font-size: 20px;
+
+  }
+  .card-body h5 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .card-body span{
+    text-align: right;
+  }
+  
+  .btn {
+    border-radius: 20px;
+  }
+  
+  .table th, .table td {
+    border-top: none;
+  }
+  .section-title{
+    position: relative;
+    font-family: Poppins;
+font-size: 24px;
+font-weight: 400;
+line-height: 36px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+  }
+  .section-title::after {
+    position: absolute;
+    top: 0;
+
+    content: '';
+    display: block;
+    width: 50px;
+    height: 13px;
+    background-color: #007bff;
+    margin: 8px auto;
+  }
+
+  .name .name2{
+    margin-left: 15px;
+
+  }
+  .form-control{
+    width:min-content;
+  }
+  
+  .feature-card {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+  }
+  
+  .feature-card i {
+    font-size: 36px;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p {
+    font-size: 14px;
+    color: #666;
+  }
+  .line{
+    width: 90%;
+    margin: auto;
+    border-bottom: 1px solid #00000080;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+  }
+  .my-card{
+    height: 100px;
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-direction: column;
+    transition: all 0.5s;
+    border-radius: 12px;
+  }
+  .my-card svg{
+    width: 18px;
+    transition: all 0.5s;
+  }
+  .active-card{
+    background: #ddd;
+  }
+  .active-card svg{
+    color: var(--pr_Color);
+    width: 26px ;
+    
+  }
+  .my-card:hover{
+    background: #ddd;
+    cursor: pointer;
+  }
+  .my-card:hover svg{
+    color: var(--pr_Color);
+    width: 26px ;
+  }
+/*  */
+.feature-section {
+    background-color: #f6f6ff;
+    padding: 40px 0;
+  }
+  .feature-card2 {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    
+  }
+  .feature-icon {
+    width: 50px !important;
+    height: 50px;
+    background-color: var(--pr_Color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: white;
+    margin-right: 5px;
+    font-size: 1.5rem;
+  }
+  .feature-text {
+
+font-size: 10.49px;
+font-weight: 400;
+line-height: 14.29px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: #424242;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+
+  }
+  .feature-title {
+
+font-size: 14.99px;
+font-weight: 700;
+line-height: 17.99px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+  }

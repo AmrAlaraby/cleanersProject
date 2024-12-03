@@ -10,6 +10,10 @@ import { ServicesComponent } from './services/services.component';
 import { CleanersComponent } from './cleaners/cleaners.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FaqsComponent } from './faqs/faqs.component';
+import { AllServicesComponent } from './all-services/all-services.component';
+import { DiscountComponent } from './discount/discount.component';
+import { BestCleanerComponent } from './best-cleaner/best-cleaner.component';
 
 
 @NgModule({
@@ -21,7 +25,11 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ServicesComponent,
     CleanersComponent,
     PaymentComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    FaqsComponent,
+    AllServicesComponent,
+    DiscountComponent,
+    BestCleanerComponent
   ],
   imports: [
     CommonModule,

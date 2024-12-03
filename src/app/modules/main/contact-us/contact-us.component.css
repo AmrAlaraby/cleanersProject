@@ -1,0 +1,122 @@
+.header{
+    background-image: url(../../../../assets/d221e08d7fdd319d1d440592d7fbc32b.jpg);
+    background-size: cover;
+    background-position: center;
+     padding: 112px 64px 112px 64px; 
+
+    position: relative;
+    
+    }
+    .bg-dark {
+        background-color: #343a40;
+        opacity: 90%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    
+    
+      }
+      
+      .text-white {
+        color: #fff;
+      }
+      
+      .text-right {
+        text-align: right;
+      }
+      
+      .mt-5 {
+        margin-top: 5rem;
+      }
+      
+      .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .card-title {
+        font-weight: bold;
+      }
+      
+      .card-text {
+        color: #888;
+      }
+      
+      .btn {
+        border-radius: 0;
+        padding: 1rem 2rem;
+      }
+      /* Add your own custom CSS for colors, fonts, etc. */
+    .bg-light {
+      background-color: #f8f9fa;
+    }
+    
+    .text-dark {
+      color: #343a40;
+    }
+    
+    .text-right {
+      text-align: right;
+    }
+    
+    .mt-5 {
+      margin-top: 5rem;
+    }
+    
+    .card {
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-title {
+      font-weight: bold;
+    }
+    
+    .card-text {
+      color: #888;
+    }
+    
+    .btn {
+      border-radius: 0;
+      padding: 1rem 2rem;
+    }
+    .contact{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    
+    }
+     a{
+      color: #343a40;
+      }
+    
+    .contact-title{
+    font-family: Roboto;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 57.6px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+    }
+    .name{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .name .name2{
+      margin-left: 15px;
+    }
+    .button{
+     text-align: center;
+    }
+
+    input,.form-control{
+      border: 1px solid #01161E99 !important
+    }

@@ -71,7 +71,7 @@ body{
     opacity: 1 !important;
   }
 
-  .gradiant-pr{
+  .gradient-pr{
     font-size: 2rem; /* Adjust as needed */
     font-weight: bold; /* Optional */
     background: linear-gradient(90deg, #22C55E, #88E76D);
@@ -79,5 +79,7 @@ body{
     -webkit-text-fill-color: transparent;
     background-clip: text;
   
-    display: inline-block; /* To make sure the gradient only applies to the text */
+  }
+  .mt-nav{
+    margin-top: 66px !important;
   }
