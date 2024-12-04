@@ -83,3 +83,11 @@ body{
   .mt-nav{
     margin-top: 66px !important;
   }
+
+  .form-check-input:checked {
+    background-color: var(--pr_Color);
+    border-color: var(--pr_Color);
+}
+.form-check-input:focus {
+  box-shadow: 0 0 0 .25rem #22c55e67;
+}

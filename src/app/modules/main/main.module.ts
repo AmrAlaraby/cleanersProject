@@ -14,6 +14,10 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { AllServicesComponent } from './all-services/all-services.component';
 import { DiscountComponent } from './discount/discount.component';
 import { BestCleanerComponent } from './best-cleaner/best-cleaner.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -29,11 +33,14 @@ import { BestCleanerComponent } from './best-cleaner/best-cleaner.component';
     FaqsComponent,
     AllServicesComponent,
     DiscountComponent,
-    BestCleanerComponent
+    BestCleanerComponent,
+    ChatbotComponent
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class MainModule { }

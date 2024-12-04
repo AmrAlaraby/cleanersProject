@@ -1,0 +1,27 @@
+<div class="chatbot-container" [ngClass]="{'open': isOpen}">
+    <div class="chatbot-header" (click)="toggleChatbot()">
+      <span>AI Chatbot</span>
+      <button>{{ isOpen ? 'Close' : 'Open' }}</button>
+    </div>
+    
+    <div *ngIf="isOpen" class="chatbot-body">
+      <div class="messages">
+        <div *ngFor="let msg of messages" class="message" [ngClass]="{'user': msg.sender === 'user', 'bot': msg.sender === 'bot'}">
+          <ng-container *ngIf="msg.sender === 'bot'">
+            <span class="typing-dots" *ngIf="msg.typing"><span></span><span></span><span></span></span>
+            <span *ngIf="!msg.typing">{{ msg.text }}</span>
+          </ng-container>
+          <ng-container *ngIf="msg.sender === 'user'">{{ msg.text }}</ng-container>
+        </div>
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          [(ngModel)]="userInput"
+          placeholder="Type your message..."
+          (keydown.enter)="sendMessage()" />
+        <button (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  
