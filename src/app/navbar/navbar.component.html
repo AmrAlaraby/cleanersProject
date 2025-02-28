@@ -26,9 +26,10 @@
           
         </ul>
         <div class="">
-            <button class="pr-btn mx-2 py-1 px-3" [routerLink]="['/auth']"
-            [routerLinkActive]="['d-none']" type="submit">sign up/Login</button>
-            <button class="pr-sec-btn mx-2 py-1 px-3" type="submit">Become a Cleaner</button>
+            <button *ngIf="!isLogin" class="pr-btn mx-2 py-1 px-3" [routerLink]="['/auth']"
+            [routerLinkActive]="['d-none']" >sign up/Login</button>
+            <button *ngIf="!isLogin" class="pr-sec-btn mx-2 py-1 px-3" >Become a Cleaner</button>
+            <button *ngIf="isLogin" (click)="logout()" class="pr-sec-btn mx-2 py-1 px-3" >logout</button>
         </div>
         
       </div>

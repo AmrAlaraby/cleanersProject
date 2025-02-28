@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   isChecked:boolean=false
   errorMessage=''
   loginForm!:FormGroup
+  showPassword:boolean=false
 constructor(private _formBuilder:FormBuilder,private _authService:AuthService,private _router:Router){}
 ngOnInit(): void {
   // const userPayload =localStorage.getItem('userPayload')
@@ -41,29 +42,30 @@ submitLogin(){
   }
 }
 callLoginApi(){
-  // this._authService.login(this.loginForm.value).subscribe({
-  //   next : res=>{
-  //      console.log(res)
-  //      if(this.isChecked){
-  //       console.log(this.isChecked);
+  this._authService.login(this.loginForm.value).subscribe({
+    next : res=>{
+       console.log(res)
+       if(this.isChecked){
+        console.log(this.isChecked);
         
-  //       localStorage.setItem('userPayload',JSON.stringify(res))
-  //      }
-  //      else{
-  //       console.log(this.isChecked);
-  //       sessionStorage.setItem('userPayload',JSON.stringify(res))
-  //      }
+        localStorage.setItem('userToken',JSON.stringify(res))
+       }
+       else{
+        console.log(this.isChecked);
+        sessionStorage.setItem('userToken',JSON.stringify(res))
+       }
+       this._authService.saveUserData()
        
-  //      this._router.navigate(['store/home'])
-  //   },
-  //   error:err=> {
-  //     console.log(err);
+       this._router.navigate(['/home'])
+    },
+    error:err=> {
+      console.log(err);
       
-  // this.errorMessage=err.error.message;
+  this.errorMessage=err.error.message;
   
-  //   }
+    }
     
-  // })
+  })
   }
 
   changingIsCheck(){
@@ -73,6 +75,11 @@ callLoginApi(){
     else{
       this.isChecked=true
     }
+  }
+
+  togglePassword(){
+    this.showPassword=!this.showPassword
+    
   }
 }
 

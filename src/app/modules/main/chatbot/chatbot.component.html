@@ -1,10 +1,10 @@
-<div class="chatbot-container" [ngClass]="{'open': isOpen}">
+<div class="chatbot-container " [ngClass]="{'open': isOpen }">
     <div class="chatbot-header" (click)="toggleChatbot()">
-      <span>AI Chatbot</span>
-      <button>{{ isOpen ? 'Close' : 'Open' }}</button>
+      <span>Chatbot</span>
+      <!-- <button>{{ isOpen ? 'Close' : 'Open' }}</button> -->
     </div>
-    
-    <div *ngIf="isOpen" class="chatbot-body">
+    <!-- *ngIf="isOpen"  -->
+    <div [ngClass]="{'opacity-0': !isOpen }" class="chatbot-body pb-5 mb-4">
       <div class="messages">
         <div *ngFor="let msg of messages" class="message" [ngClass]="{'user': msg.sender === 'user', 'bot': msg.sender === 'bot'}">
           <ng-container *ngIf="msg.sender === 'bot'">
