@@ -42,4 +42,60 @@ initSwipers():void{
   });
   
 }
+
+teamMembers = [
+  {
+    image: 'https://via.placeholder.com/100',
+    name: 'HOME.TEAM.MEMBERS.ALICE.NAME',
+    role: 'HOME.TEAM.MEMBERS.ALICE.ROLE',
+    description: 'HOME.TEAM.MEMBERS.ALICE.DESCRIPTION'
+  },
+  {
+    image: 'https://via.placeholder.com/100',
+    name: 'HOME.TEAM.MEMBERS.MARK.NAME',
+    role: 'HOME.TEAM.MEMBERS.MARK.ROLE',
+    description: 'HOME.TEAM.MEMBERS.MARK.DESCRIPTION'
+  },
+  {
+    image: 'https://via.placeholder.com/100',
+    name: 'HOME.TEAM.MEMBERS.SARAH.NAME',
+    role: 'HOME.TEAM.MEMBERS.SARAH.ROLE',
+    description: 'HOME.TEAM.MEMBERS.SARAH.DESCRIPTION'
+  },
+  {
+    image: 'https://via.placeholder.com/100',
+    name: 'HOME.TEAM.MEMBERS.EMMA.NAME',
+    role: 'HOME.TEAM.MEMBERS.EMMA.ROLE',
+    description: 'HOME.TEAM.MEMBERS.EMMA.DESCRIPTION'
+  },
+  {
+    image: 'https://via.placeholder.com/100',
+    name: 'HOME.TEAM.MEMBERS.DAVID.NAME',
+    role: 'HOME.TEAM.MEMBERS.DAVID.ROLE',
+    description: 'HOME.TEAM.MEMBERS.DAVID.DESCRIPTION'
+  },
+  {
+    image: 'https://via.placeholder.com/100',
+    name: 'HOME.TEAM.MEMBERS.LINDA.NAME',
+    role: 'HOME.TEAM.MEMBERS.LINDA.ROLE',
+    description: 'HOME.TEAM.MEMBERS.LINDA.DESCRIPTION'
+  }
+];
+
+  testimonials = [
+    {
+      text: 'HOME.TESTIMONIALS.REVIEW_1',
+      name: 'HOME.TESTIMONIALS.NAME_1',
+      position: 'HOME.TESTIMONIALS.POSITION_1',
+      image: '../../../../assets/Testimonial/11/Avatar1.png'
+    },
+    {
+      text: 'HOME.TESTIMONIALS.REVIEW_2',
+      name: 'HOME.TESTIMONIALS.NAME_2',
+      position: 'HOME.TESTIMONIALS.POSITION_2',
+      image: '../../../../assets/Testimonial/11/Avatar2.png'
+    }
+  ];
 }
+
+

@@ -1,9 +1,9 @@
-<section class="py-5 section">
+<!-- <section class="py-5 section">
     <div class="container text-center">
       <h1 class="fw-bold gradient-pr">Best Cleaner</h1>
       <p class="text-muted">Dedicated professionals ready to serve you.</p>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        <!-- Card 1 -->
+
         <div class="col">
           <div class="card h-100 border-0">
             <div class="card-body text-start">
@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        <!-- Card 2 -->
+    
         <div class="col">
           <div class="card h-100 border-0">
             <div class="card-body text-start">
@@ -39,7 +39,7 @@
             </div>
           </div>
         </div>
-        <!-- Card 3 -->
+      
         <div class="col">
           <div class="card h-100 border-0">
             <div class="card-body text-start">
@@ -57,7 +57,7 @@
             </div>
           </div>
         </div>
-        <!-- Card 4 -->
+   
         <div class="col">
           <div class="card h-100 border-0">
             <div class="card-body text-start">
@@ -75,7 +75,7 @@
             </div>
           </div>
         </div>
-        <!-- Card 5 -->
+   
         <div class="col">
           <div class="card h-100 border-0">
             <div class="card-body text-start">
@@ -92,7 +92,7 @@
             </div>
           </div>
         </div>
-        <!-- Card 6 -->
+ 
         <div class="col">
           <div class="card h-100 border-0">
             <div class="card-body text-start">
@@ -114,4 +114,29 @@
         <button class="pr-btn px-5">See All</button>
       </div>
     </div>
+  </section> -->
+
+  <section class="py-5 section">
+    <div class="container text-center">
+      <h1 class="fw-bold gradient-pr">{{ 'BEST_CLEANER.TITLE' | translate }}</h1>
+      <p class="text-muted">{{ 'BEST_CLEANER.DESCRIPTION' | translate }}</p>
+  
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let cleaner of cleaners">
+          <div class="card h-100 border-0">
+            <div class="card-body text-start">
+              <img [src]="cleaner.image" class="rounded-circle mb-3" [alt]="cleaner.alt" />
+              <h5 class="card-title text-start">{{ cleaner.name | translate }}</h5>
+              <p class="card-text text-start">{{ cleaner.role | translate }}</p>
+              <p class="text-muted text-start">{{ cleaner.description | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mt-4">
+        <button class="pr-btn px-5">{{ 'BEST_CLEANER.SEE_ALL' | translate }}</button>
+      </div>
+    </div>
   </section>
+  

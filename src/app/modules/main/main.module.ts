@@ -17,6 +17,7 @@ import { BestCleanerComponent } from './best-cleaner/best-cleaner.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     MainRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule
   ]
 })
 export class MainModule { }

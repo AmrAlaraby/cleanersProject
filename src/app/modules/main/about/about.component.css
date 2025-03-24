@@ -2,8 +2,8 @@
 .hero-section {
     padding-top: 66px;
     min-height: 100vh; /* Full screen height */
-    background-color: #ffffff; /* White background */
-    color: #000000; /* Black text color */
+    /* background-color: #ffffff; White background */
+    /* color: #000000; Black text color */
 }
 
 .hero-section h1 {
@@ -40,7 +40,7 @@
 .team-card {
     border: 1px solid #ddd;
     border-radius: 8px;
-    background: #ffffff;
+    /* background: #ffffff; */
     transition: box-shadow 0.3s ease;
 }
 

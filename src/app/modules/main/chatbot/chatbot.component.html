@@ -1,9 +1,9 @@
-<div class="chatbot-container " [ngClass]="{'open': isOpen }">
+<!-- <div class="chatbot-container bg-light" [ngClass]="{'open': isOpen }">
     <div class="chatbot-header" (click)="toggleChatbot()">
       <span>Chatbot</span>
-      <!-- <button>{{ isOpen ? 'Close' : 'Open' }}</button> -->
+
     </div>
-    <!-- *ngIf="isOpen"  -->
+
     <div [ngClass]="{'opacity-0': !isOpen }" class="chatbot-body pb-5 mb-4">
       <div class="messages">
         <div *ngFor="let msg of messages" class="message" [ngClass]="{'user': msg.sender === 'user', 'bot': msg.sender === 'bot'}">
@@ -21,6 +21,33 @@
           placeholder="Type your message..."
           (keydown.enter)="sendMessage()" />
         <button (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="chatbot-container bg-light" [ngClass]="{'open': isOpen }">
+    <div class="chatbot-header" (click)="toggleChatbot()">
+      <span>{{ 'CHATBOT.TITLE' | translate }}</span>
+    </div>
+  
+    <div [ngClass]="{'opacity-0': !isOpen }" class="chatbot-body pb-5 mb-4">
+      <div class="messages">
+        <div *ngFor="let msg of messages" class="message" [ngClass]="{'user': msg.sender === 'user', 'bot': msg.sender === 'bot'}">
+          <ng-container *ngIf="msg.sender === 'bot'">
+            <span class="typing-dots" *ngIf="msg.typing"><span></span><span></span><span></span></span>
+            <span *ngIf="!msg.typing">{{ msg.text }}</span>
+          </ng-container>
+          <ng-container *ngIf="msg.sender === 'user'">{{ msg.text }}</ng-container>
+        </div>
+      </div>
+  
+      <div class="input-container">
+        <input
+          type="text"
+          [(ngModel)]="userInput"
+          [placeholder]="'CHATBOT.PLACEHOLDER' | translate"
+          (keydown.enter)="sendMessage()" />
+        <button (click)="sendMessage()">{{ 'CHATBOT.SEND' | translate }}</button>
       </div>
     </div>
   </div>

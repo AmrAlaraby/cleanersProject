@@ -4,7 +4,7 @@
     right: 0px;
     width: 350px;
     z-index: 1000;
-    background-color: #ffffff; /* Match website background */
+    /* background-color: #ffffff; Match website background */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Subtle shadow */
     /* border-radius: 12px; */
     border-top-right-radius:0px ;
@@ -56,6 +56,7 @@ left: 0;
   }
   .chatbot-header span {
     transform: rotateZ(90deg);
+
   }
   
   .chatbot-body {

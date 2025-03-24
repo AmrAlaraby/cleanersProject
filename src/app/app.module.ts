@@ -7,7 +7,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MainModule } from './modules/main/main.module';
 import { AuthModule } from './modules/auth/auth.module';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -20,7 +26,14 @@ import {  ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     MainModule,
     AuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

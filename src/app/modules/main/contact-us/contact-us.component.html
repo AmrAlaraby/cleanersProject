@@ -1,4 +1,4 @@
-<div class="container-fluid  text-white header ">
+<!-- <div class="container-fluid  text-white header ">
     <div class="bg-dark"></div>
     <div class="row mt-nav align-items-center ">
       <div class="col-md-12  position-relative z-2">
@@ -7,8 +7,18 @@
       </div>
       
     </div>
+  </div> -->
+  <div class="container-fluid text-white header">
+    <div class="bg-dark"></div>
+    <div class="row mt-nav align-items-center">
+      <div class="col-md-12 position-relative z-2">
+        <h1 class="text-center">{{ 'CONTACT.HEADER_TITLE' | translate }}</h1>
+        <p class="text-center">{{ 'CONTACT.HEADER_DESC' | translate }}</p>
+      </div>
+    </div>
   </div>
-  <div class="container">
+
+  <!-- <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h2 class="text-center py-5 contact-title gradient-pr">Contact Us</h2>
@@ -144,5 +154,93 @@
       </div>
     </div>
     <app-faqs></app-faqs>
-  </div>
+  </div> -->
 
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center py-5 contact-title gradient-pr">
+          {{ 'CONTACT.TITLE' | translate }}
+        </h2>
+      </div>
+    </div>
+  
+    <div class="row mt-4">
+      <div class="col-md-4 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-envelope fs-1" viewBox="0 0 16 16">
+          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+        </svg>
+        <h5>{{ 'CONTACT.EMAIL.TITLE' | translate }}</h5>
+        <p>{{ 'CONTACT.EMAIL.DESCRIPTION' | translate }}</p>
+        <a href="mailto:hello@relume.io">hello&commat;relume.io</a>
+      </div>
+  
+      <div class="col-md-4 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-telephone fs-1" viewBox="0 0 16 16">
+          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z"/>
+        </svg>
+        <h5>{{ 'CONTACT.PHONE.TITLE' | translate }}</h5>
+        <p>{{ 'CONTACT.PHONE.DESCRIPTION' | translate }}</p>
+        <a href="tel:+1 (555) 000-0000">+1 (555) 000-0000</a>
+      </div>
+  
+      <div class="col-md-4 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+          <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+          <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+        <h5>{{ 'CONTACT.OFFICE.TITLE' | translate }}</h5>
+        <p>{{ 'CONTACT.OFFICE.DESCRIPTION' | translate }}</p>
+        <a href="">123 Sample St, Sydney NSW 2000 AU</a>
+      </div>
+    </div>
+  
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h2 class="text-center contact-title gradient-pr">
+          {{ 'CONTACT.GET_IN_TOUCH.TITLE' | translate }}
+        </h2>
+        <p class="text-center">
+          {{ 'CONTACT.GET_IN_TOUCH.DESCRIPTION' | translate }}
+        </p>
+  
+        <form class="w-75 m-auto">
+          <div class="row contact">
+            <div class="name">
+              <div class="form-group col-md-6">
+                <label for="firstName">{{ 'CONTACT.FORM.FIRST_NAME' | translate }}</label>
+                <input type="text" class="form-control" id="firstName" [placeholder]="'CONTACT.FORM.FIRST_NAME' | translate">
+              </div>
+              <div class="form-group col-md-6 name2">
+                <label for="lastName">{{ 'CONTACT.FORM.LAST_NAME' | translate }}</label>
+                <input type="text" class="form-control" id="lastName" [placeholder]="'CONTACT.FORM.LAST_NAME' | translate">
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="message">{{ 'CONTACT.FORM.MESSAGE' | translate }}</label>
+              <textarea class="form-control" id="message" rows="5"></textarea>
+            </div>
+  
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="terms">
+                <label class="form-check-label" for="terms">
+                  {{ 'CONTACT.FORM.ACCEPT_TERMS' | translate }}
+                </label>
+              </div>
+            </div>
+  
+            <div class="button">
+              <button type="submit" class="pr-btn">
+                {{ 'CONTACT.FORM.SUBMIT' | translate }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  

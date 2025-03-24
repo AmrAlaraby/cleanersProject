@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{
+  transition: background-color 500ms linear; ;
+}
 :root{
     --primary:black;
     --pr_Color:#22C55E;
@@ -6,6 +10,10 @@
 body{
     font-family:  "Roboto", sans-serif;
 }
+span,svg,path{
+  transition: unset;
+}
+
 
 .color-pr{
   color: var(--pr_Color) !important;
@@ -90,4 +98,27 @@ body{
 }
 .form-check-input:focus {
   box-shadow: 0 0 0 .25rem #22c55e67;
+}
+
+
+
+
+/* الوضع الداكن */
+.dark {
+  background-color: #121212 !important;
+  color: white !important;
+}
+
+.dark .bg-light,.dark .btn-primary,.dark .btn-secondary {
+  background-color: #222 !important;
+  color: white !important;
+}
+
+.dark .bg-dark {
+  background-color: #333 !important;
+  color: white !important;
+}
+
+.text-dark {
+  color: var(--bs-body-color) !important;
 }

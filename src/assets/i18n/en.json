@@ -1,0 +1,300 @@
+{
+    "HOME": {
+      "HERO": {
+        "TITLE": "Your Trusted Partner for Professional Cleaning Services",
+        "DESCRIPTION": "Experience a cleaner, healthier space with our expert cleaning services tailored to your needs. Join us today and discover the difference a professional touch can make.",
+        "LOGIN": "Login",
+        "BECOME_CLEANER": "Become a cleaner"
+      },
+      "USE_SERVICES": {
+      "TITLE": "How to Use Our Cleaning Services",
+      "DESCRIPTION": "Getting started is easy! Follow these simple steps to book your cleaning service and enjoy a spotless space.",
+      "CLIENT_TITLE": "As a Client",
+      "CLEANER_TITLE": "As a Cleaner",
+      "STEP1_TITLE": "Step 1: Register Your Account",
+      "STEP1_DESC": "Create an account to access our services.",
+      "STEP2_TITLE": "Step 2: Choose Your Cleaning Service",
+      "STEP2_DESC": "Select from our range of cleaning options.",
+      "STEP3_TITLE": "Step 3: Book Your Cleaning Worker",
+      "STEP3_DESC": "Schedule a time that works for you.",
+      "REGISTER": "Register",
+      "CHOOSE": "Choose",
+      "BOOK": "Book"
+    },
+    "SERVICES": {
+      "TITLE": "Explore Our Comprehensive Cleaning Services",
+      "DESCRIPTION": "We offer a variety of cleaning services tailored to meet your needs. From residential to commercial spaces, we ensure a spotless environment.",
+      "OFFICE_CLEANING": {
+        "TITLE": "Professional Office Cleaning for a Productive Space",
+        "DESCRIPTION": "Keep your workplace spotless and inviting with our expert office cleaning services."
+      },
+      "GARDEN_CLEANING": {
+        "TITLE": "Garden Cleaning to Enhance Your Outdoor Space",
+        "DESCRIPTION": "Our garden cleaning services will rejuvenate your outdoor areas, making them beautiful and enjoyable."
+      },
+      "HOME_CLEANING": {
+        "TITLE": "Home Cleaning Services You Can Trust",
+        "DESCRIPTION": "Our home cleaning services provide thorough and reliable care for your living spaces."
+      },
+      "SEE_ALL": "See All"
+    },
+    "PRICING": {
+      "TITLE": "Choose From Our Lowest Plans and Prices",
+      "MONTHLY": "Monthly",
+      "YEARLY": "Yearly",
+      "PER_MONTH": "/Monthly",
+      "BOOK_NOW": "Book Now",
+      "BASIC": {
+        "TITLE": "BASIC PACKAGE",
+        "PRICE": "$59.00",
+        "FEATURE_1": "Dusting of all surfaces",
+        "FEATURE_2": "Sweeping and mopping floors",
+        "FEATURE_3": "Vacuuming carpets and rugs",
+        "FEATURE_4": "Cleaning of kitchen surfaces",
+        "FEATURE_5": "Cleaning of bathroom surfaces",
+        "FEATURE_6": "Emptying trash bins"
+      },
+      "ENTERPRISE": {
+        "TITLE": "ENTERPRISE PACKAGE",
+        "PRICE": "$69.00",
+        "FEATURE_1": "All Basic Package services",
+        "FEATURE_2": "Deep cleaning of surfaces",
+        "FEATURE_3": "Wiping kitchen appliances",
+        "FEATURE_4": "Inside microwave cleaning",
+        "FEATURE_5": "Changing bed sheets",
+        "FEATURE_6": "Spot cleaning of walls and doors"
+      },
+      "PREMIUM": {
+        "TITLE": "PREMIUM PACKAGE",
+        "PRICE": "$99.00",
+        "FEATURE_1": "All Enterprise Package services",
+        "FEATURE_2": "Deep cleaning of appliances",
+        "FEATURE_3": "Cleaning doors, vents, and walls",
+        "FEATURE_4": "Organizing cabinets and storage",
+        "FEATURE_5": "Spot cleaning of carpets and upholstery",
+        "FEATURE_6": "Detailed bathroom cleaning"
+      }
+    },
+    "TEAM": {
+        "TITLE": "Best Cleaner",
+        "DESCRIPTION": "Dedicated professionals ready to serve you.",
+        "SEE_ALL": "See All",
+        "MEMBERS": {
+          "ALICE": {
+            "NAME": "Alice Johnson",
+            "ROLE": "Cleaning Expert",
+            "DESCRIPTION": "Passionate about delivering spotless results with a friendly touch."
+          },
+          "MARK": {
+            "NAME": "Mark Smith",
+            "ROLE": "Service Manager",
+            "DESCRIPTION": "Ensures quality and satisfaction in every cleaning service provided."
+          },
+          "SARAH": {
+            "NAME": "Sarah Lee",
+            "ROLE": "Field Supervisor",
+            "DESCRIPTION": "Oversees operations to maintain high service standards and efficiency."
+          },
+          "EMMA": {
+            "NAME": "Emma Brown",
+            "ROLE": "Customer Liaison",
+            "DESCRIPTION": "Communicates with clients to ensure their needs are met effectively."
+          },
+          "DAVID": {
+            "NAME": "David White",
+            "ROLE": "Quality Inspector",
+            "DESCRIPTION": "Reviews services to guarantee the highest quality for our clients."
+          },
+          "LINDA": {
+            "NAME": "Linda Green",
+            "ROLE": "Team Leader",
+            "DESCRIPTION": "Guides our team to success with motivation and support."
+          }
+        }
+      },
+      "TESTIMONIALS": {
+      "TITLE": "Customer Testimonials",
+      "REVIEW_1": "The team was punctual and thorough. I couldn't be happier!",
+      "NAME_1": "Jane Doe",
+      "POSITION_1": "Manager, HomeCorp",
+      "REVIEW_2": "Reliable and efficient service every time. Highly recommend!",
+      "NAME_2": "John Smith",
+      "POSITION_2": "Owner, CleanCo"
+    }
+
+    },
+    "FOOTER": {
+        "NEWSLETTER_TEXT": "Subscribe to our newsletter for the latest updates on features and services.",
+        "PLACEHOLDER": "Your email here",
+        "JOIN": "Join",
+        "PRIVACY_NOTICE": "By subscribing, you consent to our Privacy Policy and agree to receive updates.",
+        "QUICK_LINKS": "Quick Links",
+        "HOME": "Home",
+        "ABOUT_US": "About Us",
+        "SERVICES": "Services",
+        "CONTACT_US": "Contact Us",
+        "FAQS": "FAQs",
+        "STAY_CONNECTED": "Stay Connected",
+        "COPYRIGHT": "© 2024 Your Company. All rights reserved.",
+        "PRIVACY_POLICY": "Privacy Policy",
+        "TERMS": "Terms of Service",
+        "COOKIES": "Cookie Settings"
+      },
+      "NAVBAR": {
+        "HOME": "Home",
+        "ABOUT": "About Us",
+        "SERVICES": "Services",
+        "CONTACT": "Contact Us",
+        "SIGNUP": "Sign Up/Login",
+        "BECOME_CLEANER": "Become a Cleaner",
+        "LOGOUT": "Logout"
+      },
+      "CHATBOT": {
+    "TITLE": "Chatbot",
+    "PLACEHOLDER": "Type your message...",
+    "SEND": "Send"
+  },
+  "about": {
+    "header": {
+      "title": "Connecting You with Trusted Cleaning Services",
+      "description": "Our mission is to simplify your life by connecting you with reliable cleaning professionals who meet your specific needs. Experience a cleaner, healthier space with just a few clicks.",
+      "button": "Get Started",
+      "image_alt": "Image placeholder"
+    },
+    "OUR_TEAM": {
+      "TITLE": "Our Team",
+      "SUBTITLE": "Meet the professionals behind our exceptional cleaning services.",
+      "WE_ARE_HIRING": "We're hiring!",
+      "HIRING_DESC": "Join a team that values excellence and teamwork.",
+      "OPEN_POSITIONS": "Open positions"
+    }
+  },
+  "FAQS": {
+    "TITLE": "FAQs",
+    "SUBTITLE": "Find answers to your most pressing questions about our cleaning services, payments, and more.",
+    "STILL_HAVE_QUESTIONS": "Still have questions?",
+    "HELP_MESSAGE": "We're here to help you!",
+    "CONTACT": "Contact",
+    "QUESTIONS": [
+      {
+        "QUESTION": "How do I book?",
+        "ANSWER": "Booking a cleaning service is simple! Just select your preferred date and time, and fill out the necessary details on our website. Once submitted, you will receive a confirmation email."
+      },
+      {
+        "QUESTION": "What payment methods are accepted?",
+        "ANSWER": "We accept various payment methods including credit cards, debit cards, and PayPal. All transactions are secure and encrypted for your safety. You can choose your preferred method during the checkout process."
+      },
+      {
+        "QUESTION": "How to file complaints?",
+        "ANSWER": "If you have any complaints, please reach out to our customer service team. You can contact us via email or phone, and we will address your concerns promptly. Your feedback is important to us!"
+      },
+      {
+        "QUESTION": "Can I reschedule?",
+        "ANSWER": "Yes, you can easily reschedule your cleaning appointment. Simply log into your account and select a new date and time. Make sure to do this at least 24 hours in advance to avoid any fees."
+      },
+      {
+        "QUESTION": "Are services insured?",
+        "ANSWER": "Absolutely! All our cleaning services are fully insured for your peace of mind. In the unlikely event of any damage, we will take responsibility and ensure it is resolved. Your satisfaction and security are our top priorities."
+      }
+    ]
+  },
+  "DISCOUNT": {
+    "TITLE": "Get 10% off your first order",
+    "DESCRIPTION": "Select your preferred cleaner and service to enjoy a spotless space today!",
+    "BOOK": "Book",
+    "LEARN_MORE": "Learn More"
+  },
+  "ALLSERVICES": {
+    "TITLE": "Explore Our Cleaning Services",
+    "DESCRIPTION": "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services:",
+    "OFFICE_CLEANING": "Office Cleaning",
+    "SPRING_CLEANING": "Spring Cleaning",
+    "HOUSE_CLEANING": "House Cleaning",
+    "CHOOSE_CLEANER": "Choose Cleaner"
+  },
+  "BEST_CLEANER": {
+    "TITLE": "Best Cleaner",
+    "DESCRIPTION": "Dedicated professionals ready to serve you.",
+    "SEE_ALL": "See All",
+    "ALICE_NAME": "Alice Johnson",
+    "ALICE_ROLE": "Cleaning Expert",
+    "ALICE_DESC": "Passionate about delivering spotless results with a friendly touch.",
+    "MARK_NAME": "Mark Smith",
+    "MARK_ROLE": "Service Manager",
+    "MARK_DESC": "Ensures quality and satisfaction in every cleaning service provided.",
+    "SARAH_NAME": "Sarah Lee",
+    "SARAH_ROLE": "Field Supervisor",
+    "SARAH_DESC": "Oversees operations to maintain high service standards and efficiency.",
+    "EMMA_NAME": "Emma Brown",
+    "EMMA_ROLE": "Customer Liaison",
+    "EMMA_DESC": "Communicates with clients to ensure their needs are met effectively.",
+    "DAVID_NAME": "David White",
+    "DAVID_ROLE": "Quality Inspector",
+    "DAVID_DESC": "Reviews services to guarantee the highest quality for our clients.",
+    "LINDA_NAME": "Linda Green",
+    "LINDA_ROLE": "Team Leader",
+    "LINDA_DESC": "Guides our team to success with motivation and support."
+  },
+  "CONTACT": {
+    "HEADER_TITLE": "We're Here to Help",
+    "HEADER_DESC": "Reach out to us for any questions or support. We're eager to assist you.",
+    "TITLE": "Contact Us",
+    "EMAIL": {
+      "TITLE": "Email",
+      "DESCRIPTION": "Reach out to us anytime for inquiries or support."
+    },
+    "PHONE": {
+      "TITLE": "Phone",
+      "DESCRIPTION": "Connect with us for immediate assistance."
+    },
+    "OFFICE": {
+      "TITLE": "Office",
+      "DESCRIPTION": "Visit our office for any inquiries or support."
+    },
+    "GET_IN_TOUCH": {
+      "TITLE": "Get in touch with us.",
+      "DESCRIPTION": "We'd love to hear from you!"
+    },
+    "FORM": {
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "MESSAGE": "Message",
+      "ACCEPT_TERMS": "I accept the Terms",
+      "SUBMIT": "Submit"
+    }
+  },
+  "CLEANERS": {
+    "TITLE": "Professionals Experts",
+    "SUBTITLE": "Find the right cleaner for your needs.",
+    "FILTER_BY": "Filter by",
+    "SERVICE": {
+      "TITLE": "Service",
+      "HOME_CLEANING": "Home Cleaning",
+      "OFFICE_CLEANING": "Office Cleaning",
+      "SPRING_CLEANING": "Spring Cleaning",
+      "WINDOW_WASHING": "Window Washing"
+    },
+    "GENDER": {
+      "TITLE": "Gender",
+      "MALE": "Male",
+      "FEMALE": "Female"
+    },
+    "EXPERIENCE": {
+      "TITLE": "Experience",
+      "LESS_THAN_1": "Less than 1 year",
+      "ONE_TO_THREE": "1 to 3 years",
+      "THREE_PLUS": "3+ years"
+    },
+    "LOCATION": {
+      "TITLE": "Location",
+      "NEAR_YOU": "Near you"
+    },
+    "RATINGS": {
+      "TITLE": "Ratings"
+    },
+    "NAME": "John Doe",
+    "PRICE": "$15/h",
+    "REVIEWS": "(15 reviews)",
+    "BOOK_NOW": "Book Now"
+  }
+  }

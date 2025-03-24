@@ -106,9 +106,9 @@ text-decoration-skip-ink: none;
     width: 18px;
     transition: all 0.5s;
   }
-  .active-card{
+  /* .active-card{
     background: #ddd;
-  }
+  } */
   .active-card svg{
     color: var(--pr_Color);
     width: 26px ;
@@ -124,13 +124,13 @@ text-decoration-skip-ink: none;
   }
 /*  */
 .feature-section {
-    background-color: #f6f6ff;
+    /* background-color: #f6f6ff; */
     padding: 40px 0;
   }
   .feature-card2 {
     display: flex;
     align-items: center;
-    text-align: left;
+
     
   }
   .feature-icon {
