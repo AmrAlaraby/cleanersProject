@@ -40,11 +40,17 @@ export class ChatComponent implements OnInit {
 
     // Create connection
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://qjxw2r8x-7083.uks1.devtunnels.ms/chathub', {
-        accessTokenFactory: () => this.myToken
-      })
-      .withAutomaticReconnect()
-      .build();
+  .withUrl(`https://cleaning.runasp.net/chathub?otherUserId=${this.toUserId}`, {
+    accessTokenFactory: () => this.myToken
+  })
+  .withAutomaticReconnect()
+  .build();
+    // this.hubConnection = new signalR.HubConnectionBuilder()
+    //   .withUrl('https://qjxw2r8x-7083.uks1.devtunnels.ms/chathub', {
+    //     accessTokenFactory: () => this.myToken
+    //   })
+    //   .withAutomaticReconnect()
+    //   .build();
 
     // Connection event logging
     this.hubConnection.onreconnected(() => {
@@ -56,22 +62,22 @@ export class ChatComponent implements OnInit {
     });
 
     // Start connection and THEN call invoke
-    this.hubConnection.start()
-      .then(() => {
-        console.log('SignalR Connected');
+    // this.hubConnection.start()
+    //   .then(() => {
+    //     console.log('SignalR Connected');
 
-        // Only invoke history after connection is live
-        this.hubConnection.invoke('GetPrivateChatHistory', this.toUserId)
-          .then(() => {
-            console.log('Requested chat history successfully');
-          })
-          .catch(err => {
-            console.error('Error requesting chat history:', err);
-          });
-      })
-      .catch(err => {
-        console.error('Connection error:', err);
-      });
+    //     // Only invoke history after connection is live
+    //     this.hubConnection.invoke('GetPrivateChatHistory', this.toUserId)
+    //       .then(() => {
+    //         console.log('Requested chat history successfully');
+    //       })
+    //       .catch(err => {
+    //         console.error('Error requesting chat history:', err);
+    //       });
+    //   })
+    //   .catch(err => {
+    //     console.error('Connection error:', err);
+    //   });
 
     // Receive new message
     this.hubConnection.on('ReceivePrivateMessage', (message: ChatMessage) => {
