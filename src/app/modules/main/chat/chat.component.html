@@ -4,7 +4,7 @@
         <div class="message" *ngFor="let message of messages">
           <div class="message-bubble" [ngClass]="{ 'sent': userId==message.senderId, 'received': !userId==message.senderId }">
             <div *ngIf="message.type === 'text'">
-              <p>{{ message.context }}</p>
+              <p>{{ message }}</p>
             </div>
             <div *ngIf="message.type === 'form'">
               <p>Final Price: {{ message.data.finalPrice }} جنيه</p>
