@@ -91,14 +91,15 @@ export class ChatComponent implements OnInit {
     // Receive new message
     this.hubConnection.on('ReceivePrivateMessage', (message: ChatMessage) => {
       this.messages.push(
-        `${message.timestamp} ${message.senderName} to ${message.receiverName}: ${message.context}`
+        message
       );
+      console.log('Received message:', message);
     });
 
     // Load old messages
     this.hubConnection.on('ReceiveChatHistory', (chatId: string, oldMessages: ChatMessage[]) => {
       this.messages = oldMessages.map(m =>
-        `${m.timestamp} ${m.senderName} to ${m.receiverName}: ${m.context}`
+        m
       );
     });
   }
