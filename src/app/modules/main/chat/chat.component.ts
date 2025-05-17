@@ -31,7 +31,7 @@ username: string = '';
      this.myToken = token;
     this.getCurrentUserId()
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://cleaning.runasp.net/api/chathub', {
+      .withUrl('https://cleaning.runasp.net/chathub', {
         accessTokenFactory: () => this.myToken
       })
       .withAutomaticReconnect()
