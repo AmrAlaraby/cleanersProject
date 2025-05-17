@@ -2,9 +2,9 @@
     <div class="chat-window mx-5" [ngClass]="{ 'w-100': !isSidebarVisible, 'w-75': isSidebarVisible }">
       <div class="messages">
         <div class="message" *ngFor="let message of messages">
-          <div class="message-bubble" [ngClass]="{ 'sent': message.isSent, 'received': !message.isSent }">
+          <div class="message-bubble" [ngClass]="{ 'sent': userId==message.senderId, 'received': !userId==message.senderId }">
             <div *ngIf="message.type === 'text'">
-              <p>{{ message.content }}</p>
+              <p>{{ message.context }}</p>
             </div>
             <div *ngIf="message.type === 'form'">
               <p>Final Price: {{ message.data.finalPrice }} جنيه</p>
