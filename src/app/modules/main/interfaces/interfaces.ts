@@ -105,3 +105,25 @@ export interface Pagination<T> {
   totalCount: number;
   totalPages: number;
 }
+
+export interface ChatMessage {
+
+  id: string;
+
+  mainChatId: string;
+
+  senderId: string;
+
+  senderName: string;
+
+  receiverId: string;
+
+  receiverName: string;
+
+  context: string;
+
+  timestamp: Date;  // نستخدم string عشان تواريخ الـ JSON عادةً بتكون string
+
+  status: string;
+
+}
