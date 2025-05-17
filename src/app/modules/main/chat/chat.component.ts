@@ -93,7 +93,7 @@ export class ChatComponent implements OnInit {
       this.messages.push(
         message
       );
-      console.log('Received message:', message);
+      console.log('Received message:', this.messages);
     });
 
     // Load old messages
@@ -101,10 +101,12 @@ export class ChatComponent implements OnInit {
       this.messages = oldMessages.map(m =>
         m
       );
+      console.log('Received message:', this.messages);
     });
   }
 
   toggleSidebar() {
+    console.log('Received message:', this.messages);
     this.isSidebarVisible = !this.isSidebarVisible;
   }
 
