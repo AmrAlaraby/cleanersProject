@@ -40,7 +40,7 @@ export class ChatComponent implements OnInit {
 
     // Create connection
     this.hubConnection = new signalR.HubConnectionBuilder()
-  .withUrl(`https://cleaning.runasp.net/chathub?otherUserId=${this.toUserId}`, {
+  .withUrl(`https://qjxw2r8x-7083.uks1.devtunnels.ms/chathub?otherUserId=${this.toUserId}`, {
     accessTokenFactory: () => this.myToken
   })
   .withAutomaticReconnect()
