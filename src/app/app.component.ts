@@ -12,7 +12,6 @@ export class AppComponent implements OnInit{
   constructor(private translate: TranslateService,private darkModeService: DarkModeService) {
     this.translate.addLangs(['en', 'ar']);
     this.translate.setDefaultLang('en');
-
     const savedLang = localStorage.getItem('lang') || 'en';
     this.translate.use(savedLang);
     document.documentElement.lang = savedLang;

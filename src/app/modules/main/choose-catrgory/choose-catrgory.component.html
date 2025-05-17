@@ -1,0 +1,40 @@
+<section class="py-5 mt-5">
+    <div class="container">
+      <!-- Section Title -->
+      <div class="text-center mb-4">
+        <h2 class="fw-bold gradient-pr">{{ 'ALLSERVICES.TITLE0' | translate }}</h2>
+        <hr class="w-75 mx-auto" />
+      </div>
+  
+      <!-- Cards -->
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let service of services">
+          <div class="card border-0">
+            <img [src]="service.image" [alt]="service.englishName" class="card-img-top" />
+            <div class="card-body text-center">
+              <h5 class="fw-bold">{{ categoryNameMap[service.id] }}</h5>
+              
+              <button (click)="choose(service.id)" class="pr-sec-btn">
+              {{ 'ALLSERVICES.CHOOSE' | translate }}
+           </button>
+     
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="loginToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header bg-color-pr text-white">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong class="me-auto">Choose Category </strong>
+            <small>Just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            {{ toastMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

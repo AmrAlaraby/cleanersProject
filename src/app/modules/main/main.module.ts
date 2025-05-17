@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,9 +14,16 @@ import { AllServicesComponent } from './all-services/all-services.component';
 import { DiscountComponent } from './discount/discount.component';
 import { BestCleanerComponent } from './best-cleaner/best-cleaner.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
+import { ChooseCatrgoryComponent } from './choose-catrgory/choose-catrgory.component';
+import { ChatComponent } from './chat/chat.component';
+import { LayoutDashbordComponent } from './layout-dashbord/layout-dashbord.component';
+import { SidbearComponent } from './sidbear/sidbear.component';
+import { DashboardComponent } from './dasbourd/dasbourd.component';
+import { NgChartsModule } from 'ng2-charts';
+import { AddressesComponent } from './addresses/addresses.component';
 
 
 
@@ -35,14 +41,23 @@ import { TranslateModule } from '@ngx-translate/core';
     AllServicesComponent,
     DiscountComponent,
     BestCleanerComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    ChooseCatrgoryComponent,
+    ChatComponent,
+    LayoutDashbordComponent,
+    SidbearComponent,
+    DashboardComponent,
+    AddressesComponent
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
     FormsModule,
     HttpClientModule,
-    TranslateModule
+    TranslateModule,
+    NgChartsModule,
+    ReactiveFormsModule
+    
   ]
 })
-export class MainModule { }
+export class MainModule{ }

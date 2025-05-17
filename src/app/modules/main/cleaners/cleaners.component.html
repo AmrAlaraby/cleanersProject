@@ -1,386 +1,155 @@
 <app-discount></app-discount>
 <section class="py-5">
     <div class="container">
-      
-      <!-- <div class="text-center mb-4">
-        <h2 class="fw-bold">Professionals Experts</h2>
-        <p class="text-muted">Find the right cleaner for your needs.</p>
-      </div> -->
       <div class="text-center mb-4">
         <h2 class="fw-bold">{{ 'CLEANERS.TITLE' | translate }}</h2>
         <p class="text-muted">{{ 'CLEANERS.SUBTITLE' | translate }}</p>
       </div>
-      <div class="row">
-       
-        <!-- <div class="col-lg-3">
-          <div class=" p-3 rounded ">
-            <h5 class="fw-bold mb-3">Filter by</h5>
-           
-            <div class="mb-3">
-              <h6 class="fw-semibold">Service</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="homeCleaning" />
-                <label class="form-check-label" for="homeCleaning">Home Cleaning</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="officeCleaning" />
-                <label class="form-check-label" for="officeCleaning">Office Cleaning</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="springCleaning" />
-                <label class="form-check-label" for="springCleaning">Spring Cleaning</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="windowWashing" />
-                <label class="form-check-label" for="windowWashing">Window Washing</label>
-              </div>
-            </div>
-            
-            <div class="mb-3">
-              <h6 class="fw-semibold">Gender</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="male" />
-                <label class="form-check-label" for="male">Male</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="female" />
-                <label class="form-check-label" for="female">Female</label>
-              </div>
-            </div>
-           
-            <div class="mb-3">
-              <h6 class="fw-semibold">Experience</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="less1year" />
-                <label class="form-check-label" for="less1year">Less than 1 year</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="1to3years" />
-                <label class="form-check-label" for="1to3years">1 to 3 years</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="3years" />
-                <label class="form-check-label" for="3years">3+ years</label>
-              </div>
-            </div>
-            
-            <div class="mb-3">
-              <h6 class="fw-semibold">Location</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="nearYou" />
-                <label class="form-check-label" for="nearYou">Near you</label>
-              </div>
-            </div>
-           
-            <div>
-              <h6 class="fw-semibold">Ratings</h6>
-              <div class="d-flex align-items-center">
-                <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                <span>4+</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <div class="col-lg-3">
-          <div class="p-3 rounded">
-            <h5 class="fw-bold mb-3">{{ 'CLEANERS.FILTER_BY' | translate }}</h5>
-      
-            <!-- Services -->
-            <div class="mb-3">
-              <h6 class="fw-semibold">{{ 'CLEANERS.SERVICE.TITLE' | translate }}</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="homeCleaning" />
-                <label class="form-check-label" for="homeCleaning">
-                  {{ 'CLEANERS.SERVICE.HOME_CLEANING' | translate }}
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="officeCleaning" />
-                <label class="form-check-label" for="officeCleaning">
-                  {{ 'CLEANERS.SERVICE.OFFICE_CLEANING' | translate }}
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="springCleaning" />
-                <label class="form-check-label" for="springCleaning">
-                  {{ 'CLEANERS.SERVICE.SPRING_CLEANING' | translate }}
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="windowWashing" />
-                <label class="form-check-label" for="windowWashing">
-                  {{ 'CLEANERS.SERVICE.WINDOW_WASHING' | translate }}
-                </label>
-              </div>
-            </div>
-      
-            <!-- Gender -->
-            <div class="mb-3">
-              <h6 class="fw-semibold">{{ 'CLEANERS.GENDER.TITLE' | translate }}</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="male" />
-                <label class="form-check-label" for="male">
-                  {{ 'CLEANERS.GENDER.MALE' | translate }}
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="female" />
-                <label class="form-check-label" for="female">
-                  {{ 'CLEANERS.GENDER.FEMALE' | translate }}
-                </label>
-              </div>
-            </div>
-      
-            <!-- Experience -->
-            <div class="mb-3">
-              <h6 class="fw-semibold">{{ 'CLEANERS.EXPERIENCE.TITLE' | translate }}</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="less1year" />
-                <label class="form-check-label" for="less1year">
-                  {{ 'CLEANERS.EXPERIENCE.LESS_THAN_1' | translate }}
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="1to3years" />
-                <label class="form-check-label" for="1to3years">
-                  {{ 'CLEANERS.EXPERIENCE.ONE_TO_THREE' | translate }}
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="3years" />
-                <label class="form-check-label" for="3years">
-                  {{ 'CLEANERS.EXPERIENCE.THREE_PLUS' | translate }}
-                </label>
-              </div>
-            </div>
-      
-            <!-- Location -->
-            <div class="mb-3">
-              <h6 class="fw-semibold">{{ 'CLEANERS.LOCATION.TITLE' | translate }}</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="nearYou" />
-                <label class="form-check-label" for="nearYou">
-                  {{ 'CLEANERS.LOCATION.NEAR_YOU' | translate }}
-                </label>
-              </div>
-            </div>
-      
-            <!-- Ratings -->
-            <div>
-              <h6 class="fw-semibold">{{ 'CLEANERS.RATINGS.TITLE' | translate }}</h6>
-              <div class="d-flex align-items-center">
-                <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                <span>4+</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Professionals Grid -->
-        <!-- <div class="col-lg-9">
+      <div class="row">   
+ <div >
           <div class="row g-4">
-            
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="card border-0 ">
-                <img
-                  src="../../../../assets/Team/6/Placeholder Image.png"
-                  alt="Professional Image"
-                  class="card-img-top mx-auto mt-3"
-                  style="width:100%;"
-                />
-                <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">John Doe</h5>
-                  <p class="text-success mb-2">$15/h</p>
-                  <div class="d-flex justify-content-center align-items-center mb-2">
-                    <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                    <small class="text-muted">(15 reviews)</small>
-                  </div>
-                  <button [routerLink]="['/services/payment']"  class="pr-btn w-100">Book Now</button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div> -->
-        <div class="col-lg-9">
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6" *ngFor="let cleaner of cleaners">
+            <input  type="text" placeholder="ابحث بالاسم" (input)="onSearchChange($event)" />
+            <div class="col-lg-4 col-md-6" *ngFor="let worker of workers">
               <div class="card border-0">
                 <img
-                  src="{{cleaner.image}}"
+                  [src]="worker.profilePictureUrl ? worker.profilePictureUrl : 'assets/Team/6/Placeholder Image.png'"
                   alt="Professional Image"
                   class="card-img-top mx-auto mt-3"
                   style="width:100%;"
                 />
                 <div class="card-body text-center">
-                  <h5 class="fw-bold mb-0">{{ 'CLEANERS.NAME' | translate }}</h5>
+                  <h5 class="fw-bold mb-0">{{ worker.fullName }}</h5>
                   <p class="text-success mb-2">{{ 'CLEANERS.PRICE' | translate }}</p>
                   <div class="d-flex justify-content-center align-items-center mb-2">
                     <span class="text-warning me-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
                     <small class="text-muted">{{ 'CLEANERS.REVIEWS' | translate }}</small>
                   </div>
-                  <button [routerLink]="['/services/payment']" class="pr-btn w-100">
+                  <button (click)="onBookNow(worker)" class="pr-btn w-100">
                     {{ 'CLEANERS.BOOK_NOW' | translate }}
                   </button>
                 </div>
               </div>
             </div>
+            <div *ngIf="totalCount > 0"  class="d-flex justify-content-center align-items-center gap-3 mt-4">
+              <button class="btn btn-outline-primary"
+                      (click)="pageChanged(pageIndex - 1)"
+                      [disabled]="pageIndex === 1">
+                <i class="fas fa-angle-right ms-1"></i> السابق
+              </button>
+              <span class="fw-bold">{{ pageIndex }} / {{ totalPages }}</span>
+              <button class="btn btn-outline-primary"
+                      (click)="pageChanged(pageIndex + 1)"
+                      [disabled]="pageIndex === totalPages">
+                التالي <i class="fas fa-angle-left me-1"></i>
+              </button>
+            </div>
+            
           </div>
+          <div *ngIf="totalCount == 0" class="d-flex justify-content-center align-items-center gap-3 mt-4">
+            <h3 class="color-pr"> there is no available cleaners right now ! </h3>
+           </div>
         </div>
         
 
       </div>
     </div>
-  </section>
-  
+</section>
+
+<div class="modal fade show" tabindex="-1" [ngClass]="{'d-block': showModal}" style="background: rgba(0,0,0,0.5);" aria-modal="true" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title">Book Cleaner: {{ selectedWorker?.fullName }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Step 1: Select Address -->
+        <div *ngIf="modalStep === 1">
+          <h6>Select Your Address</h6>
+          <select class="form-select" [(ngModel)]="selectedAddressId">
+            <option [ngValue]="null" disabled>Select an address</option>
+            <option *ngFor="let addr of addresses" [value]="addr.id">
+              {{ addr.addressLine }}, {{ addr.city }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Step 2: Enter Initial Price -->
+        <div *ngIf="modalStep === 2">
+          <h6>Enter Initial Price</h6>
+          <input
+            type="number"
+            class="form-control"
+            [(ngModel)]="initialPrice"
+            min="1"
+            placeholder="Initial Price"
+          />
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeModal()"
+        >
+          Cancel
+        </button>
+
+        <button
+          *ngIf="modalStep === 1"
+          type="button"
+          class="btn btn-primary"
+          (click)="acceptAddress()"
+          [disabled]="!selectedAddressId"
+        >
+          Accept
+        </button>
+
+        <button
+          *ngIf="modalStep === 2"
+          type="button"
+          class="btn btn-primary"
+          (click)="acceptPriceAndCreateOrder()"
+          [disabled]="!initialPrice || initialPrice <= 0"
+        >
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  aria-live="polite"
+  aria-atomic="true"
+  class="position-fixed top-0 end-0 p-3"
+  style="z-index: 1080;"
+>
+  <div
+    *ngFor="let toast of toasts"
+    class="toast show"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [ngClass]="{
+      'bg-success text-white': toast.type === 'success',
+      'bg-danger text-white': toast.type === 'error',
+      'bg-warning text-dark': toast.type === 'warning',
+      'bg-info text-dark': toast.type === 'info'
+    }"
+    style="min-width: 250px;"
+  >
+    <div class="toast-header">
+      <strong class="me-auto">{{ toast.title }}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        (click)="removeToast(toast)"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="toast-body">{{ toast.message }}</div>
+  </div>
+</div>

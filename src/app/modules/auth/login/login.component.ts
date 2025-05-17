@@ -1,7 +1,11 @@
+import { isIdentifier } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/serveses/auth.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+// @ts-ignore
+import { Toast } from 'bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +13,15 @@ import { AuthService } from 'src/app/serveses/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isLoading = false;
   isChecked:boolean=false
   errorMessage=''
   loginForm!:FormGroup
   showPassword:boolean=false
-constructor(private _formBuilder:FormBuilder,private _authService:AuthService,private _router:Router){}
+  toastMessage: string = '';
+
+
+constructor(private _formBuilder:FormBuilder, private authService: AuthenticationService,private _authService:AuthService,private _router:Router){}
 ngOnInit(): void {
   // const userPayload =localStorage.getItem('userPayload')
   // if (userPayload && JSON.parse(userPayload).data.accessToken) {
@@ -26,42 +34,50 @@ ngOnInit(): void {
 }
 initLoginForm() {
   this.loginForm = this._formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
+    identifier: ['', [Validators.required]],
     password: ['', [
       Validators.required,
-      Validators.minLength(3),
+      Validators.minLength(8),
       Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,}$/)
     ]]
   });
 }
 submitLogin(){
-  debugger
+  this.isLoading=true
   console.log(this.loginForm);
   if (this.loginForm.valid){
+    this.isLoading = true;
   this.callLoginApi()
   }
 }
 callLoginApi(){
-  this._authService.login(this.loginForm.value).subscribe({
+   this.authService.login(this.loginForm.value).subscribe({
     next : res=>{
+      if (!res.isEmailConfirmed) {
+     
+          this._router.navigate(['/auth/Verification',this.loginForm.value.identifier])
+        return
+      }
+      this.isLoading = false;
+      this.showToast('Login successful! ✅');
        console.log(res)
        if(this.isChecked){
-        console.log(this.isChecked);
-        
         localStorage.setItem('userToken',JSON.stringify(res))
        }
        else{
-        console.log(this.isChecked);
         sessionStorage.setItem('userToken',JSON.stringify(res))
        }
-       this._authService.saveUserData()
+       this.authService.saveUserData()
+       setTimeout(()=>{this._router.navigate(['/home'])},500)
        
-       this._router.navigate(['/home'])
+       
     },
     error:err=> {
+      this.isLoading = false;
+      this.showToast('Login failed! ❌');
       console.log(err);
       
-  this.errorMessage=err.error.message;
+  // this.errorMessage=err.error.message;
   
     }
     
@@ -74,6 +90,15 @@ callLoginApi(){
     }
     else{
       this.isChecked=true
+    }
+  }
+
+  showToast(message: string) {
+    this.toastMessage = message;
+    const toastEl = document.getElementById('loginToast');
+    if (toastEl) {
+      const toast = new Toast(toastEl);
+      toast.show();
     }
   }
 

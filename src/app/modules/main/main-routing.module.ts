@@ -1,3 +1,6 @@
+import { LayoutDashbordComponent } from './layout-dashbord/layout-dashbord.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChooseCatrgoryComponent } from './choose-catrgory/choose-catrgory.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
@@ -8,6 +11,10 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AllServicesComponent } from './all-services/all-services.component';
 import { CleanersComponent } from './cleaners/cleaners.component';
+import { OrdersComponent } from 'src/app/orders/orders.component';
+import { DashboardComponent } from './dasbourd/dasbourd.component';
+import { SidbearComponent } from './sidbear/sidbear.component';
+import { AddressesComponent } from './addresses/addresses.component';
 
 const routes: Routes = [
   {path:"",component:LayoutComponent,
@@ -23,6 +30,29 @@ const routes: Routes = [
         path:'about',component:AboutComponent,
       },
       {
+        path:'chooseCategory',component:ChooseCatrgoryComponent,
+      },
+      {
+        path:'address',component:AddressesComponent,
+      },
+      {
+        path:'orders',component:OrdersComponent,
+      },
+      {
+        path:'chat',component:ChatComponent,
+      },
+      {
+        path:'dashboard',component:LayoutDashbordComponent,children:[
+          {path:'',redirectTo:'home', pathMatch: "full" },
+          {
+            path:'home',component:DashboardComponent,
+          },
+        ]
+
+        
+      }, 
+   
+      {
         path:'services',component:ServicesComponent,children:[
           {
             path:'',redirectTo:'allservices', pathMatch: "full" 
@@ -31,8 +61,8 @@ const routes: Routes = [
             path:'allservices',component:AllServicesComponent
           },
           {
-            path:'cleaners',component:CleanersComponent
-          },
+            path:'cleaners/:id',component:CleanersComponent
+          },
           {
             path:'payment',component:PaymentComponent
           }
@@ -40,7 +70,11 @@ const routes: Routes = [
       },
       {
         path:'contact',component:ContactUsComponent,
-      }
+      },
+      
+        
+
+
      
     ],}
 ];

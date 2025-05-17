@@ -132,11 +132,11 @@
       <div class="row g-4">
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let service of services">
           <div class="card border-0">
-            <img [src]="service.image" [alt]="service.alt" class="card-img-top" />
+            <img [src]="service.image" [alt]="service.englishName" class="card-img-top" />
             <div class="card-body text-center">
-              <h5 class="fw-bold">{{ service.title | translate }}</h5>
-              <p class="text-muted">{{ service.description | translate }}</p>
-              <button [routerLink]="['/services/cleaners']" class="pr-sec-btn">
+              <h5 class="fw-bold">{{ categoryNameMap[service.id] }}</h5>
+              
+              <button [routerLink]="['/services/cleaners', service.id]" class="pr-sec-btn">
                 {{ 'ALLSERVICES.CHOOSE_CLEANER' | translate }}
               </button>
             </div>

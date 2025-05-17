@@ -1,0 +1,43 @@
+<div class="chat-container">
+    <div class="chat-window mx-5" [ngClass]="{ 'w-100': !isSidebarVisible, 'w-75': isSidebarVisible }">
+      <div class="messages">
+        <div class="message" *ngFor="let message of messages">
+          <div class="message-bubble" [ngClass]="{ 'sent': message.isSent, 'received': !message.isSent }">
+            <div *ngIf="message.type === 'text'">
+              <p>{{ message.content }}</p>
+            </div>
+            <div *ngIf="message.type === 'form'">
+              <p>Final Price: {{ message.data.finalPrice }} جنيه</p>
+              <p>Final Time: {{ message.data.finalTime }} ساعه</p>
+              <button class="form-btn accept">Accept</button>
+              <button class="form-btn deny">Deny</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="input-area">
+        <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" placeholder="Type your message..." />
+        <button class="pr-btn" (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  
+    <div class="sidebar" *ngIf="isSidebarVisible">
+      <form (ngSubmit)="submitForm()">
+        <label for="finalPrice">Final Price</label>
+        <input type="number" id="finalPrice" [(ngModel)]="finalPrice" name="finalPrice" required />
+  
+        <label for="finalTime">Final Time</label>
+        <input type="number" id="finalTime" [(ngModel)]="finalTime" name="finalTime" required />
+        <div class="btns">
+            <button type="submit" class="pr-btn">Send</button>
+            <button type="button" class="pr-btn cancel" (click)="cancelForm()">Cancel</button>
+    
+        </div>
+  
+      </form>
+    </div>
+  
+    <button class="sidebar-toggle" (click)="toggleSidebar()">
+        Agreement Details
+    </button>
+  </div>

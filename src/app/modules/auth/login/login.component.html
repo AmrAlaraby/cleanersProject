@@ -10,17 +10,17 @@
     <div class="login-form">
       <h1>Welcome Back</h1>
       <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
-        <label class="label" for="email">
+        <label class="label" for="identifier">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
               </svg>
-          <input class="input" formControlName="email" type="email" id="email" placeholder="Your email">
+          <input class="input" formControlName="identifier" type="text" id="identifier" placeholder="Your email or userName or phoneNumber">
         </label>
-        <span class="text-danger" *ngIf="loginForm.controls?.['email']?.hasError('required') && loginForm.controls?.['email']?.touched">
-          email is <strong>required</strong>
+        <span class="text-danger" *ngIf="loginForm.controls?.['identifier']?.hasError('required') && loginForm.controls?.['identifier']?.touched">
+          identifier is <strong>required</strong>
       </span>
-      <span class="text-danger" *ngIf="loginForm.controls?.['email']?.hasError('email') && loginForm.controls?.['email']?.touched">
-          please enter an <strong>email</strong>
+      <span class="text-danger" *ngIf="loginForm.controls?.['identifier']?.hasError('identifier') && loginForm.controls?.['identifier']?.touched">
+          please enter an <strong>identifier</strong>
       </span>
 
         <!-- password logic -->
@@ -43,17 +43,20 @@
             password is <strong>required</strong>
         </span>
         <span class="text-danger" *ngIf="loginForm.controls?.['password']?.hasError('pattern') && loginForm.controls?.['password']?.touched">
-            password is must contain<strong> at least 3 characters, one uppercase letter, one lowercase letter, one number, one special character.</strong>
+            password is must contain<strong> at least 8 characters, one uppercase letter, one lowercase letter, one number, one special character.</strong>
         </span>
   
           <div class="form-options">
             <label>
               <input type="checkbox"> Remember Me
             </label>
-            <a class="color-pr">Forgot Password?</a>
+            <a [routerLink]="['/auth/forgetPassword']" class="color-pr">Forgot Password?</a>
           </div>
   
-          <button type="submit" class="pr-btn mt-2">Login</button>
+          <button type="submit" class="pr-btn mt-2">
+            <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            Login
+          </button>
   
           <div class="divider">
             <span>OR</span>
@@ -72,6 +75,21 @@
               </svg>    Login with Apple
           </button>
         </form>
+
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="loginToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header bg-color-pr text-white">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong class="me-auto">Login</strong>
+            <small>Just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            {{ toastMessage }}
+          </div>
+        </div>
+      </div>
+        
   
         <p class="signup-text">Don't have an account? <a [routerLink]="['/auth/signup']">Signup</a></p>
       </div>

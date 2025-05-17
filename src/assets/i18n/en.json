@@ -7,6 +7,7 @@
         "BECOME_CLEANER": "Become a cleaner"
       },
       "USE_SERVICES": {
+
       "TITLE": "How to Use Our Cleaning Services",
       "DESCRIPTION": "Getting started is easy! Follow these simple steps to book your cleaning service and enjoy a spotless space.",
       "CLIENT_TITLE": "As a Client",
@@ -205,6 +206,8 @@
     "LEARN_MORE": "Learn More"
   },
   "ALLSERVICES": {
+    "TITLE0": "Choose Cleaning Service",
+    "CHOOSE": "Choose",
     "TITLE": "Explore Our Cleaning Services",
     "DESCRIPTION": "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services:",
     "OFFICE_CLEANING": "Office Cleaning",

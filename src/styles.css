@@ -13,8 +13,6 @@ body{
 span,svg,path{
   transition: unset;
 }
-
-
 .color-pr{
   color: var(--pr_Color) !important;
 }

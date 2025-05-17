@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/serveses/auth.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { RegisterCustomerRequest, RegisterWorkerRequest } from '../interfaces/auth';
 
 @Component({
   selector: 'app-signup',
@@ -10,11 +12,15 @@ import { AuthService } from 'src/app/serveses/auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  loading:boolean=false
 isChecked:boolean=false
-  errorMessage=''
-  registerForm!:FormGroup
+registerForm!: FormGroup;
+  selectedFile?: File;
+  successMessage = '';
+  errorMessage = '';
   showPassword:boolean=false
-constructor(private _formBuilder:FormBuilder,private _authService:AuthService,private _router:Router){}
+constructor(private fb:FormBuilder,private _authService:AuthService,private _router:Router,private authService: AuthenticationService){}
+ 
 ngOnInit(): void {
   // const userPayload =localStorage.getItem('userPayload')
   // if (userPayload && JSON.parse(userPayload).data.accessToken) {
@@ -26,37 +32,79 @@ ngOnInit(): void {
 
 }
 initRegisterForm() {
-  this.registerForm = this._formBuilder.group({
+  // this.registerForm = this._formBuilder.group({
+  //   email: ['', [Validators.required, Validators.email]],
+  //   password: ['', [
+  //     Validators.required,
+  //     Validators.minLength(3),
+  //     Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,}$/)
+  //   ]]
+  // });
+  this.registerForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    userName: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,}$/)
-    ]]
+    password: ['', Validators.required],
+    phoneNumber: ['', Validators.required],
+    dateOfBirth: ['', Validators.required],
+    hasAcceptedTerms: [false, Validators.requiredTrue],
+    profileImage: [null]
   });
 }
-submitRegister(){
-  debugger
-  console.log(this.registerForm);
-  if (this.registerForm.valid){
-  this.callLoginApi()
-  }
-}
-callLoginApi(){
-  this._authService.register(this.registerForm.value).subscribe({
-    next : res=>{
-       console.log(res)
-       
-    },
-    error:err=> {
-      console.log(err);
-      
-  this.errorMessage=err.errors[0];
+
+onSubmit() {
+  this.loading=true
+  if (this.registerForm.invalid){this.errorMessage = 'not valid form';
+     return;}
+
+  const data: RegisterCustomerRequest = {
+    ...this.registerForm.value,
+    profileImage: this.selectedFile
+  };
   
+  this.authService.registerCustomer(data).subscribe({
+    next: (res) => {
+      
+      console.log(res);
+      
+      this.successMessage = 'تم التسجيل بنجاح ✅';
+      this.errorMessage = '';
+      this.loading=false
+      setTimeout(()=>{},500)
+      this._router.navigate(['/auth/Verification',res.email])
+    },
+    error: (err) => {
+      this.errorMessage = err.error.message;
+      this.successMessage = '';
+      console.error(err);
+      this.loading=false
     }
+  });
+  
+}
+// submitRegister(){
+//   debugger
+//   console.log(this.registerForm);
+//   if (this.registerForm.valid){
+//   this.callLoginApi()
+//   }
+// }
+// callLoginApi(){
+//   this._authService.register(this.registerForm.value).subscribe({
+//     next : res=>{
+//        console.log(res)
+       
+//     },
+//     error:err=> {
+//       console.log(err);
+      
+//   this.errorMessage=err.errors[0];
+  
+//     }
     
-  })
-  }
+//   })
+//   }
 
   changingIsCheck(){
     if(this.isChecked){
@@ -70,5 +118,8 @@ callLoginApi(){
   togglePassword(){
     this.showPassword=!this.showPassword
     
+  }
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0];
   }
 }

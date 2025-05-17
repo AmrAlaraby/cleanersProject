@@ -1,3 +1,4 @@
+
 <!-- <nav class="navbar navbar-expand-lg  px-5  fixed-top bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" ><img src="../../assets/Footer/1/Frame 55.png" class="img-fluid max" alt="logo"></a>
@@ -40,8 +41,8 @@
             [routerLinkActive]="['active']" aria-current="page">Contact Us</a>
           </li>
 
-          
-        </ul>
+حيدر, [5/10/2025 1:57 AM]
+</ul>
         <div class="">
             <button *ngIf="!isLogin" class="pr-btn mx-2 py-1 px-3" [routerLink]="['/auth']"
             [routerLinkActive]="['d-none']" >sign up/Login</button>
@@ -53,14 +54,14 @@
      
     </div>
   </nav> -->
-
+  <!-- <app-sidbear></app-sidbear> -->
   <nav class="navbar navbar-expand-lg px-5 fixed-top bg-light">
     <div class="container-fluid">
       <a class="navbar-brand">
-        <img src="../../assets/Footer/1/Frame 55.png" class="img-fluid max" alt="logo">
+        <img src="assets/logo.png" class="img-fluid max" alt="logo">
       </a>
   
-      <!-- زر تغيير اللغة -->
+      <!-- Language Toggle -->
       <button class="pr-sec-btn mx-2 py-1 px-3 border-0" (click)="toggleLanguage()">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
           <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
@@ -68,21 +69,17 @@
         </svg>
       </button>
   
-      <!-- زر تفعيل الوضع الليلي -->
+      <!-- Dark Mode Toggle -->
       <button class="pr-sec-btn mx-2 py-1 px-3 border-0" (click)="toggleDarkMode()">
         <span *ngIf="isDarkMode">
-          <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16">
             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
           </svg>
         </span>
         <span *ngIf="!isDarkMode">
-          
-          
-
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
             <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
           </svg>
-          
         </span>
       </button>
   
@@ -99,25 +96,51 @@
             <a class="nav-link" [routerLink]="['/about']">{{ 'NAVBAR.ABOUT' | translate }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/services']">{{ 'NAVBAR.SERVICES' | translate }}</a>
+
+<a class="nav-link" [routerLink]="['/services']">{{ 'NAVBAR.SERVICES' | translate }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/contact']">{{ 'NAVBAR.CONTACT' | translate }}</a>
           </li>
         </ul>
   
-        <div>
-          <button *ngIf="!isLogin" class="pr-btn mx-2 py-1 px-3" [routerLink]="['/auth']">
-            {{ 'NAVBAR.SIGNUP' | translate }}
-          </button>
-          <button *ngIf="!isLogin" class="pr-sec-btn mx-2 py-1 px-3">
-            {{ 'NAVBAR.BECOME_CLEANER' | translate }}
-          </button>
-          <button *ngIf="isLogin" (click)="logout()" class="pr-sec-btn mx-2 py-1 px-3">
-            {{ 'NAVBAR.LOGOUT' | translate }}
-          </button>
+        <div class="d-flex align-items-center">
+          <!-- Non-logged-in buttons -->
+          <ng-container *ngIf="!isLogin">
+            <button class="pr-btn mx-2 py-1 px-3" [routerLink]="['/auth']">
+              {{ 'NAVBAR.SIGNUP' | translate }}
+            </button>
+            <button [routerLink]="['/auth/workerSignup']" [routerLinkActive]="'d-none'" class="pr-sec-btn mx-2 py-1 px-3">
+              {{ 'NAVBAR.BECOME_CLEANER' | translate }}
+            </button>
+          </ng-container>
+  
+          <!-- User Profile Dropdown for logged-in users -->
+          <div class="dropdown"*ngIf="isLogin" >
+            <div class="user-profile rounded-circl w-10 h-10">
+              <img [src]="userImage || '{userImage}'" alt="User Image" class="user-image max rounded-circle" >
+            </div >
+            <ul class="dropdown-menu">
+              <li class="dropdown-item disabled">{{ userName }}</li>
+              <li><a class="dropdown-item" [routerLink]="['/auth/changePassword']">{{ 'NAVBAR.CHANGE_PASSWORD' | translate }}</a></li>
+              <li *ngIf="isWorker">
+                <a class="dropdown-item" [routerLink]="['/chooseCategory']">
+                  {{ 'NAVBAR.CHOOSE_CATEGORY' | translate }}
+                </a>
+              </li>              
+              <li *ngIf="!isWorker && !isAdmin">
+                <a class="dropdown-item" [routerLink]="['/address']">
+                  {{ 'NAVBAR.ADDRESS' | translate }}
+                </a>
+              </li>              
+              <li><a class="dropdown-item" [routerLink]="['/orders']">{{ 'NAVBAR.Orders' | translate }}</a></li>
+              <li><button class="dropdown-item" (click)="logout()">{{ 'NAVBAR.LOGOUT' | translate }}</button></li>
+              <li *ngIf="isAdmin"><a class="dropdown-item" [routerLink]="['/dashboard']">{{ 'NAVBAR.Dashbord' | translate }}</a></li>
+
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+</div>
   </nav>
-  
+  <!-- <app-dasbourd></app-dasbourd> -->

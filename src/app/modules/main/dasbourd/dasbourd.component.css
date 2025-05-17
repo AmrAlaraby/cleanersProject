@@ -1,0 +1,21 @@
+.bg-purple {
+    background-color: #6f42c1 !important;
+  }
+  
+  .progress-circle {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: conic-gradient(#6f42c1 var(--progress), #e9ecef var(--progress));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .progress-circle span {
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+  }

@@ -1,0 +1,130 @@
+import { Component } from '@angular/core';
+import { RegisterCustomerRequest, RegisterWorkerRequest } from '../interfaces/auth';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/serveses/auth.service';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
+@Component({
+  selector: 'app-worker-signup',
+  templateUrl: './worker-signup.component.html',
+  styleUrls: ['./worker-signup.component.css']
+})
+export class WorkerSignupComponent {
+ loading:boolean=false
+isChecked:boolean=false
+registerForm!: FormGroup;
+  selectedFile?: File;
+  successMessage = '';
+  errorMessage = '';
+  showPassword:boolean=false
+constructor(private fb:FormBuilder,private _authService:AuthService,private _router:Router,private authService: AuthenticationService){}
+ 
+ngOnInit(): void {
+  // const userPayload =localStorage.getItem('userPayload')
+  // if (userPayload && JSON.parse(userPayload).data.accessToken) {
+  //   this._router.navigate(['store/home']) ;}
+
+  
+  this.initRegisterForm()
+
+
+}
+initRegisterForm() {
+  // this.registerForm = this._formBuilder.group({
+  //   email: ['', [Validators.required, Validators.email]],
+  //   password: ['', [
+  //     Validators.required,
+  //     Validators.minLength(3),
+  //     Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,}$/)
+  //   ]]
+  // });
+  this.registerForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    userName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+    phoneNumber: ['', Validators.required],
+    dateOfBirth: ['', Validators.required],
+    nationalId: ['', Validators.required],
+      description: [''],
+      hourlyRate: [null, Validators.required],
+      experienceYears: [null, Validators.required],
+    hasAcceptedTerms: [false, Validators.requiredTrue],
+    profileImage: [null]
+  });
+}
+
+onSubmit() {
+  debugger
+  this.loading=true
+  if (this.registerForm.invalid){this.errorMessage = 'not valid form';
+     return;}
+
+  const data: RegisterWorkerRequest = {
+    ...this.registerForm.value,
+    profileImage: this.selectedFile
+  };
+  
+  this.authService.registerWorker(data).subscribe({
+    
+    next: (res) => {
+      debugger
+      console.log(res);
+      
+      this.successMessage = 'تم التسجيل بنجاح ✅';
+      this.errorMessage = '';
+      this.loading=false
+      setTimeout(()=>{},500)
+      this._router.navigate(['/auth/Verification',res.email])
+    },
+    error: (err) => {
+      this.errorMessage = err.error.message;
+      this.successMessage = '';
+      console.error(err);
+      this.loading=false
+    }
+  });
+  
+}
+// submitRegister(){
+//   debugger
+//   console.log(this.registerForm);
+//   if (this.registerForm.valid){
+//   this.callLoginApi()
+//   }
+// }
+// callLoginApi(){
+//   this._authService.register(this.registerForm.value).subscribe({
+//     next : res=>{
+//        console.log(res)
+       
+//     },
+//     error:err=> {
+//       console.log(err);
+      
+//   this.errorMessage=err.errors[0];
+  
+//     }
+    
+//   })
+//   }
+
+  changingIsCheck(){
+    if(this.isChecked){
+      this.isChecked=false
+    }
+    else{
+      this.isChecked=true
+    }
+  }
+
+  togglePassword(){
+    this.showPassword=!this.showPassword
+    
+  }
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+}

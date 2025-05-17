@@ -1,23 +1,23 @@
-.nav-link{
-
-font-family: Roboto;
-font-size: 16px;
-font-weight: 400;
-line-height: 24px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-
-position: relative;
-}
-.navbar-border{
-    border-bottom: 1px solid var(--primary, #000000)
-}
-.max{
+.nav-link {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    position: relative;
+  }
+  
+  .navbar-border {
+    border-bottom: 1px solid var(--primary, #000000);
+  }
+  
+  .max {
     max-height: 40px;
-}
-
-.nav-link:before {
+  }
+  
+  .nav-link:before {
     content: "";
     position: absolute;
     height: 2px;
@@ -26,17 +26,59 @@ position: relative;
     width: 0;
     background-color: var(--pr_Color);
     visibility: hidden;
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
-    }
-
-    .nav-link:hover:before, .active:before {
+  }
+  
+  .nav-link:hover:before, .active:before {
     visibility: visible;
     width: 80%;
-   
-    }
-
-    .nav-link:focus, .nav-link:hover, .navbar-nav, .nav-link.active, .navbar-nav, .nav-link.show{
-        color: var(--pr_Color);
-    }
+  }
+  
+  .nav-link:focus, .nav-link:hover, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: var(--pr_Color);
+  }
+  
+  /* User Profile Styles */
+  .user-profile {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .user-image {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border: 2px solid var(--primary, #000000);
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    display: none;
+    z-index: 1000;
+    background-color: var(--bs-light);
+    border: 1px solid var(--primary, #000000);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-item.disabled {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: transparent;
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--bs-light);
+    color: var(--pr_Color);
+  }

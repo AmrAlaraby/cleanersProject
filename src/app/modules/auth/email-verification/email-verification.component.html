@@ -1,0 +1,57 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-6 shadow p-4 rounded border border-pr">
+      <h2 class="text-center mb-4 color-pr">Enter your verification code !!</h2>
+      <p>verification code sent to your email</p>
+  
+      <form [formGroup]="verificationForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="code" class="form-label">Verification Code:</label>
+          <input
+            type="text"
+            id="code"
+            class="form-control"
+            formControlName="code"
+            placeholder="Enter the code you received"
+          />
+          <div *ngIf="code.invalid && (code.dirty || code.touched)" class="text-danger mt-1">
+            Code is required.
+          </div>
+        </div>
+  
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="pr-btn" [disabled]="verificationForm.invalid">
+            Submit
+          </button>
+        </div>
+      </form>
+      <div
+      class="toast-container position-fixed bottom-0 end-0 p-3"
+      style="z-index: 1055"
+    >
+      <div
+        id="liveToast"
+        class="toast align-items-center text-white bg-success border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body" #toastBody>
+            Verified successfully!
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+    
+      <div class="text-end mt-3">
+        <button class="pr-sec-btn" (click)="resendCode()">Resend Code</button>
+      </div>
+    </div>
+  </div>
+  

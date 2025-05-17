@@ -11,7 +11,10 @@ export class ChatbotComponent {
   userInput: string = '';
   messages: { sender: 'user' | 'bot'; text: string; typing?: boolean }[] = [];
 
-  constructor(private chatbotService: ChatbotService) {}
+  constructor(private chatbotService: ChatbotService) {
+
+    
+  }
 
   toggleChatbot() {
     this.isOpen = !this.isOpen;

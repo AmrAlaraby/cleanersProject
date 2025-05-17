@@ -1,0 +1,174 @@
+<div class="container-fluid p-4">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5>Total Invoices</h5>
+            <h3>2,478</h3>
+            <div style="height: 100px;">
+              <canvas baseChart
+                [datasets]="totalInvoicesData"
+                [labels]="chartLabels"
+                [options]="lineChartOptions"
+                [type]="'line'">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5>Paid Invoices</h5>
+            <h3>983</h3>
+            <div style="height: 100px;">
+              <canvas baseChart
+                [datasets]="paidInvoicesData"
+                [labels]="chartLabels"
+                [options]="lineChartOptions"
+                [type]="'line'">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-danger">
+          <div class="card-body">
+            <h5>Withdrawn</h5>
+            <h3>$45,673</h3>
+            <p>-1.6% than last week</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5>Unpaid Invoices</h5>
+            <h3>1,256</h3>
+            <div style="height: 100px;">
+              <canvas baseChart
+                [datasets]="unpaidInvoicesData"
+                [labels]="chartLabels"
+                [options]="lineChartOptions"
+                [type]="'line'">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5>Total Invoices Sent</h5>
+            <h3>652</h3>
+            <div style="height: 100px;">
+              <canvas baseChart
+                [datasets]="invoicesSentData"
+                [labels]="chartLabels"
+                [options]="lineChartOptions"
+                [type]="'line'">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div style="height: 150px;">
+              <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [type]="'bar'">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5>Total Revenue</h5>
+            <h3>$563,982.74</h3>
+            <p class="text-success">+0.6% than last week</p>
+            <div style="height: 200px;">
+              <canvas baseChart
+                [datasets]="revenueChartData"
+                [labels]="revenueChartLabels"
+                [options]="revenueChartOptions"
+                [type]="'line'">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card bg-purple text-white">
+              <div class="card-body">
+                <h5>Spendings</h5>
+                <ul>
+                  <li>Investment: $1,415</li>
+                  <li>Installment: $2,000</li>
+                  <li>Restaurant: $677</li>
+                  <li>Property: $487</li>
+                  <li>Others: $3,980</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-6">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h5>Investment</h5>
+                    <div class="progress-circle" style="--progress: 76%;">
+                      <span>76%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h5>Installment</h5>
+                    <div class="progress-circle" style="--progress: 30%;">
+                      <span>30%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 mt-4">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h5>Restaurant</h5>
+                    <div class="progress-circle" style="--progress: 5%;">
+                      <span>5%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 mt-4">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h5>Property</h5>
+                    <div class="progress-circle" style="--progress: 96%;">
+                      <span>96%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
