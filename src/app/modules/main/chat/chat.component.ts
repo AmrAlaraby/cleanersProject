@@ -39,18 +39,27 @@ export class ChatComponent implements OnInit {
     this.getCurrentUserId();
 
     // Create connection
-    this.hubConnection = new signalR.HubConnectionBuilder()
-  .withUrl(`https://qjxw2r8x-7083.uks1.devtunnels.ms/chathub?otherUserId=${this.toUserId}`, {
-    accessTokenFactory: () => this.myToken
-  })
-  .withAutomaticReconnect()
-  .build();
+//     this.hubConnection = new signalR.HubConnectionBuilder()
+//   .withUrl(`https://qjxw2r8x-7083.uks1.devtunnels.ms/chathub?otherUserId=${this.toUserId}`, {
+//     accessTokenFactory: () => this.myToken
+//   })
+//   .withAutomaticReconnect()
+//   .build();
+
+
     // this.hubConnection = new signalR.HubConnectionBuilder()
     //   .withUrl('https://qjxw2r8x-7083.uks1.devtunnels.ms/chathub', {
     //     accessTokenFactory: () => this.myToken
     //   })
     //   .withAutomaticReconnect()
     //   .build();
+
+    this.hubConnection = new signalR.HubConnectionBuilder()
+  .withUrl(`https://qjxw2r8x-7083.uks1.devtunnels.ms/chathub?otherUserId=${this.toUserId}`, {
+    accessTokenFactory: () => this.myToken
+  })
+  .withAutomaticReconnect()
+  .build();
 
     // Connection event logging
     this.hubConnection.onreconnected(() => {
