@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit {
   username: string = '';
   messages: ChatMessage[] = [];
 
-  toUserId: string = '11a4e248-bd3a-4b91-942b-41d1bc7d824c';
+  toUserId: string = '3640c4ea-9e17-4a56-9082-0415c92f4297';
   myToken: string = '';
   messageInput: string = 'hii';
   private hubConnection!: signalR.HubConnection;
@@ -40,7 +40,7 @@ export class ChatComponent implements OnInit {
 
     // Create connection
     this.hubConnection = new signalR.HubConnectionBuilder()
-  .withUrl(`https://qjxw2r8x-7083.uks1.devtunnels.ms/chathub?otherUserId=${this.toUserId}`, {
+  .withUrl(`https://cleaning.runasp.net/chathub?otherUserId=${this.toUserId}`, {
     accessTokenFactory: () => this.myToken
   })
   .withAutomaticReconnect()
