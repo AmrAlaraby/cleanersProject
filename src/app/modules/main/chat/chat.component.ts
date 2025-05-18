@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit {
   finalTime: number | null = null;
   userId: string = '';
   username: string = '';
-  messages: Array<any> = [];
+  messages: ChatMessage[] = [];
 
   toUserId: string = '11a4e248-bd3a-4b91-942b-41d1bc7d824c';
   myToken: string = '';
@@ -122,32 +122,33 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  sendMessage(): void {
-    if (this.isConnected && this.toUserId && this.newMessage) {
-      this.hubConnection.invoke('SendPrivateMessage', this.toUserId, 'Ahmed', this.newMessage)
-        .then(() => {
-          this.messages.push(`You to ${this.toUserId}: ${this.newMessage}`);
-          this.newMessage = '';
-        })
-        .catch(err => console.error('Send error:', err));
-    }
-  }
+sendMessage(): void {
+  if (this.isConnected && this.toUserId && this.newMessage) {
+    this.hubConnection.invoke<ChatMessage>('SendPrivateMessage', this.toUserId, 'Ahmed', this.newMessage)
+      .then((message: ChatMessage) => {
+        // استقبلنا الرسالة من السيرفر بعد إرسالها
+        this.messages.push(message);
+        this.newMessage = '';
+      })
+      .catch(err => console.error('Send error:', err));
+  }
+}
 
-  submitForm() {
-    if (this.finalPrice && this.finalTime) {
-      this.messages.push({
-        type: 'form',
-        isSent: true,
-        data: {
-          finalPrice: this.finalPrice,
-          finalTime: this.finalTime
-        }
-      });
-      this.finalPrice = null;
-      this.finalTime = null;
-      this.isSidebarVisible = false;
-    }
-  }
+  // submitForm() {
+  //   if (this.finalPrice && this.finalTime) {
+  //     this.messages.push({
+  //       type: 'form',
+  //       isSent: true,
+  //       data: {
+  //         finalPrice: this.finalPrice,
+  //         finalTime: this.finalTime
+  //       }
+  //     });
+  //     this.finalPrice = null;
+  //     this.finalTime = null;
+  //     this.isSidebarVisible = false;
+  //   }
+  // }
 
   cancelForm() {
     this.finalPrice = null;
