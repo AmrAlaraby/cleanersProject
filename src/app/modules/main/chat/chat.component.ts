@@ -132,6 +132,9 @@ export class ChatComponent implements OnInit {
   // .catch(err => console.error('Send error:', err));}}
       this.hubConnection.invoke('SendPrivateMessage', this.toUserId, 'Ahmed', this.newMessage)
         .then(() => {
+          // this.messages.push({
+          //   Context: this.newMessage,
+          // });
           this.newMessage = '';
         })
         .catch(err => console.error('Send error:', err));

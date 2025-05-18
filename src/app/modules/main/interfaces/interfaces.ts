@@ -108,22 +108,22 @@ export interface Pagination<T> {
 
 export interface ChatMessage {
 
-  id: string;
+  Id?: string;
 
-  mainChatId: string;
+  MainChatId?: string;
 
-  senderId: string;
+  SenderId?: string;
 
-  senderName: string;
+  SenderName?: string;
 
-  receiverId: string;
+  ReceiverId?: string;
 
-  receiverName: string;
+  ReceiverName?: string;
 
-  context: string;
+  Context?: string;
 
-  timestamp: Date;  // نستخدم string عشان تواريخ الـ JSON عادةً بتكون string
+  Timestamp?: Date;  // نستخدم string عشان تواريخ الـ JSON عادةً بتكون string
 
-  status: string;
+  Status?: string;
 
 }
