@@ -122,17 +122,23 @@ export class ChatComponent implements OnInit {
     });
   }
 
-sendMessage(): void {
-  if (this.isConnected && this.toUserId && this.newMessage) {
-    this.hubConnection.invoke<ChatMessage>('SendPrivateMessage', this.toUserId, 'Ahmed', this.newMessage)
-      .then((message: ChatMessage) => {
-        // استقبلنا الرسالة من السيرفر بعد إرسالها
-        this.messages.push(message);
-        this.newMessage = '';
-      })
-      .catch(err => console.error('Send error:', err));
-  }
-}
+  sendMessage(): void {
+    if (this.isConnected && this.toUserId && this.newMessage) {
+  //     this.hubConnection.invoke<ChatMessage>('SendPrivateMessage', this.toUserId, 'Ahmed', this.newMessage)
+  // .then((message: ChatMessage) => {
+  //   this.messages.push(message);
+  //   this.newMessage = '';
+  // })
+  // .catch(err => console.error('Send error:', err));}}
+      this.hubConnection.invoke('SendPrivateMessage', this.toUserId, 'Ahmed', this.newMessage)
+        .then(() => {
+          this.newMessage = '';
+        })
+        .catch(err => console.error('Send error:', err));
+    }
+  }
+
+  
 
   // submitForm() {
   //   if (this.finalPrice && this.finalTime) {
