@@ -15,8 +15,9 @@
 
   <div class="container-fluid text-white header">
     <div class="bg-dark"></div>
-    <div class="row mt-nav align-items-center">
-      <div class="col-md-12 position-relative z-2">
+    <canvas #wavesCanvas id="waves-bg" class="waves-canvas position-absolute w-100 h-100" style="z-index:2; top:0; left:0;"></canvas>
+    <div class="row mt-nav align-items-center position-relative" style="z-index:3;">
+      <div class="col-md-12">
         <h1 class="text-center">{{ 'DISCOUNT.TITLE' | translate }}</h1>
         <p class="text-center">{{ 'DISCOUNT.DESCRIPTION' | translate }}</p>
         <div class="mt-4 text-center">

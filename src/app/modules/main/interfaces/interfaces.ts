@@ -88,22 +88,27 @@ export interface UpdateOrderTotalAmountRequest {
 }
 
 export interface Order {
-  orderId: number;
-  workerId: string;
-  customerId: string;
-  categoryId: number;
-  addressId: number;
-  totalAmount: number;
-  status: string;
-  createdAt: string;
+  customerId: string
+  customerName: string
+  workerId: string
+  workerName: string
+  serviceEnglishName: string
+  serviceArabicName: string
+  address: string
+  status: string
+  totalAmount: number
+  createdAt: string
+  updatedAt: any
+  completedAt: any
+  canceledAt: any
+  startedAt: any
 }
 
 export interface Pagination<T> {
   data: T[];
   pageIndex: number;
   pageSize: number;
-  totalCount: number;
-  totalPages: number;
+  count: number;
 }
 
 export interface ChatMessage {

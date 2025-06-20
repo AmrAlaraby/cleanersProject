@@ -87,8 +87,8 @@ const headers = this.getToken();
       params: {
         pageIndex: pageIndex.toString(),
         pageSize: pageSize.toString(),
-        ...headers 
-      }
+      },
+      headers
     });
   }
 

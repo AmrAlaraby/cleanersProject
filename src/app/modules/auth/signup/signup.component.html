@@ -61,14 +61,63 @@
             </svg>
           </a>
         </label>
-        <label>
+
+        <div class="mb-3">
+          <label class="profile-upload-label" for="profileImage">
+            <span class="profile-upload-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-image me-2" viewBox="0 0 16 16">
+                <path d="M14.002 3H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm0 1v.217l-4.106 4.106a.5.5 0 0 1-.707 0L7 6.207l-4.5 4.5V4h11zM2 13V9.707l4.146-4.147a1.5 1.5 0 0 1 2.121 0L14 11.293V13H2z"/>
+              </svg>
+              <span>Upload Profile Image</span>
+            </span>
+            <input type="file" id="profileImage" class="input visually-hidden" (change)="onFileChange($event)" accept="image/*" />
+          </label>
+          <div class="profile-image-preview mt-2 text-center">
+            <img
+              [src]="profileImagePreview ? profileImagePreview : 'https://ui-avatars.com/api/?name=User&background=cccccc&color=ffffff&rounded=true&size=80'"
+              alt="Profile Preview"
+              class="rounded-circle"
+              style="width: 80px; height: 80px; object-fit: cover; border: 2px solid #22c55e; cursor: pointer;"
+              (click)="triggerProfileImageInput()"
+            />
+          </div>
+        </div>
+        <label class="d-flex align-items-center" style="gap: 8px; cursor: pointer;">
           <input type="checkbox" formControlName="hasAcceptedTerms" />
-          Accepte Terms
+          <span>I accept <a href="#" (click)="openTermsModal($event)">Terms & Conditions</a></span>
         </label>
-        <label >
-          profile Image
-          <input type="file" class="input" (change)="onFileChange($event)" />
-        </label>
+        <!-- Terms Modal -->
+        <div class="modal" tabindex="-1" [ngClass]="{'show': showTermsModal}" [ngStyle]="{'display': showTermsModal ? 'block' : 'none'}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Terms & Conditions</h5>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeTermsModal()"></button>
+              </div>
+              <div class="modal-body">
+                <div style="max-height: 300px; overflow-y: auto; text-align: left;">
+                  <h6>Terms & Conditions</h6>
+                  <p>
+                    By creating an account, you agree to the following terms and conditions:
+                  </p>
+                  <ul>
+                    <li>You must provide accurate and complete information during registration.</li>
+                    <li>Your account is personal and should not be shared with others.</li>
+                    <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+                    <li>Any misuse of the service may result in suspension or termination of your account.</li>
+                    <li>We reserve the right to update these terms at any time. Continued use of the service constitutes acceptance of the new terms.</li>
+                  </ul>
+                  <p>
+                    For more information, please contact our support team.
+                  </p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="pr-sec-btn" (click)="closeTermsModal()">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="text-success" *ngIf="successMessage">{{ successMessage }}</div>
         <div class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
         <!-- Sign-Up Button -->
@@ -81,7 +130,10 @@
   
         <button class="btn-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google me-2" viewBox="0 0 16 16">
-            <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z" />
+            <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 
+            15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 
+            8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 
+            4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z" />
           </svg>
           Sign up with Google
         </button>

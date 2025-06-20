@@ -1,48 +1,91 @@
 <div class="container orders">
-     <div class="row mb-3 g-2 d-flex">
-        <div class="col-md-6  d-flex justify-content-center">
-            <input type="text" [(ngModel)]="searchQuery" class="form-control w-100" placeholder="🔍 بحث باسم العميل" />
-          </div>
-          
-         <div class="col-md-6"> <select [(ngModel)]="selectedStatus" class="form-select "> 
-            <option value="">جميع الحالات</option>
-             <option value="Pending">قيد التنفيذ</option> 
-             <option value="Completed">تم التنفيذ</option> 
-             <option value="Cancelled">تم الإلغاء</option> 
-            </select> 
-        </div>
-        
-     </div> 
-     <div class="row row-cols-1 g-4"> 
-        <div class="col" *ngFor="let order of filteredOrders"> 
-            <div class="card shadow-sm border-start border-4" [ngClass]="{ 'border-warning': order.status === 'Pending', 'border-success': order.status === 'Completed', 'border-danger': order.status === 'Cancelled' }"> 
-                <div class="card-body"> 
-                    <div class="d-flex justify-content-between mb-2"> 
-                        <h5 class="card-title mb-0">#{{ order.id }}</h5> 
-                        <span class="badge fs-5"
-                        [ngClass]="{
-                          'bg-warning text-dark': order.status === 'Pending',
-                          'bg-success': order.status === 'Completed',
-                          'bg-danger': order.status === 'Cancelled'
-                        }">
-                        {{ order.status === 'Pending' ? 'قيد التنفيذ' : order.status === 'Completed' ? 'تم التنفيذ' : 'تم الإلغاء' }}
-                      </span>
-                       
-                    </div>
-                    <div class="d-flex justify-content-between align-items-end">
 
-                        <div class="">
-                            <p class="mb-1">👤 {{ order.customerName }}</p>
-                            <p class="mb-1">📅 {{ order.createdAt | date:'short' }}</p>
-                            <p class="mb-0">💰 {{ order.total }} ج.م</p> 
-                        </div>
-                        <div>
-                            <button [routerLink]="['/chat']" class="pr-sec-btn">chat</button>
-                        </div>
-                    </div>
-                    </div> 
-                </div> 
+  <!-- بحث وفلترة -->
+  <div class="row mb-3 g-2 d-flex">
+    <div class="col-md-6 d-flex justify-content-center">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="applyFilters()"
+        class="form-control w-100"
+        placeholder="🔍 بحث باسم العميل"
+      />
+    </div>
+
+    <div class="col-md-6">
+      <select [(ngModel)]="selectedStatus" (change)="applyFilters()" class="form-select">
+        <option value="">جميع الحالات</option>
+        <option value="AwaitingWorkerAcceptance">قيد التنفيذ</option>
+        <option value="Completed">تم التنفيذ</option>
+        <option value="Cancelled">تم الإلغاء</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- قائمة الطلبات -->
+  <div class="row row-cols-1 g-4">
+    <div class="col" *ngFor="let order of filteredOrders">
+      <div
+        class="card shadow-sm border-start border-4"
+        [ngClass]="{
+          'border-warning': order.status === 'AwaitingWorkerAcceptance',
+          'border-success': order.status === 'Completed',
+          'border-danger': order.status === 'Cancelled'
+        }"
+      >
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-2">
+            <h5 class="card-title mb-0">#{{ order.status }}</h5>
+            <span class="badge fs-5"
+              [ngClass]="{
+                'bg-warning text-dark': order.status === 'AwaitingWorkerAcceptance',
+                'bg-success': order.status === 'Completed',
+                'bg-danger': order.status === 'Cancelled'
+              }"
+            >
+              {{
+                order.status === 'AwaitingWorkerAcceptance'
+                  ? 'قيد التنفيذ'
+                  : order.status === 'Completed'
+                  ? 'تم التنفيذ'
+                  : 'تم الإلغاء'
+              }}
+            </span>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-end">
+            <div>
+              <p class="mb-1">👤 {{ order.customerName }}</p>
+              <p class="mb-1">🧰 {{ order.workerName }}</p>
+              <p class="mb-1">📅 {{ order.createdAt | date: 'short' }}</p>
+              <p class="mb-0">💰 {{ order.totalAmount }} ج.م</p>
             </div>
-         </div>
-          <div *ngIf="filteredOrders.length === 0" class="alert alert-info mt-4 text-center"> لا توجد طلبات مطابقة </div> 
+            <div>
+              <button [routerLink]="['/chat']" class="pr-sec-btn">chat</button>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <div *ngIf="filteredOrders.length === 0" class="alert alert-info mt-4 text-center">
+      لا توجد طلبات مطابقة
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <nav *ngIf="totalPages>1" class="d-flex justify-content-center mt-4">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="pageIndex === 1">
+        <button class="page-link" (click)="goToPage(pageIndex - 1)">السابق</button>
+      </li>
+      <li class="page-item disabled">
+        <span class="page-link">صفحة {{ pageIndex }} من {{ totalPages }}</span>
+      </li>
+      <li class="page-item" [class.disabled]="pageIndex === totalPages">
+        <button class="page-link" (click)="goToPage(pageIndex + 1)">التالي</button>
+      </li>
+    </ul>
+  </nav>
+
+</div>

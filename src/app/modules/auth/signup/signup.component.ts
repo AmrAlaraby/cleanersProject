@@ -19,6 +19,8 @@ registerForm!: FormGroup;
   successMessage = '';
   errorMessage = '';
   showPassword:boolean=false
+  profileImagePreview: string | ArrayBuffer | null = null;
+  showTermsModal = false;
 constructor(private fb:FormBuilder,private _authService:AuthService,private _router:Router,private authService: AuthenticationService){}
  
 ngOnInit(): void {
@@ -120,6 +122,32 @@ onSubmit() {
     
   }
   onFileChange(event: any) {
-    this.selectedFile = event.target.files[0];
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.profileImagePreview = reader.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      // User cancelled, do nothing (preview remains)
+      console.log('File selection cancelled, keeping last photo.');
+    }
+  }
+
+  triggerProfileImageInput() {
+    const fileInput = document.getElementById('profileImage') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+
+  openTermsModal(event: Event) {
+    event.preventDefault();
+    this.showTermsModal = true;
+  }
+  closeTermsModal() {
+    this.showTermsModal = false;
   }
 }
