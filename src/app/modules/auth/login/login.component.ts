@@ -36,9 +36,7 @@ initLoginForm() {
   this.loginForm = this._formBuilder.group({
     identifier: ['', [Validators.required]],
     password: ['', [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,}$/)
+      Validators.required
     ]]
   });
 }
