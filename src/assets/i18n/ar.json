@@ -145,7 +145,12 @@
         "CONTACT": "اتصل بنا",
         "SIGNUP": "تسجيل الدخول/إنشاء حساب",
         "BECOME_CLEANER": "كن عامل نظافة",
-        "LOGOUT": "تسجيل خروج"
+        "LOGOUT": "تسجيل خروج",
+        "CHANGE_PASSWORD": "تغيير كلمة المرور",
+        "CHOOSE_CATEGORY": "اختر الفئة",
+        "ADDRESS": "العنوان",
+        "Orders": "الطلبات",
+        "Dashbord": "لوحة التحكم"
       },
       "CHATBOT": {
     "TITLE": "المساعد الذكي",

@@ -67,7 +67,7 @@ export interface register {
   }
       
   export interface AuthUserData {
-    name: string;
+    UserName: string;
     profileImage: string;
     role?: string;
     email?: string;

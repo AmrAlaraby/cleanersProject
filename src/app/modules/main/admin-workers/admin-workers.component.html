@@ -1,0 +1,58 @@
+<!-- workers.component.html -->
+<div class="container mt-4">
+
+
+
+  <!-- Filters -->
+  <div  class="d-flex gap-2 mb-3">
+    <input type="text" [(ngModel)]="searchTerm" class="form-control w-25" placeholder="Search by name" (ngModelChange)="getWorkers()" />
+
+    <select [(ngModel)]="selectedCategoryId" class="form-select w-25" (change)="getWorkers()">
+      <option selected value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{ category.arabicName }} / {{ category.englishName }}
+      </option>
+    </select>
+  </div>
+  <!-- Loader -->
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <!-- Workers List -->
+  <div *ngIf="!isLoading && workers.length">
+    <div *ngFor="let worker of workers" class="card mb-3 p-3">
+      <div class="row align-items-center">
+        <div class="col-md-2">
+          <img [src]="worker.profilePictureUrl || defaultImage" class="img-fluid rounded-circle" alt="Profile Picture">
+        </div>
+        <div class="col-md-7">
+          <h5>{{ worker.fullName }}</h5>
+          <p>Email: {{ worker.email }}</p>
+          <p>Phone: {{ worker.phoneNumber }}</p>
+          <p>Rate: {{ worker.hourlyRate }} EGP/hr</p>
+          <p>Experience: {{ worker.experienceYears }} years</p>
+          <p>
+            Categories:
+            <span *ngFor="let cat of worker.categories" class="badge bg-info text-dark me-1">
+              {{ lang === 'ar' ? cat.categoryArabicName : cat.categoryEnglishName }}
+            </span>
+          </p>
+        </div>
+        <div class="col-md-3 text-end">
+          <button class="btn btn-warning me-2">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <pagination-controls (pageChange)="pageChanged($event)" [autoHide]="true"></pagination-controls>
+  </div>
+
+  <div *ngIf="!isLoading && !workers.length" class="alert alert-info">
+    No workers found.
+  </div>
+
+</div>

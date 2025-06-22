@@ -13,6 +13,81 @@ export class MainService {
   getAllCategories():Observable<categories>{
     return this._HttpClient.get<categories>(`${this.baseUrl}Categories`)
   }
+
+  getCategoryById(id: number): Observable<any> {
+    return this._HttpClient.get<any>(`${this.baseUrl}Categories/${id}`);
+  }
+
+  createCategory(body: any): Observable<any> {
+    const token = JSON.parse(localStorage.getItem('userToken') || 'null')?.token || JSON.parse(sessionStorage.getItem('userToken') || 'null')?.token;
+  const headers = { Authorization: `Bearer ${token}` };
+
+  const formData = new FormData();
+  if (body.image) {
+    formData.append('Image', body.image);
+  }
+
+  // بناء الـ query parameters
+  const params = {
+    Id: body.id,
+    EnglishName: body.englishName?.trim(),
+    ArabicName: body.arabicName?.trim()
+  };
+
+    return this._HttpClient.post(`${this.baseUrl}Categories`, formData, {
+    headers,
+    params
+  });
+  }
+
+  // updateCategory(body: any): Observable<any> {
+
+
+  //   const token = JSON.parse(localStorage.getItem('userToken') || 'null')?.token || JSON.parse(sessionStorage.getItem('userToken') || 'null')?.token;
+  // const headers = { Authorization: `Bearer ${token}` };
+
+  
+
+  //   return this._HttpClient.put(`${this.baseUrl}Categories`, body, { headers });
+  // }
+
+  updateCategory(body: any): Observable<any> {
+  const token =
+    JSON.parse(localStorage.getItem('userToken') || 'null')?.token ||
+    JSON.parse(sessionStorage.getItem('userToken') || 'null')?.token;
+
+  const headers = {
+    Authorization: `Bearer ${token}`
+    // مهم: ما تضيفش Content-Type، Angular هيحطه تلقائي لما تستخدم FormData
+  };
+console.log(body);
+
+  const formData = new FormData();
+  if (body.image) {
+    formData.append('Image', body.image);
+  }
+
+  // بناء الـ query parameters
+  const params = {
+    Id: body.id,
+    EnglishName: body.englishName?.trim(),
+    ArabicName: body.arabicName?.trim()
+  };
+  console.log(formData);
+  
+
+  return this._HttpClient.put(`${this.baseUrl}Categories`, formData, {
+    headers,
+    params
+  });
+}
+
+  deleteCategory(id: number): Observable<any> {
+    const token = JSON.parse(localStorage.getItem('userToken') || 'null')?.token || JSON.parse(sessionStorage.getItem('userToken') || 'null')?.token;
+  const headers = { Authorization: `Bearer ${token}` };
+
+    return this._HttpClient.delete(`${this.baseUrl}Categories/${id}`, { headers });
+  }
   getAllWorkers(pageIndex = 1, pageSize = 10, search = '', categoryId?: number): Observable<workers> {
     let params = new HttpParams()
       .set('pageIndex', pageIndex)
@@ -116,7 +191,16 @@ const headers = this.getToken();
   const headers = { Authorization: `Bearer ${token}` };
   return headers
 }
-
-
+  private toFormData(obj: any): FormData {
+    const formData = new FormData();
+    for (const key in obj) {
+      if (obj[key] != null) {
+        formData.append(key, obj[key]);
+      }
+    }
+    return formData;
+  }
 }
+
+
 

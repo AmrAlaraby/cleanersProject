@@ -24,6 +24,9 @@ import { SidbearComponent } from './sidbear/sidbear.component';
 import { DashboardComponent } from './dasbourd/dasbourd.component';
 import { NgChartsModule } from 'ng2-charts';
 import { AddressesComponent } from './addresses/addresses.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AdminWorkersComponent } from './admin-workers/admin-workers.component';
+import { AdminCatigoriesComponent } from './admin-catigories/admin-catigories.component';
 
 
 
@@ -47,7 +50,9 @@ import { AddressesComponent } from './addresses/addresses.component';
     LayoutDashbordComponent,
     SidbearComponent,
     DashboardComponent,
-    AddressesComponent
+    AddressesComponent,
+    AdminWorkersComponent,
+    AdminCatigoriesComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +61,8 @@ import { AddressesComponent } from './addresses/addresses.component';
     HttpClientModule,
     TranslateModule,
     NgChartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
     
   ]
 })

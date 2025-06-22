@@ -15,6 +15,8 @@ import { OrdersComponent } from 'src/app/orders/orders.component';
 import { DashboardComponent } from './dasbourd/dasbourd.component';
 import { SidbearComponent } from './sidbear/sidbear.component';
 import { AddressesComponent } from './addresses/addresses.component';
+import { AdminWorkersComponent } from './admin-workers/admin-workers.component';
+import { AdminCatigoriesComponent } from './admin-catigories/admin-catigories.component';
 
 const routes: Routes = [
   {path:"",component:LayoutComponent,
@@ -46,6 +48,12 @@ const routes: Routes = [
           {path:'',redirectTo:'home', pathMatch: "full" },
           {
             path:'home',component:DashboardComponent,
+          },
+          {
+            path:'workers',component:AdminWorkersComponent,
+          },
+          {
+            path:'Categories',component:AdminCatigoriesComponent,
           },
         ]
 

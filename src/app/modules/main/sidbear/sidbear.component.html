@@ -2,19 +2,19 @@
   <h5>Main Menu</h5>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link active bg-success text-white rounded" href="#">Dashboard</a>
+      <a class="nav-link " [routerLink]="['/dashboard/home']" [routerLinkActive]="'active bg-success text-white rounded'">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Users</a>
+      <a class="nav-link" >Users</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Workers <span class="badge bg-success ms-2">75</span></a>
+      <a class="nav-link" [routerLink]="['/dashboard/workers']" [routerLinkActive]="'active bg-success text-white rounded'">Workers </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Categories</a>
+      <a class="nav-link" [routerLink]="['/dashboard/Categories']" [routerLinkActive]="'active bg-success text-white rounded'">Categories</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Orders</a>
+      <a class="nav-link" >Orders</a>
     </li>
    
   </ul>

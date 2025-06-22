@@ -15,20 +15,28 @@ import { AuthenticationService } from '../services/authentication.service';
 export class NavbarComponent implements OnInit {
   isLogin: boolean = false;
   userImage: string = 'assets/images/16.webp'; // Replace with actual default image path
-  userName: string = 'User Name'; // Replace with actual user name
+  name: string = 'User Name'; // Replace with actual user name
   isDarkMode = false;
   isWorker:boolean=false;
   isAdmin:boolean=false;
+  currentLang: string = 'en';
 
   constructor(
     private _AuthServece: AuthService,
     private authService: AuthenticationService,
     private _router: Router,
     private translate: TranslateService,
-    private darkModeService: DarkModeService
+    private darkModeService: DarkModeService,
   ) {
     this.darkModeService.getTheme().subscribe(theme => {
       this.isDarkMode = theme === 'dark';
+    });
+    this.currentLang = this.translate.currentLang;
+
+    this.translate.onLangChange.subscribe((event) => {
+      this.currentLang = event.lang;
+      console.log(`Language changed to: ${this.currentLang}`);
+      
     });
   }
 
@@ -38,6 +46,8 @@ export class NavbarComponent implements OnInit {
       next: () => {
 
         if (this.authService.userData.getValue() != null) {
+          console.log(this.authService.userData.getValue());
+          
           this.isLogin = true;
           const accountType = this.authService.userData.getValue()?.accountType?.toLowerCase();
           if (accountType === 'worker') {
@@ -61,7 +71,7 @@ export class NavbarComponent implements OnInit {
           // Update userImage and userName from userData
           const userData = this.authService.userData.getValue();
           this.userImage = userData?.profileImage || this.userImage;
-          this.userName = userData?.name || this.userName;
+          this.name = userData?.UserName || this.name;
         } else {
           this.isLogin = false;
         }
@@ -94,4 +104,10 @@ export class NavbarComponent implements OnInit {
   toggleDarkMode(): void {
     this.darkModeService.toggleTheme();
 }
+
+navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 }
