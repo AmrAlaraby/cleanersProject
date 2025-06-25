@@ -41,7 +41,7 @@ const routes: Routes = [
         path:'orders',component:OrdersComponent,
       },
       {
-        path:'chat',component:ChatComponent,
+        path:'chat/:id',component:ChatComponent,
       },
       {
         path:'dashboard',component:LayoutDashbordComponent,children:[

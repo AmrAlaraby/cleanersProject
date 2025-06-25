@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 import { ChatMessage } from '../interfaces/interfaces';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -22,13 +23,14 @@ export class ChatComponent implements OnInit {
   messageInput: string = 'hii';
   private hubConnection!: signalR.HubConnection;
 
-  constructor(private authService: AuthenticationService) {}
+  constructor(private authService: AuthenticationService,private route: ActivatedRoute) {}
 
   get isConnected(): boolean {
     return this.hubConnection?.state === signalR.HubConnectionState.Connected;
   }
 
   ngOnInit(): void {
+    this.toUserId = this.route.snapshot.paramMap.get('id') || '';
     const storedToken = localStorage.getItem('userToken') || sessionStorage.getItem('userToken');
     const parsedToken = storedToken ? JSON.parse(storedToken) : null;
     this.myToken = parsedToken?.token ?? '';

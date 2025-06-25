@@ -12,7 +12,7 @@ import { AuthUserData } from '../modules/auth/interfaces/auth'; // استيرا�
 export class AuthenticationService {
   
   private readonly BASE_URL = 'https://swipe-backend.tryasp.net/api/Authentication/';
-  private readonly my_url = 'http://localhost:4200/cleanersProject/#/auth';
+  private readonly my_url = 'https://amralaraby.github.io/cleanersProject/#/auth';
 
   // 👇 تم تحديد نوع userData
   userData = new BehaviorSubject<AuthUserData | null>(null);

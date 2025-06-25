@@ -61,7 +61,7 @@
               <p class="mb-0">💰 {{ order.totalAmount }} ج.م</p>
             </div>
             <div>
-              <button [routerLink]="['/chat']" class="pr-sec-btn">chat</button>
+              <button (click)="goToChat(order)" class="pr-sec-btn">chat</button>
             </div>
           </div>
         </div>

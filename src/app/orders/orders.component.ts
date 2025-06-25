@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
 import { Order, Pagination } from '../modules/main/interfaces/interfaces';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
+import { AuthUserData } from '../modules/auth/interfaces/auth';
 
 @Component({
   selector: 'app-orders',
@@ -18,10 +21,23 @@ export class OrdersComponent implements OnInit {
   selectedStatus: string = '';
   searchQuery: string = '';
 
-  constructor(private _MainService: MainService) {}
+  userData!: any;
+
+  constructor(private _MainService: MainService,private _router:Router,private authService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.loadOrders();
+
+
+    this.authService.userData.subscribe({
+      next: () => {
+
+        if (this.authService.userData.getValue() != null) {
+          console.log(this.authService.userData.getValue());
+          this.userData = this.authService.userData.getValue() ;
+        }
+      }
+    });
   }
 
   loadOrders(): void {
@@ -49,5 +65,18 @@ export class OrdersComponent implements OnInit {
     if (page < 1 || page > this.totalPages) return;
     this.pageIndex = page;
     this.loadOrders();
+  }
+
+  goToChat(order:Order): void {
+    debugger
+    if (this.userData.Id == order.customerId) {
+      this._router.navigate(['/chat', order.workerId]);
+      return;
+      
+    }else{
+      this._router.navigate(['/chat', order.customerId]);
+      return;
+    }
+
   }
 }
