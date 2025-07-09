@@ -1,3 +1,7 @@
 .orders{
     margin-top: 76px;
 }
+.star-rating i {
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}

@@ -152,8 +152,9 @@
         "CHANGE_PASSWORD": "Change Password",
         "CHOOSE_CATEGORY": "Choose Category",
         "ADDRESS": "Address",
-        "Orders": "Orders",
-        "Dashbord": "Dashboard"
+      "Orders": "Orders",
+        "Dashbord": "Dashboard",
+        "PROFILE":"Profile"
       },
       "CHATBOT": {
     "TITLE": "Chatbot",

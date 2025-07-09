@@ -1,43 +1,105 @@
-<div class="chat-container">
-    <div class="chat-window mx-5" [ngClass]="{ 'w-100': !isSidebarVisible, 'w-75': isSidebarVisible }">
-      <div class="messages">
-        <div class="message" *ngFor="let message of messages">
-          <div class="message-bubble" [ngClass]="{ 'sent': userId==message.SenderId, 'received': userId!=message.SenderId }">
-            <div>
-              <p>{{ message.Context}}</p>
-            </div>
-            <!-- <div>
-              <p>Final Price: جنيه</p>
-              <p>Final Time: ساعه</p>
-              <button class="form-btn accept">Accept</button>
-              <button class="form-btn deny">Deny</button>
-            </div> -->
-          </div>
-        </div>
-      </div>
-      <div class="input-area">
-        <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" placeholder="Type your message..." />
-        <button class="pr-btn" (click)="sendMessage()">Send</button>
-      </div>
-    </div>
-  
-    <div class="sidebar" *ngIf="isSidebarVisible">
-      <form >
-        <label for="finalPrice">Final Price</label>
-        <input type="number" id="finalPrice" [(ngModel)]="finalPrice" name="finalPrice" required />
-  
-        <label for="finalTime">Final Time</label>
-        <input type="number" id="finalTime" [(ngModel)]="finalTime" name="finalTime" required />
-        <div class="btns">
-            <button type="submit" class="pr-btn">Send</button>
-            <button type="button" class="pr-btn cancel" (click)="cancelForm()">Cancel</button>
-    
-        </div>
-  
-      </form>
-    </div>
-  
-    <button class="sidebar-toggle" (click)="toggleSidebar()">
-        Agreement Details
-    </button>
+<div class="chat-container p-3">
+  <div
+    class="chat-window mx-auto shadow rounded overflow-hidden bg-light"
+    [ngClass]="{ 'w-100': !isSidebarVisible, 'w-75': isSidebarVisible }"
+  >
+    <!-- Messages -->
+    <div class="messages p-3" style="max-height: 75vh; overflow-y: auto;">
+      <div class="message mb-3" *ngFor="let message of messages">
+        <div class="d-flex" [ngClass]="{ 'justify-content-end': userId == message.senderId, 'justify-content-start': userId != message.senderId }">
+
+  <div
+  class="message-bubble position-relative shadow-sm"
+  [ngClass]="{
+    'sent-message': userId == message.senderId,
+    'received-message': userId != message.senderId
+  }"
+  style="max-width: 75%;"
+>
+  <div class="d-flex align-items-center mb-2">
+    <i class="bi bi-person-circle me-2"></i>
+    <strong>{{ userId == message.senderId ? 'You' : message.senderName }}</strong>
   </div>
+  <p class="mb-2 mb-0">{{ message.context }}</p>
+  <div class="text-end mt-2">
+    <small class="text-muted">{{ message.timestamp | date:'short' }}</small>
+  </div>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area border-top bg-light d-flex align-items-center p-3">
+      <input
+        [(ngModel)]="newMessage"
+        (keyup.enter)="sendMessage()"
+        placeholder="Type your message..."
+        class="form-control me-2 rounded-pill px-3"
+      />
+      <button class="btn btn-primary rounded-pill px-4" (click)="sendMessage()">
+        <i class="bi bi-send"></i> Send
+      </button>
+    </div>
+  </div>
+
+  <!-- Sidebar for Agreement Form -->
+  <div
+    class="sidebar border-start bg-white shadow-sm p-4"
+    *ngIf="isSidebarVisible"
+    style="width: 25%;"
+  >
+    <form (ngSubmit)="submitForm()">
+      <h5 class="mb-4">
+        <i class="bi bi-ui-checks-grid"></i> Agreement Details
+      </h5>
+
+      <div class="mb-3">
+        <label for="finalPrice" class="form-label">Final Price</label>
+        <input
+          type="number"
+          id="finalPrice"
+          [(ngModel)]="finalPrice"
+          name="finalPrice"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="finalTime" class="form-label">Final Time (Hours)</label>
+        <input
+          type="number"
+          id="finalTime"
+          [(ngModel)]="finalTime"
+          name="finalTime"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">
+          <i class="bi bi-check-circle"></i> Send
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="cancelForm()"
+        >
+          <i class="bi bi-x-circle"></i> Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Toggle Sidebar Button -->
+  <button
+    class="sidebar-toggle btn btn-outline-secondary mt-3"
+    (click)="toggleSidebar()"
+  >
+    <i class="bi bi-sliders"></i> Toggle Agreement
+  </button>
+</div>

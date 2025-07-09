@@ -13,10 +13,20 @@ import { AllServicesComponent } from './all-services/all-services.component';
 import { CleanersComponent } from './cleaners/cleaners.component';
 import { OrdersComponent } from 'src/app/orders/orders.component';
 import { DashboardComponent } from './dasbourd/dasbourd.component';
-import { SidbearComponent } from './sidbear/sidbear.component';
 import { AddressesComponent } from './addresses/addresses.component';
 import { AdminWorkersComponent } from './admin-workers/admin-workers.component';
 import { AdminCatigoriesComponent } from './admin-catigories/admin-catigories.component';
+import { ProfileComponent } from './profile/profile.component';
+import { OrderCompleteComponent } from './order-complete/order-complete.component';
+import { OtpComponent } from './otp/otp.component';
+import { EmailSubComponent } from './email-sub/email-sub.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { CustomersComponent } from './customers/customers.component';
+import { AdminGuard } from 'src/app/Gaurds/admin-guard.guard';
+import { WorkerGuard } from 'src/app/Gaurds/worker-guard.guard';
+import { RegularUserGuard } from 'src/app/Gaurds/regular-user-guard.guard';
+import { UserTypeOrGuard } from 'src/app/Gaurds/user-type-or.guard';
 
 const routes: Routes = [
   {path:"",component:LayoutComponent,
@@ -29,19 +39,28 @@ const routes: Routes = [
         path:'home',component:HomeComponent,
       },
       {
+        path:'profile',component:ProfileComponent,canActivate: [RegularUserGuard]
+      },
+      {
         path:'about',component:AboutComponent,
       },
       {
-        path:'chooseCategory',component:ChooseCatrgoryComponent,
+        path:'chooseCategory',component:ChooseCatrgoryComponent,canActivate: [WorkerGuard]
       },
       {
-        path:'address',component:AddressesComponent,
+        path:'address',component:AddressesComponent,canActivate: [RegularUserGuard]
       },
       {
-        path:'orders',component:OrdersComponent,
+        path:'orders',component:OrdersComponent,canActivate: [UserTypeOrGuard],
+      },
+       {
+        path:'otp/:id',component:OtpComponent,canActivate: [RegularUserGuard]
       },
       {
-        path:'chat',component:ChatComponent,
+        path:'chat/:id',component:ChatComponent,canActivate: [UserTypeOrGuard]
+      },
+       {
+        path:'orderComplete/:id',component:OrderCompleteComponent,canActivate: [RegularUserGuard]
       },
       {
         path:'dashboard',component:LayoutDashbordComponent,children:[
@@ -49,13 +68,25 @@ const routes: Routes = [
           {
             path:'home',component:DashboardComponent,
           },
+           {
+            path:'emailSub',component:EmailSubComponent,
+        },
+           {
+            path:'orders',component:AdminOrdersComponent,
+          },
+           {
+            path:'contacts',component:ContactsComponent,
+          },
           {
             path:'workers',component:AdminWorkersComponent,
+          },
+           {
+            path:'customers',component:CustomersComponent,
           },
           {
             path:'Categories',component:AdminCatigoriesComponent,
           },
-        ]
+        ],canActivate: [AdminGuard]
 
         
       }, 
@@ -79,11 +110,6 @@ const routes: Routes = [
       {
         path:'contact',component:ContactUsComponent,
       },
-      
-        
-
-
-     
     ],}
 ];
 

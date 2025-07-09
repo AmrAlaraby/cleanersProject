@@ -12,6 +12,6 @@ export class ChatbotService {
   constructor(private http: HttpClient) {}
 
   getBotResponse(message: string): Observable<response> {
-    return this.http.post<any>(`https://cleaning.runasp.net/api/Gemini/generateContent?prompt=${message}`,null);
+    return this.http.post<any>(`https://swipe-backend.tryasp.net/api/Gemini/generateContent?prompt=${message}`,null);
   }
 }

@@ -1,5 +1,4 @@
-import { worker } from './../modules/main/interfaces/interfaces';
-import { AccountType } from './../modules/auth/interfaces/auth';
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../serveses/auth.service';
 import { Router } from '@angular/router';

@@ -1,0 +1,24 @@
+<div class="container py-4 mt-nav">
+  <h2 class="text-center mb-4">📨 إرسال رسالة إلى المشتركين</h2>
+
+  <form (ngSubmit)="sendMessage()" class="mb-4 d-flex gap-2">
+    <input
+      type="text"
+      [(ngModel)]="message"
+      name="message"
+      class="form-control"
+      placeholder="اكتب الرسالة هنا"
+      required
+    />
+    <button class="btn btn-primary px-4" type="submit">إرسال</button>
+  </form>
+
+  <h4>📧 الإيميلات المشتركة</h4>
+  <div *ngIf="isLoading">جارٍ التحميل...</div>
+  <ul class="list-group">
+    <li *ngFor="let email of subscribers" class="list-group-item">
+      {{ email }}
+    </li>
+  </ul>
+</div>
+

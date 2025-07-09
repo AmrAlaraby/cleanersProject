@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h3>جميع الطلبات</h3>
+
+  <div *ngIf="isLoading" class="text-center my-3">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <table class="table table-striped table-bordered" *ngIf="!isLoading && orders.length">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>العميل</th>
+        <th>العامل</th>
+        <th>الخدمة</th>
+        <th>العنوان</th>
+        <th>الحالة</th>
+        <th>السعر</th>
+        <th>تاريخ الإنشاء</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ order.customerName }}</td>
+        <td>{{ order.workerName }}</td>
+        <td>{{ order.serviceArabicName }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.status }}</td>
+        <td>{{ order.totalAmount | currency:'EGP' }}</td>
+        <td>{{ order.createdAt | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!isLoading && orders.length === 0" class="alert alert-warning">
+    لا توجد طلبات لعرضها حالياً.
+  </div>
+</div>

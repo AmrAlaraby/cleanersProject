@@ -27,6 +27,13 @@ import { AddressesComponent } from './addresses/addresses.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminWorkersComponent } from './admin-workers/admin-workers.component';
 import { AdminCatigoriesComponent } from './admin-catigories/admin-catigories.component';
+import { ProfileComponent } from './profile/profile.component';
+import { OrderCompleteComponent } from './order-complete/order-complete.component';
+import { OtpComponent } from './otp/otp.component';
+import { EmailSubComponent } from './email-sub/email-sub.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { CustomersComponent } from './customers/customers.component';
 
 
 
@@ -52,7 +59,14 @@ import { AdminCatigoriesComponent } from './admin-catigories/admin-catigories.co
     DashboardComponent,
     AddressesComponent,
     AdminWorkersComponent,
-    AdminCatigoriesComponent
+    AdminCatigoriesComponent,
+    ProfileComponent,
+    OrderCompleteComponent,
+    OtpComponent,
+    EmailSubComponent,
+    ContactsComponent,
+    AdminOrdersComponent,
+    CustomersComponent
   ],
   imports: [
     CommonModule,
@@ -66,4 +80,6 @@ import { AdminCatigoriesComponent } from './admin-catigories/admin-catigories.co
     
   ]
 })
-export class MainModule{ }
+export class MainModule{ 
+  
+}

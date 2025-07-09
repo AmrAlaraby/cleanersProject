@@ -9,6 +9,7 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
+  userData: any;
 
   constructor(private _httpClint:HttpClient
   ) { }

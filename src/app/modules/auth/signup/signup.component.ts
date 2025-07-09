@@ -13,8 +13,8 @@ import { RegisterCustomerRequest, RegisterWorkerRequest } from '../interfaces/au
 })
 export class SignupComponent implements OnInit {
   loading:boolean=false
-isChecked:boolean=false
-registerForm!: FormGroup;
+  isChecked:boolean=false
+  registerForm!: FormGroup;
   selectedFile?: File;
   successMessage = '';
   errorMessage = '';
@@ -24,11 +24,6 @@ registerForm!: FormGroup;
 constructor(private fb:FormBuilder,private _authService:AuthService,private _router:Router,private authService: AuthenticationService){}
  
 ngOnInit(): void {
-  // const userPayload =localStorage.getItem('userPayload')
-  // if (userPayload && JSON.parse(userPayload).data.accessToken) {
-  //   this._router.navigate(['store/home']) ;}
-
-  
   this.initRegisterForm()
 
 

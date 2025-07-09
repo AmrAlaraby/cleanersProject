@@ -55,64 +55,80 @@
     </div>
 </footer> -->
 
-
 <footer class="footer py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <!-- Logo and Newsletter Section -->
-        <div class="col-lg-6 pb-4">
-          <div class="logo">
-            <img src="assets/logo.png" alt="logo" />
-          </div>
-          <p>{{ 'FOOTER.NEWSLETTER_TEXT' | translate }}</p>
-          <form class="d-flex">
-            <input
-              type="email"
-              class="form-control border-pr me-2"
-              [placeholder]="'FOOTER.PLACEHOLDER' | translate"
-            />
-            <button type="submit" class="pr-sec-btn px-5">
-              {{ 'FOOTER.JOIN' | translate }}
-            </button>
-          </form>
-          <small class="text-muted d-block mt-2">
-            {{ 'FOOTER.PRIVACY_NOTICE' | translate }}
-          </small>
+  <div class="container">
+    <div class="row">
+      <!-- Logo and Newsletter Section -->
+      <div class="col-lg-6 pb-4">
+        <div class="logo">
+          <img src="assets/logo.png" alt="logo" loading="lazy" />
         </div>
-  
-        <!-- Quick Links Section -->
-        <div class="col-md-6 col-lg-3 ps-lg-5 pb-4">
-          <h5>{{ 'FOOTER.QUICK_LINKS' | translate }}</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-dark text-decoration-none">{{ 'FOOTER.HOME' | translate }}</a></li>
-            <li><a href="#" class="text-dark text-decoration-none">{{ 'FOOTER.ABOUT_US' | translate }}</a></li>
-            <li><a href="#" class="text-dark text-decoration-none">{{ 'FOOTER.SERVICES' | translate }}</a></li>
-            <li><a href="#" class="text-dark text-decoration-none">{{ 'FOOTER.CONTACT_US' | translate }}</a></li>
-            <li><a href="#" class="text-dark text-decoration-none">{{ 'FOOTER.FAQS' | translate }}</a></li>
-          </ul>
-        </div>
-  
-        <!-- Social Links Section -->
-        <div class="col-md-6 col-lg-3 ps-lg-5 pb-4">
-          <h5>{{ 'FOOTER.STAY_CONNECTED' | translate }}</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-dark text-decoration-none">Facebook</a></li>
-            <li><a href="#" class="text-dark text-decoration-none">Instagram</a></li>
-            <li><a href="#" class="text-dark text-decoration-none">Twitter</a></li>
-          </ul>
-        </div>
+        <p>{{ 'FOOTER.NEWSLETTER_TEXT' | translate }}</p>
+        <form class="d-flex" (ngSubmit)="subscribe()" #subscribeForm="ngForm">
+  <input
+    type="email"
+    name="email"
+    [(ngModel)]="email"
+    required
+    class="form-control border-pr me-2"
+    [placeholder]="'FOOTER.PLACEHOLDER' | translate"
+  />
+  <button type="submit" class="pr-sec-btn px-5" [disabled]="subscribeForm.invalid">
+    {{ 'FOOTER.JOIN' | translate }}<i class="fa fa-spinner fa-spin fs-1" *ngIf="Loader"></i><p *ngIf="Success">✅</p><p *ngIf="failed">❌</p>
+
+
+       
+  </button>
+</form>
+        <small class="text-muted d-block mt-2">
+          {{ 'FOOTER.PRIVACY_NOTICE' | translate }}
+        </small>
       </div>
-  
-      <div class="row pt-3 mt-3 border-top border-black border-1">
-        <div class="col-md-6">
-          <p class="text-muted mb-0">{{ 'FOOTER.COPYRIGHT' | translate }}</p>
-        </div>
-        <div class="col-md-6 text-md-end">
-          <a href="#" class="text-dark text-decoration-none me-3">{{ 'FOOTER.PRIVACY_POLICY' | translate }}</a>
-          <a href="#" class="text-dark text-decoration-none me-3">{{ 'FOOTER.TERMS' | translate }}</a>
-          <a href="#" class="text-dark text-decoration-none">{{ 'FOOTER.COOKIES' | translate }}</a>
-        </div>
+
+      <!-- Quick Links Section -->
+      <div class="col-md-6 col-lg-3 ps-lg-5 pb-4">
+        <h5>{{ 'FOOTER.QUICK_LINKS' | translate }}</h5>
+        <ul class="list-unstyled">
+          <li><a [routerLink]="['/']" class="text-dark text-decoration-none nav-link">{{ 'FOOTER.HOME' | translate }}</a></li>
+          <li><a [routerLink]="['/about']" class="text-dark text-decoration-none nav-link">{{ 'FOOTER.ABOUT_US' | translate }}</a></li>
+          <li><a [routerLink]="['/services']" class="text-dark text-decoration-none nav-link">{{ 'FOOTER.SERVICES' | translate }}</a></li>
+          <li><a [routerLink]="['/contact']" class="text-dark text-decoration-none nav-link">{{ 'FOOTER.CONTACT_US' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Links Section -->
+      <div class="col-md-6 col-lg-3 ps-lg-5 pb-4">
+        <h5>{{ 'FOOTER.STAY_CONNECTED' | translate }}</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-dark text-decoration-none nav-link">
+              <i class="bi bi-facebook me-1"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-dark text-decoration-none nav-link">
+              <i class="bi bi-instagram me-1"></i> Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="text-dark text-decoration-none nav-link">
+              <i class="bi bi-twitter-x me-1"></i> Twitter
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </footer>
-  
+
+    <!-- Footer Bottom -->
+    <div class="row pt-3 mt-3 border-top border-black border-1">
+      <div class="col-md-6">
+        <p class="text-muted mb-0">{{ 'FOOTER.COPYRIGHT' | translate }}</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a href="#" class="text-dark text-decoration-none me-3">{{ 'FOOTER.PRIVACY_POLICY' | translate }}</a>
+        <a href="#" class="text-dark text-decoration-none me-3">{{ 'FOOTER.TERMS' | translate }}</a>
+        <a href="#" class="text-dark text-decoration-none">{{ 'FOOTER.COOKIES' | translate }}</a>
+      </div>
+    </div>
+  </div>
+</footer>

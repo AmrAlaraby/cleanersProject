@@ -16,6 +16,10 @@ export class AdminCatigoriesComponent {
   searchTerm: string = '';
   currentPage: number = 1;
   itemsPerPage: number = 5;
+  addLoader:boolean=false;
+  editLoader:boolean=false
+  deleteLoader:boolean=false
+
 
   // لاضافة كاتيجوري جديد
   newCategory = {
@@ -64,23 +68,7 @@ export class AdminCatigoriesComponent {
     this.currentPage = 1;
   }
 
-  // onImageSelected(event: any) {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-  //     if (!allowedTypes.includes(file.type)) {
-  //       alert('Only JPG/PNG images are allowed.');
-  //       return;
-  //     }
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       this.imagePreview = reader.result as string;
-  //       this.newCategory.image = this.imagePreview;
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // }
-
+  
 
 onImageSelected(event: any) {
   const file = event.target.files[0];
@@ -102,26 +90,6 @@ onImageSelected(event: any) {
     this.newCategory.image = file;
   }
 }
-
-  // onEditImageSelected(event: any) {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-  //     if (!allowedTypes.includes(file.type)) {
-  //       alert('Only JPG/PNG images are allowed.');
-  //       return;
-  //     }
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       this.editImagePreview = reader.result as string;
-  //       if (this.editCategoryData) {
-  //         this.editCategoryData.image = this.editImagePreview;
-  //       }
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // }
-
   onEditImageSelected(event: any) {
   const file = event.target.files[0];
 
@@ -148,11 +116,13 @@ onImageSelected(event: any) {
 
 
   createCategory(form: NgForm) {
+    this.addLoader=true
     if (form.invalid) return;
     this._mainService.createCategory(this.newCategory).subscribe(() => {
       this.getAllCategories();
       form.resetForm();
       this.imagePreview = null;
+      this.addLoader=false
     });}
 
   openEditModal(category: any) {
@@ -161,6 +131,9 @@ onImageSelected(event: any) {
   }
 
   updateCategory() {
+    console.log(this.editImagePreview);
+    
+    this.editLoader=true
  
     if (!this.editCategoryData) return;
 
@@ -170,6 +143,8 @@ onImageSelected(event: any) {
       this.editCategoryData = null;
 
        this.editModalCloseBtn.nativeElement.click();
+    this.editLoader=false
+
     
   });
   }
@@ -179,10 +154,13 @@ onImageSelected(event: any) {
   }
 
   deleteCategory() {
+    this.deleteLoader=false
     if (!this.selectedCategoryIdToDelete) return;
     this._mainService.deleteCategory(this.selectedCategoryIdToDelete).subscribe(() => {
       this.getAllCategories();
       this.selectedCategoryIdToDelete = null;
+      this.deleteLoader=true
+
     });
   }
 }

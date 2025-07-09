@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AllServicesComponent implements OnInit {
   services:categories=[]
+  Loader:boolean=false;
   constructor(private _mainService:MainService,public translate: TranslateService
   ){}
 
@@ -23,9 +24,10 @@ export class AllServicesComponent implements OnInit {
   });
   }
   getCategories(){
+    this.Loader=true
     this._mainService.getAllCategories().subscribe({
       next:(res)=>{
-        console.log(res)
+        this.Loader=false
         this.services=res
       },complete:()=>this.updateCategoryNames()
     })

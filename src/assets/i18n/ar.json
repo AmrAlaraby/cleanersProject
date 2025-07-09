@@ -150,7 +150,8 @@
         "CHOOSE_CATEGORY": "اختر الفئة",
         "ADDRESS": "العنوان",
         "Orders": "الطلبات",
-        "Dashbord": "لوحة التحكم"
+        "Dashbord": "لوحة التحكم",
+        "PROFILE":"الملف الشخصي"
       },
       "CHATBOT": {
     "TITLE": "المساعد الذكي",

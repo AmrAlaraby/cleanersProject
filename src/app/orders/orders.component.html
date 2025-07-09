@@ -1,80 +1,138 @@
-<div class="container orders">
-
-  <!-- بحث وفلترة -->
-  <div class="row mb-3 g-2 d-flex">
-    <div class="col-md-6 d-flex justify-content-center">
-      <input
-        type="text"
-        [(ngModel)]="searchQuery"
-        (ngModelChange)="applyFilters()"
-        class="form-control w-100"
-        placeholder="🔍 بحث باسم العميل"
-      />
-    </div>
-
+<div class="container py-4 mt-nav">
+  <!-- Filters -->
+  <div class="row g-3 mb-4 align-items-end">
     <div class="col-md-6">
-      <select [(ngModel)]="selectedStatus" (change)="applyFilters()" class="form-select">
+      <label class="form-label fw-bold">🔍 بحث باسم العميل</label>
+      <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()" class="form-control" placeholder="اكتب اسم العميل..." />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label fw-bold">📌 الحالة</label>
+      <select class="form-select" [(ngModel)]="selectedStatus" (change)="applyFilters()">
         <option value="">جميع الحالات</option>
-        <option value="AwaitingWorkerAcceptance">قيد التنفيذ</option>
-        <option value="Completed">تم التنفيذ</option>
-        <option value="Cancelled">تم الإلغاء</option>
+        <option value="AwaitingWorkerAcceptance">🕒 في انتظار موافقة العامل</option>
+        <option value="ApprovedAndScheduled">✅ تم الموافقة</option>
+        <option value="WaitOtpCodeCompleted">🔐 انتظار رمز التأكيد</option>
+        <option value="Completed">🎉 تم التنفيذ</option>
+        <option value="Cancelled">❌ تم الإلغاء</option>
       </select>
     </div>
   </div>
 
-  <!-- قائمة الطلبات -->
-  <div class="row row-cols-1 g-4">
-    <div class="col" *ngFor="let order of filteredOrders">
-      <div
-        class="card shadow-sm border-start border-4"
-        [ngClass]="{
-          'border-warning': order.status === 'AwaitingWorkerAcceptance',
-          'border-success': order.status === 'Completed',
-          'border-danger': order.status === 'Cancelled'
-        }"
-      >
-        <div class="card-body">
-          <div class="d-flex justify-content-between mb-2">
-            <h5 class="card-title mb-0">#{{ order.status }}</h5>
-            <span class="badge fs-5"
-              [ngClass]="{
-                'bg-warning text-dark': order.status === 'AwaitingWorkerAcceptance',
-                'bg-success': order.status === 'Completed',
-                'bg-danger': order.status === 'Cancelled'
-              }"
-            >
-              {{
-                order.status === 'AwaitingWorkerAcceptance'
-                  ? 'قيد التنفيذ'
-                  : order.status === 'Completed'
-                  ? 'تم التنفيذ'
-                  : 'تم الإلغاء'
-              }}
-            </span>
-          </div>
+  <!-- Orders -->
+  <div *ngFor="let order of filteredOrders" class="card mb-4 shadow-lg rounded-4"
+       [ngClass]="{
+         'border-start border-4 border-warning': order.status === 'AwaitingWorkerAcceptance',
+         'border-start border-4 border-info': order.status === 'ApprovedAndScheduled',
+         'border-start border-4 border-success': order.status === 'Completed',
+         'border-start border-4 border-dark': order.status === 'WaitOtpCodeCompleted',
+         'border-start border-4 border-danger': order.status === 'Cancelled'
+       }">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold text-primary mb-0">📦 طلب رقم: {{ order.id }}</h4>
+        <span class="badge fs-6 px-3 py-2"
+          [ngClass]="{
+            'bg-warning text-dark': order.status === 'AwaitingWorkerAcceptance',
+            'bg-info text-dark': order.status === 'ApprovedAndScheduled',
+            'bg-success': order.status === 'Completed',
+            'bg-secondary': order.status === 'WaitOtpCodeCompleted',
+            'bg-danger': order.status === 'Cancelled'
+          }">{{ order.status }}</span>
+      </div>
 
-          <div class="d-flex justify-content-between align-items-end">
-            <div>
-              <p class="mb-1">👤 {{ order.customerName }}</p>
-              <p class="mb-1">🧰 {{ order.workerName }}</p>
-              <p class="mb-1">📅 {{ order.createdAt | date: 'short' }}</p>
-              <p class="mb-0">💰 {{ order.totalAmount }} ج.م</p>
-            </div>
-            <div>
-              <button [routerLink]="['/chat']" class="pr-sec-btn">chat</button>
-            </div>
-          </div>
+      <ul class="list-unstyled mb-4 fs-6">
+        <li>
+          <strong>👤 العميل:</strong> {{ order.customerName }}
+          <span *ngIf="ratingSummaries[order.customerId]">
+            - ⭐ {{ ratingSummaries[order.customerId]['averageRating'] | number: '1.1-1' }}
+          </span>
+        </li>
+        <li>
+          <strong>🧰 الفني:</strong> {{ order.workerName }}
+          <span *ngIf="ratingSummaries[order.workerId]">
+            - ⭐ {{ ratingSummaries[order.workerId]['averageRating'] | number: '1.1-1' }}
+          </span>
+        </li>
+        <li><strong>💰 السعر:</strong> {{ order.totalAmount }} ج.م</li>
+        <li><strong>📅 التاريخ:</strong> {{ order.scheduledDate | date:'medium' }}</li>
+      </ul>
+
+      <!-- Review Form -->
+      <!-- ⭐ Review Display OR Form -->
+<div *ngIf="order.status === 'Completed'">
+  <!-- ✅ عرض التقييم لو المستخدم قيّم بالفعل -->
+  <div *ngIf="hasUserReviewed(order)">
+    <p class="mb-1"><strong>✅ تقييمك:</strong></p>
+    <p>⭐ {{ getMyReview(order)?.rating }} / 5</p>
+    <p><em>{{ getMyReview(order)?.comment }}</em></p>
+      <!-- <button class="btn btn-sm btn-outline-danger" (click)="deleteReview(order)">
+      🗑️ حذف التقييم
+    </button> -->
+  </div>
+
+  <!-- 📝 عرض فورم التقييم لو لسه ما قيّمش -->
+  <div *ngIf="!hasUserReviewed(order)">
+    <label class="form-label">✨ تقييم الفني:</label>
+    <div class="d-flex align-items-center gap-2">
+      <ng-container *ngFor="let star of [1,2,3,4,5]">
+       <i class="fa-star fa fs-4"
+ [ngClass]="{
+  'fas text-warning': hoveredStar >= star || ratingForm[order.id].rating >= star,
+  'far text-muted': hoveredStar < star && ratingForm[order.id].rating < star
+}"
+
+   (mouseenter)="hoveredStar = star"
+   (mouseleave)="hoveredStar = 0"
+   (click)="setRating(order.id, star)">
+</i>
+
+      </ng-container>
+    </div>
+    <textarea class="form-control mt-2" rows="2" [(ngModel)]="ratingForm[order.id].comment" placeholder="اكتب تعليقًا (اختياري)"></textarea>
+    <button class="btn btn-sm btn-primary mt-2 fw-bold" (click)="submitReview(order)">✅ إرسال التقييم</button>
+  </div>
+</div>
+
+
+      <!-- Actions -->
+       <div class="row g-3">
+        <div class="col-md-4" *ngIf="!isWorker && order.status === 'AwaitingWorkerAcceptance'">
+          <input class="form-control" type="number" [(ngModel)]="newTotalAmount" placeholder="سعر جديد" />
+          <button class="btn btn-outline-warning w-100 mt-1 fw-bold" (click)="updateTotalAmount(order.id)">💵 تحديث السعر</button>
+        </div>
+
+        <div class="col-md-4" *ngIf="!isWorker && order.status === 'AwaitingWorkerAcceptance'">
+          <input class="form-control" type="date" [(ngModel)]="newScheduledDate" />
+          <button class="btn btn-outline-info w-100 mt-1 fw-bold" (click)="updateDate(order.id)">📆 تحديث التاريخ</button>
+        </div>
+
+        <div class="col-md-4" *ngIf="!isWorker && order.status !== 'Completed'">
+          <input class="form-control" type="text" [(ngModel)]="cancelReason" placeholder="سبب الإلغاء" />
+          <button class="btn btn-outline-danger w-100 mt-1 fw-bold" (click)="cancelOrder(order.id)">❌ إلغاء الطلب</button>
+        </div>
+
+        <div class="col-md-4" *ngIf="isWorker && order.status === 'WaitOtpCodeCompleted'">
+          <input class="form-control" type="text" [(ngModel)]="workerOtpCode" placeholder="OTP من العميل" />
+          <button class="btn btn-dark w-100 mt-1 fw-bold" (click)="workerCompleteOrder(order.id)">🧑‍🔧 إتمام الفني</button>
+        </div>
+
+        <div class="col-md-4" *ngIf="!isWorker && order.status === 'ApprovedAndScheduled'">
+          <button class="btn btn-success w-100 fw-bold" (click)="completeOrder(order.id)">🎯 إتمام العميل</button>
+        </div>
+
+        <div class="col-md-4" *ngIf="isWorker && order.status === 'AwaitingWorkerAcceptance'">
+          <button class="btn btn-primary w-100 fw-bold" (click)="acceptOrder(order.id)">🤝 قبول الفني</button>
+        </div>
+
+        <div class="col-md-4" *ngIf="order.status !== 'Completed'">
+          <button class="btn btn-outline-secondary w-100 fw-bold" (click)="goToChat(order)">💬 المحادثة</button>
         </div>
       </div>
-    </div>
-
-    <div *ngIf="filteredOrders.length === 0" class="alert alert-info mt-4 text-center">
-      لا توجد طلبات مطابقة
     </div>
   </div>
 
   <!-- Pagination -->
-  <nav *ngIf="totalPages>1" class="d-flex justify-content-center mt-4">
+  <nav *ngIf="totalPages > 1" class="d-flex justify-content-center mt-4">
     <ul class="pagination">
       <li class="page-item" [class.disabled]="pageIndex === 1">
         <button class="page-link" (click)="goToPage(pageIndex - 1)">السابق</button>
@@ -87,5 +145,4 @@
       </li>
     </ul>
   </nav>
-
 </div>

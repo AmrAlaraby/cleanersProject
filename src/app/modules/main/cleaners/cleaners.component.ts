@@ -1,7 +1,9 @@
+// CleanersComponent.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MainService } from 'src/app/services/main.service';
-import { Address, Toast, worker, workers } from '../interfaces/interfaces';
+import { Address, Toast, worker } from '../interfaces/interfaces';
+import { CreateOrderRequest } from '../interfaces/order.models';
 
 @Component({
   selector: 'app-cleaners',
@@ -9,6 +11,7 @@ import { Address, Toast, worker, workers } from '../interfaces/interfaces';
   styleUrls: ['./cleaners.component.css']
 })
 export class CleanersComponent implements OnInit {
+  math = Math;
   workers: worker[] = [];
   totalCount = 0;
   pageIndex = 1;
@@ -16,6 +19,7 @@ export class CleanersComponent implements OnInit {
   search = '';
   categoryId!: number;
   searchTimeout: any;
+  Loader = false;
 
   showModal = false;
   modalStep = 1;
@@ -23,16 +27,13 @@ export class CleanersComponent implements OnInit {
   selectedWorker: worker | null = null;
   addresses: Address[] = [];
   selectedAddressId: number | null = null;
-
   initialPrice: number | null = null;
 
-    toasts: Toast[] = [];
+  toasts: Toast[] = [];
   private toastIdCounter = 0;
 
-  constructor(
-    private route: ActivatedRoute,
-    private _mainService: MainService
-  ) {}
+
+  constructor(private route: ActivatedRoute, private _mainService: MainService) {}
 
   ngOnInit(): void {
     this.categoryId = Number(this.route.snapshot.paramMap.get('id'));
@@ -40,19 +41,21 @@ export class CleanersComponent implements OnInit {
   }
 
   loadWorkers(): void {
+    this.Loader = true;
     this._mainService.getAllWorkers(this.pageIndex, this.pageSize, this.search, this.categoryId)
       .subscribe((res: any) => {
         this.workers = res.data;
         this.totalCount = res.count;
+        this.Loader = false;
+        console.log(res);
+        
       });
   }
 
   onSearchChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     const searchValue = input.value;
-
     clearTimeout(this.searchTimeout);
-
     this.searchTimeout = setTimeout(() => {
       this.search = searchValue;
       this.pageIndex = 1;
@@ -70,7 +73,6 @@ export class CleanersComponent implements OnInit {
     return Math.ceil(this.totalCount / this.pageSize);
   }
 
-  // Open modal and start booking process
   onBookNow(worker: worker): void {
     this.selectedWorker = worker;
     this.modalStep = 1;
@@ -102,26 +104,23 @@ export class CleanersComponent implements OnInit {
       this.showToast('Please enter a valid price.', 'Warning', 'warning');
       return;
     }
-
     if (!this.selectedWorker || this.selectedAddressId === null) {
-       this.showToast('Invalid state. Please try again.', 'Error', 'error');
+      this.showToast('Invalid state. Please try again.', 'Error', 'error');
       this.showModal = false;
       return;
     }
-
-    const orderPayload = {
+    const orderPayload: CreateOrderRequest = {
       workerId: this.selectedWorker.id,
       addressId: this.selectedAddressId,
       totalAmount: this.initialPrice,
-      categoryId: this.categoryId
+      categoryId: this.categoryId,
     };
-
     this._mainService.createOrder(orderPayload).subscribe({
       next: () => {
         this.showToast('Order created successfully!', 'Success', 'success');
         this.showModal = false;
       },
-       error: () => this.showToast('Failed to create order', 'Error', 'error'),
+      error: () => this.showToast('Failed to create order', 'Error', 'error'),
     });
   }
 
@@ -129,23 +128,15 @@ export class CleanersComponent implements OnInit {
     this.showModal = false;
   }
 
-  showToast(
-    message: string,
-    title: string = 'Notification',
-    type: 'success' | 'error' | 'warning' | 'info' = 'info',
-    duration = 3000
-  ): void {
+  showToast(message: string, title = 'Notification', type: 'success' | 'error' | 'warning' | 'info' = 'info', duration = 3000): void {
     const id = ++this.toastIdCounter;
     const newToast: Toast = { id, message, title, type };
     this.toasts.push(newToast);
-
-    // Remove toast after duration
     setTimeout(() => {
       this.toasts = this.toasts.filter(t => t.id !== id);
     }, duration);
   }
 
-  // Manually remove toast on close button click
   removeToast(toast: Toast): void {
     this.toasts = this.toasts.filter(t => t.id !== toast.id);
   }

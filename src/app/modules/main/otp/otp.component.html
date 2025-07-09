@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="text-center">
+    <div class="mb-5">
+      <h1 class="display-4 fw-bold text-success">Order Completed ✅</h1>
+      <p class="lead mt-3">شكراً لاستخدامك خدمتنا!</p>
+    </div>
+
+    <div *ngIf="loading" class="text-secondary">
+      جاري توليد رمز OTP...
+    </div>
+
+    <div *ngIf="!loading && otpCode">
+      <h4>رمز OTP الخاص بك:</h4>
+      <div class="display-5 fw-bold text-success">{{ otpCode }}</div>
+    </div>
+
+    <div *ngIf="!loading && !otpCode" class="text-danger mt-3">
+      فشل في الحصول على رمز OTP. يرجى المحاولة لاحقًا.
+    </div>
+  </div>
+</div>

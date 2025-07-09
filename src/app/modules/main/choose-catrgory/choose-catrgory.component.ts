@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class ChooseCatrgoryComponent {
   toastMessage: string = '';
   isLoading = false;
-
+  Loader:boolean=false
+  chosedId=0
    services:categories=[]
      constructor(private _mainService:MainService,public translate: TranslateService,private _router:Router
      ){}
@@ -29,7 +30,7 @@ export class ChooseCatrgoryComponent {
      }
      choose(id: number) {
       this.isLoading = true;
-    
+      this.chosedId=id
       this._mainService.ChooseCategories(id).subscribe({
         next: (res: any) => {
           this.isLoading = false;
@@ -55,10 +56,13 @@ export class ChooseCatrgoryComponent {
 
      
      getCategories(){
+      this.Loader=true
        this._mainService.getAllCategories().subscribe({
          next:(res)=>{
            console.log(res)
            this.services=res
+           this.Loader=false
+
          },complete:()=>this.updateCategoryNames()
        })
      }

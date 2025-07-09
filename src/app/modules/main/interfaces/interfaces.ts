@@ -18,19 +18,20 @@ data: worker[]
 }
 
 export interface worker {
-id: string
-userName: string
-fullName: string
-email: string
-phoneNumber: string
-address: string
-profilePictureUrl: string
-description: string
-hourlyRate: number
-experienceYears: number
-cleaningTimes: number
-rating: number
-categories: WorkerCategory[]
+  id: string;
+  userName: string;
+  fullName: string;
+  email?: string; // مش ظهر في الريسبونس، خليه اختياري
+  phoneNumber?: string; // مش ظهر في الريسبونس، خليه اختياري
+  address: string | null; // جاي null في الريسبونس
+  profilePictureUrl: string;
+  description: string;
+  hourlyRate: number;
+  experienceYears: number;
+  cleaningTimes: number;
+  averageRating: number;
+  ratingsCount: number;
+  categories: WorkerCategory[];
 }
 
 export interface Toast {
@@ -87,21 +88,102 @@ export interface UpdateOrderTotalAmountRequest {
   newTotalAmount: number;
 }
 
+
 export interface Order {
-  customerId: string
-  customerName: string
-  workerId: string
-  workerName: string
-  serviceEnglishName: string
-  serviceArabicName: string
-  address: string
-  status: string
-  totalAmount: number
-  createdAt: string
-  updatedAt: any
-  completedAt: any
-  canceledAt: any
-  startedAt: any
+  id: string;
+  customerId: string;
+  customerName: string;
+  workerId: string;
+  workerName: string;
+  serviceEnglishName: string;
+  serviceArabicName: string;
+  address: string;
+  status: string;
+  totalAmount: number;
+  createdAt: string;
+  scheduledDate?: string;
+  reviews?: {
+    reviewerId: string;
+    reviewerName: string;
+    rating: number;
+    comment: string;
+    createdAt: string;
+  }[];
+}
+
+export interface DashboardOrdersRequest {
+  days: number;
+}
+
+export interface OrdersDashboardDto {
+  statusCounts: { name: string; count: number }[];
+  ordersPerDay: { date: string; value: number }[];
+  revenuePerDay: { date: string; value: number }[];
+  averageTicketSize: number;
+  topCategories: {
+    categoryId: number;
+    categoryName: string;
+    revenue: number;
+  }[];
+  topWorkers: {
+    workerId: string;
+    workerName: string;
+    orders: number;
+    revenue: number;
+  }[];
+}
+export interface CustomerToReturnDto {
+  id: string;
+  fullName:string;
+  userName: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  dateOfBirth:Date
+  // أضف أي خصائص إضافية هنا إن كانت موجودة من الـ API
+}
+export interface RatingSummaryDto {
+  averageRating: number;
+  totalReviews: number;
+}
+
+
+export interface SubmitReviewRequest {
+  rating: number;
+  comment: string;
+  orderId: string;
+}
+
+
+export interface Customer {
+  id: string;
+  userName: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+}
+
+export interface OrderToReturnDto {
+  id: string;
+  customerId: string;
+  customerName: string;
+  workerId: string;
+  workerName: string;
+  serviceEnglishName: string;
+  serviceArabicName: string;
+  address: string;
+  status: string;
+  totalAmount: number;
+  serviceDetails?: string;
+  specialInstructions?: string;
+  cancellationReason?: string;
+  createdAt: string;
+  updatedAt?: string;
+  scheduledDate?: string;
+  completedDate?: string;
+  canceledAt?: string;
 }
 
 export interface Pagination<T> {
@@ -113,22 +195,22 @@ export interface Pagination<T> {
 
 export interface ChatMessage {
 
-  Id?: string;
+  id?: string;
 
-  MainChatId?: string;
+  mainChatId?: string;
 
-  SenderId?: string;
+  senderId?: string;
 
-  SenderName?: string;
+  senderName?: string;
 
-  ReceiverId?: string;
+  receiverId?: string;
 
-  ReceiverName?: string;
+  receiverName?: string;
 
-  Context?: string;
+  context?: string;
 
-  Timestamp?: Date;  // نستخدم string عشان تواريخ الـ JSON عادةً بتكون string
+  timestamp?: string;  // نستخدم string عشان تواريخ الـ JSON عادةً بتكون string
 
-  Status?: string;
+  status?: string;
 
 }

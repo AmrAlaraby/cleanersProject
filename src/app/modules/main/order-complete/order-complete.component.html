@@ -1,0 +1,26 @@
+<div class="container py-4 mt-nav" *ngIf="order">
+  <div class="card p-3 shadow-sm">
+    <h4 class="mb-3">معلومات الطلب رقم {{ order.id }}</h4>
+    <ul class="list-group mb-3">
+      <li class="list-group-item">👤 العميل: {{ order.customerName }}</li>
+      <li class="list-group-item">🧰 الفني: {{ order.workerName }}</li>
+      <li class="list-group-item">💰 السعر: {{ order.totalAmount }} ج.م</li>
+      <li class="list-group-item">🗓️ التاريخ: {{ order.scheduledDate | date:'short' }}</li>
+      <li class="list-group-item">📌 الحالة: {{ order.status }}</li>
+      <li class="list-group-item">📍 العنوان: {{ order.address }}</li>
+    </ul>
+
+    <div class="row g-2">
+      <div class="col-md-6">
+        <button class="btn btn-outline-success w-100" (click)="payWithCash()" >💵 الدفع نقدًا</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-outline-primary w-100" (click)="payWithVisa()">💳 الدفع بالفيزا</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-info mt-4" *ngIf="!order">
+  جاري تحميل بيانات الطلب...
+</div>
