@@ -57,10 +57,7 @@ const routes: Routes = [
         path:'otp/:id',component:OtpComponent,canActivate: [RegularUserGuard]
       },
       {
-        path:'chat/:id',component:ChatComponent,canActivate: [UserTypeOrGuard]
-      },
-       {
-        path:'orderComplete/:id',component:OrderCompleteComponent,canActivate: [RegularUserGuard]
+        path:'chat',component:ChatComponent,
       },
       {
         path:'dashboard',component:LayoutDashbordComponent,children:[

@@ -40,6 +40,7 @@
           }">{{ order.status }}</span>
       </div>
 
+<<<<<<< HEAD
       <ul class="list-unstyled mb-4 fs-6">
         <li>
           <strong>👤 العميل:</strong> {{ order.customerName }}
@@ -126,6 +127,19 @@
 
         <div class="col-md-4" *ngIf="order.status !== 'Completed'">
           <button class="btn btn-outline-secondary w-100 fw-bold" (click)="goToChat(order)">💬 المحادثة</button>
+=======
+          <div class="d-flex justify-content-between align-items-end">
+            <div>
+              <p class="mb-1">👤 {{ order.customerName }}</p>
+              <p class="mb-1">🧰 {{ order.workerName }}</p>
+              <p class="mb-1">📅 {{ order.createdAt | date: 'short' }}</p>
+              <p class="mb-0">💰 {{ order.totalAmount }} ج.م</p>
+            </div>
+            <div>
+              <button (click)="goToChat(order)" class="pr-sec-btn">chat</button>
+            </div>
+          </div>
+>>>>>>> 4932474bb4a331c8830cc9ba3a4cb1caff239fc7
         </div>
       </div>
     </div>

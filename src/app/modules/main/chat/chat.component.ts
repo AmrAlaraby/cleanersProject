@@ -21,10 +21,15 @@ export class ChatComponent implements OnInit {
   toUserId: string = '';
   myToken: string = '';
   private hubConnection!: signalR.HubConnection;
+<<<<<<< HEAD
   constructor(
     private authService: AuthenticationService,
     private route: ActivatedRoute
   ) {}
+=======
+
+  constructor(private authService: AuthenticationService,private route: ActivatedRoute) {}
+>>>>>>> 4932474bb4a331c8830cc9ba3a4cb1caff239fc7
 
   get isConnected(): boolean {
     return this.hubConnection?.state === signalR.HubConnectionState.Connected;
