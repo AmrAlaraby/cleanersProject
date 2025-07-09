@@ -3,7 +3,6 @@ import { RatingSummaryDto, SubmitReviewRequest, worker } from './../modules/main
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainService } from '../services/main.service';
-<<<<<<< HEAD
 import { AuthenticationService } from '../services/authentication.service';
 import {
   Order,
@@ -13,12 +12,6 @@ import {
   CancelOrderRequest,
   WorkerCompleteOrderRequest,
 } from '../modules/main/interfaces/order.models';
-=======
-import { Order, Pagination } from '../modules/main/interfaces/interfaces';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
-import { AuthUserData } from '../modules/auth/interfaces/auth';
->>>>>>> 4932474bb4a331c8830cc9ba3a4cb1caff239fc7
 
 @Component({
   selector: 'app-orders',
@@ -42,7 +35,6 @@ export class OrdersComponent implements OnInit {
   isWorker: boolean = false;
   userData!: any;
 
-<<<<<<< HEAD
   // ⭐️ Review
   hoveredStar: number = 0;
   ratingForm: { [orderId: string]: { rating: number; comment: string } } = {};
@@ -65,25 +57,6 @@ export class OrdersComponent implements OnInit {
     this.orders.forEach(order => {
   if (!this.ratingForm[order.id]) {
     this.ratingForm[order.id] = { rating: 0, comment: '' };
-=======
-  userData!: any;
-
-  constructor(private _MainService: MainService,private _router:Router,private authService: AuthenticationService) {}
-
-  ngOnInit(): void {
-    this.loadOrders();
-
-
-    this.authService.userData.subscribe({
-      next: () => {
-
-        if (this.authService.userData.getValue() != null) {
-          console.log(this.authService.userData.getValue());
-          this.userData = this.authService.userData.getValue() ;
-        }
-      }
-    });
->>>>>>> 4932474bb4a331c8830cc9ba3a4cb1caff239fc7
   }
 });
     
@@ -147,7 +120,6 @@ deleteReview(order: Order): void {
     this.loadOrders();
   }
 
-<<<<<<< HEAD
   updateTotalAmount(orderId: string): void {
     const payload: UpdateOrderTotalAmountRequest = { newTotalAmount: this.newTotalAmount };
     this._MainService.updateOrderTotalAmount(orderId, payload).subscribe(() => this.loadOrders());
@@ -244,18 +216,5 @@ console.log(accountType);
       if (order.customerId) this.loadRatingSummary(order.customerId);
       if (order.workerId) this.loadRatingSummary(order.workerId);
     });
-=======
-  goToChat(order:Order): void {
-    debugger
-    if (this.userData.Id == order.customerId) {
-      this._router.navigate(['/chat', order.workerId]);
-      return;
-      
-    }else{
-      this._router.navigate(['/chat', order.customerId]);
-      return;
-    }
-
->>>>>>> 4932474bb4a331c8830cc9ba3a4cb1caff239fc7
   }
 }
