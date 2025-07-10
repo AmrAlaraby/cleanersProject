@@ -620,7 +620,57 @@
     "CANCEL": "Cancel",
     "NEXT": "Next",
     "BOOK": "Confirm Booking"
+  },"PLATFORM_PAYMENT_REQUIRED": "You must pay the platform fee.",
+"PAY_NOW": "Pay Now","VERIFY_ACCOUNT": {
+  "NOTE": "You must verify your identity by uploading your ID and a selfie.",
+  "ID_IMAGE": "National ID Image",
+  "SELFIE_IMAGE": "Selfie Image",
+  "SUBMIT": "Verify Now"
+},"ALERT": {
+  "ACCOUNT_NOT_VERIFIED": "Your account is not verified.",
+  "VERIFY_NOW": "Verify Now"
+},
+  "ordersA": {
+    "search_by_customer": "Search by customer name",
+    "search_placeholder": "Enter customer name...",
+    "status_title": "Status",
+    "status": {
+      "all": "All statuses",
+      "awaiting": "Awaiting worker acceptance",
+      "approved": "Approved and scheduled",
+      "otp_wait": "Waiting for OTP confirmation",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "order_number": "Order No.",
+    "customer": "Customer",
+    "worker": "Worker",
+    "price": "Price",
+    "egp": "EGP",
+    "date": "Date",
+    "address": "Address",
+    "your_rating": "Your Rating",
+    "rate_worker": "Rate the worker",
+    "comment_optional": "Write a comment (optional)",
+    "submit_review": "Submit Review",
+    "new_price": "New Price",
+    "update_price": "Update Price",
+    "update_date": "Update Date",
+    "cancel_reason": "Reason for cancellation",
+    "cancel_order": "Cancel Order",
+    "otp_placeholder": "OTP from customer",
+    "worker_complete": "Worker Complete",
+    "customer_complete": "Customer Complete",
+    "worker_accept": "Worker Accept",
+    "chat": "Chat",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of"
   }
+
+
+
 
 
 

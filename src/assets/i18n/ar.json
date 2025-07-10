@@ -625,7 +625,48 @@
 },"ALERT": {
   "ACCOUNT_NOT_VERIFIED": "حسابك غير مفعل.",
   "VERIFY_NOW": "فعّل الحساب الآن"
-}
+},
+
+  "ordersA": {
+    "search_by_customer": "بحث باسم العميل",
+    "search_placeholder": "اكتب اسم العميل...",
+    "status_title": "الحالة",
+    "status": {
+      "all": "جميع الحالات",
+      "awaiting": "في انتظار موافقة العامل",
+      "approved": "تم الموافقة",
+      "otp_wait": "انتظار رمز التأكيد",
+      "completed": "تم التنفيذ",
+      "cancelled": "تم الإلغاء"
+    },
+    "order_number": "طلب رقم",
+    "customer": "العميل",
+    "worker": "الفني",
+    "price": "السعر",
+    "egp": "ج.م",
+    "date": "التاريخ",
+    "address": "العنوان",
+    "your_rating": "تقييمك",
+    "rate_worker": "تقييم الفني",
+    "comment_optional": "اكتب تعليقًا (اختياري)",
+    "submit_review": "إرسال التقييم",
+    "new_price": "سعر جديد",
+    "update_price": "تحديث السعر",
+    "update_date": "تحديث التاريخ",
+    "cancel_reason": "سبب الإلغاء",
+    "cancel_order": "إلغاء الطلب",
+    "otp_placeholder": "OTP من العميل",
+    "worker_complete": "إتمام الفني",
+    "customer_complete": "إتمام العميل",
+    "worker_accept": "قبول الفني",
+    "chat": "المحادثة",
+    "previous": "السابق",
+    "next": "التالي",
+    "page": "صفحة",
+    "of": "من"
+  }
+
+
 
 
 
