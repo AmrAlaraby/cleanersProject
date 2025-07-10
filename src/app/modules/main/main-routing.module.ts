@@ -32,6 +32,7 @@ import { WorkerDetailsComponent } from './worker-details/worker-details.componen
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { RegularUserGuard } from 'src/app/Gaurds/regular-user.guard';
 import { PaymentRedirectPageComponent } from './payment-redirect-page/payment-redirect-page.component';
+import { VerifyAccountComponent } from './verify-account/verify-account.component';
 
 const routes: Routes = [
   {path:"",component:LayoutComponent,
@@ -60,6 +61,9 @@ const routes: Routes = [
       },
       {
         path:'orders',component:OrdersComponent,canActivate: [UserTypeOrGuard],
+      },
+      {
+        path:'verify-account',component:VerifyAccountComponent,canActivate: [WorkerGuard],
       },
       {
         path:'paymentComplete',component:PaymentRedirectPageComponent,

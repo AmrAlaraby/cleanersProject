@@ -620,7 +620,17 @@
     "CANCEL": "Cancel",
     "NEXT": "Next",
     "BOOK": "Confirm Booking"
-  }
+  },"PLATFORM_PAYMENT_REQUIRED": "You must pay the platform fee.",
+"PAY_NOW": "Pay Now","VERIFY_ACCOUNT": {
+  "NOTE": "You must verify your identity by uploading your ID and a selfie.",
+  "ID_IMAGE": "National ID Image",
+  "SELFIE_IMAGE": "Selfie Image",
+  "SUBMIT": "Verify Now"
+},"ALERT": {
+  "ACCOUNT_NOT_VERIFIED": "Your account is not verified.",
+  "VERIFY_NOW": "Verify Now"
+}
+
 
 
 

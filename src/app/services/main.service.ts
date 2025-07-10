@@ -356,4 +356,20 @@ rateUser(revieweeId: string, payload: { rating: number, comment: string, orderId
     { headers }
   );
 }
+payPlatformFee(): Observable<{ iframeUrl: string; message: string }> {
+  const headers = this.getToken(); // لو عندك توكن في الهيدرز
+  return this._HttpClient.post<{ iframeUrl: string; message: string }>(
+    `${this.baseUrl}/worker/platform-fee`,
+    {},
+    { headers }
+  );
+}
+
+verifyAccount(formData: FormData) {
+  const headers = this.getToken();
+  return this._HttpClient.post<any>(`${this.baseUrl}Verifications/user-verification`, formData, {
+    headers
+  });
+}
+
 }

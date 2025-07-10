@@ -37,6 +37,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { WorkerDetailsComponent } from './worker-details/worker-details.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { PaymentRedirectPageComponent } from './payment-redirect-page/payment-redirect-page.component';
+import { VerifyAccountComponent } from './verify-account/verify-account.component';
 
 
 
@@ -72,7 +73,8 @@ import { PaymentRedirectPageComponent } from './payment-redirect-page/payment-re
     CustomersComponent,
     WorkerDetailsComponent,
     MyProfileComponent,
-    PaymentRedirectPageComponent
+    PaymentRedirectPageComponent,
+    VerifyAccountComponent
   ],
   imports: [
     CommonModule,

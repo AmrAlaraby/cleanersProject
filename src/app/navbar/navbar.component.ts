@@ -1,10 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../serveses/auth.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DarkModeService } from '../services/dark-mode.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { MainService } from '../services/main.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,13 +19,18 @@ export class NavbarComponent implements OnInit {
   isWorker:boolean=false;
   isAdmin:boolean=false;
   currentLang: string = 'en';
+  isActive: boolean = true; 
+  
+  isAccountVerified: boolean = true; // Default value, can be updated based on user data
+
 
   constructor(
-    private _AuthServece: AuthService,
+
     private authService: AuthenticationService,
     private _router: Router,
     private translate: TranslateService,
     private darkModeService: DarkModeService,
+    private _mainService: MainService
   ) {
     this.darkModeService.getTheme().subscribe(theme => {
       this.isDarkMode = theme === 'dark';
@@ -41,6 +46,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.saveUserData();
+
+
+    
+
+
+
     this.authService.userData.subscribe({
       next: () => {
 
@@ -52,6 +63,19 @@ export class NavbarComponent implements OnInit {
           if (accountType === 'worker') {
             this.isWorker = true;
             this.isAdmin = false;
+            const token = JSON.parse(localStorage.getItem('userToken') || 'null')|| JSON.parse(sessionStorage.getItem('userToken') || 'null');
+            if (token.isAccountActive === false) {
+              this.isActive = false;
+            }else{
+              this.isActive = true;
+            }
+            if (token.isAccountVerified === false) {
+              console.log(token.isIsAccountVerified);
+              
+              this.isAccountVerified = false;
+            }else{
+              this.isAccountVerified = true;
+            }
 
           }
           else{
@@ -109,4 +133,40 @@ navbarOpen = false;
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
+  payNow() {
+      this._mainService.payPlatformFee().subscribe({
+    next: (res) => {
+      console.log(res);
+      
+
+      if (!res.iframeUrl) {
+        this._router.navigate(['/paymentComplete'], {
+          queryParams: {
+            isError: false,
+            message: res.message,
+
+          },
+        });
+      } else {
+        window.location.href = res.iframeUrl;
+      }
+    },
+    error: (err) => {
+    
+      const errorMsg = err?.error?.message || 'حدث خطأ أثناء تنفيذ عملية الدفع';
+      this._router.navigate(['/paymentComplete'], {
+        queryParams: {
+          isError: true,
+          message: errorMsg,
+       
+        },
+      });
+    }
+  });
+}
+
+goToVerify() {
+  this._router.navigate(['/verify-account']); // غير اللينك ده حسب صفحة التفعيل عندك
+}
+
 }
