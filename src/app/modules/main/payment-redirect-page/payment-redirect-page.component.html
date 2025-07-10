@@ -1,12 +1,18 @@
-<div class="container mt-nav text-center">
+<div class="container mt-nav p-4 text-center">
   <div class="card p-4 shadow-sm">
     <div [ngClass]="isError ? 'text-danger' : 'text-success'">
       <h3>{{ isError ? 'فشل في الدفع' : 'تم الدفع بنجاح' }}</h3>
       <p>{{ message }}</p>
     </div>
 
-    <button class="btn btn-primary mt-4" (click)="goToOrders()">
-      العودة إلى الطلبات
-    </button>
+    <div class="mt-4">
+      <button class="pr-btn me-2" (click)="goToOrders()">
+        العودة إلى الطلبات
+      </button>
+
+      <button *ngIf="isError && orderId" class="btn btn-outline-danger" (click)="goToOrderComplete()">
+        العودة إلى تفاصيل الطلب
+      </button>
+    </div>
   </div>
 </div>
