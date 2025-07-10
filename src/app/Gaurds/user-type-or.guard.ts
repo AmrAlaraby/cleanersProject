@@ -14,7 +14,7 @@ export class UserTypeOrGuard implements CanActivate {
     const userData = this.authService.userData.getValue();
 
     if (!userData) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/auth/login']);
       return false;
     }
 
@@ -24,7 +24,7 @@ export class UserTypeOrGuard implements CanActivate {
       return true;
     }
 
-    this.router.navigate(['/home']);
+    this.router.navigate(['/auth/login']);
     return false;
   }
 }

@@ -22,8 +22,9 @@
               <h5 class="fw-bold">{{ categoryNameMap[service.id] }}</h5>
               
               <button (click)="choose(service.id)" class="pr-sec-btn">
-              {{ 'ALLSERVICES.CHOOSE' | translate }} <i class="fa fa-spinner fa-spin" *ngIf="isLoading && service.id==chosedId"></i>
-           </button>
+                {{ 'ALLSERVICES.CHOOSE' | translate }} 
+                <i class="fa fa-spinner fa-spin" *ngIf="isLoading && service.id==chosedId"></i>
+              </button>
      
 
             </div>

@@ -24,3 +24,14 @@
 <div class="alert alert-info mt-4" *ngIf="!order">
   جاري تحميل بيانات الطلب...
 </div>
+
+<!-- loader -->
+<div *ngIf="isLoading" class="d-flex justify-content-center flex-column align-items-center bg-light  w-25 position-absolute top-50 loader">
+<div class="text-center">
+  <h5 class="mb-3">جاري إعادة التوجيه...</h5>
+</div>
+<div class="">
+
+  <i class="fa fa-spinner fa-spin fs-1 color-pr"></i>
+</div>
+</div>

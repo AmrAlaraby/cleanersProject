@@ -269,7 +269,8 @@
       "LAST_NAME": "Last Name",
       "MESSAGE": "Message",
       "ACCEPT_TERMS": "I accept the Terms",
-      "SUBMIT": "Submit"
+      "SUBMIT": "Submit",
+      "EMAIL": "Email"
     }
   },
   "CLEANERS": {

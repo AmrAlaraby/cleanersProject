@@ -214,3 +214,12 @@ export interface ChatMessage {
   status?: string;
 
 }
+
+
+export interface Review {
+  reviewerId: string;
+  reviewerName: string;
+  rating: number;
+  comment: string;
+  createdAt: string;
+}

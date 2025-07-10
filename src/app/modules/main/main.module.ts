@@ -34,6 +34,9 @@ import { EmailSubComponent } from './email-sub/email-sub.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { CustomersComponent } from './customers/customers.component';
+import { WorkerDetailsComponent } from './worker-details/worker-details.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { PaymentRedirectPageComponent } from './payment-redirect-page/payment-redirect-page.component';
 
 
 
@@ -66,7 +69,10 @@ import { CustomersComponent } from './customers/customers.component';
     EmailSubComponent,
     ContactsComponent,
     AdminOrdersComponent,
-    CustomersComponent
+    CustomersComponent,
+    WorkerDetailsComponent,
+    MyProfileComponent,
+    PaymentRedirectPageComponent
   ],
   imports: [
     CommonModule,

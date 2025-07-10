@@ -1,3 +1,6 @@
+
+
+
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
@@ -15,7 +18,7 @@ export class RegularUserGuard implements CanActivate {
     if (userData?.accountType === 'RegularUser') {
       return true;
     }
-    this.router.navigate(['/home']);
+    this.router.navigate(['/auth/login'],);
     return false;
   }
 }

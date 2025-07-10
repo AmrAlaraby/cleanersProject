@@ -149,6 +149,7 @@ deleteReview(order: Order): void {
   }
 
   goToChat(order: Order): void {
+    debugger
     if (this.userData?.Id === order.customerId) {
       this._router.navigate(['/chat', order.workerId]);
     } else {

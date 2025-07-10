@@ -118,10 +118,11 @@
             <div class="user-profile rounded-circle w-10 h-10">
               <img [src]="userImage || '{userImage}'" alt="User Image" class="user-image max rounded-circle">
             </div>
-            <ul class="dropdown-menu" [ngClass]="{'dropdown-menu-end': currentLang === 'ar'}">
+            <ul class="dropdown-menu bg-light" [ngClass]="{'dropdown-menu-end': currentLang === 'ar'}">
               <li class="dropdown-item disabled">{{ name }}</li>
               <li><a class="dropdown-item" [routerLink]="['/auth/changePassword']">{{ 'NAVBAR.CHANGE_PASSWORD' | translate }}</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/profile']">{{ 'NAVBAR.PROFILE' | translate }}</a></li>
+              <li><a *ngIf="!isWorker && !isAdmin" class="dropdown-item" [routerLink]="['/profile']">{{ 'NAVBAR.PROFILE' | translate }}</a></li>
+              <li><a *ngIf="isWorker" class="dropdown-item" [routerLink]="['/myProfile']">{{ 'NAVBAR.PROFILE' | translate }}</a></li>
 
               <li *ngIf="isWorker">
                 <a class="dropdown-item" [routerLink]="['/chooseCategory']">{{ 'NAVBAR.CHOOSE_CATEGORY' | translate }}</a>

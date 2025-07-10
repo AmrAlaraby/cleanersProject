@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Address, categories, OrdersDashboardDto, OrderToReturnDto, RatingSummaryDto, SubmitReviewRequest, workers } from '../modules/main/interfaces/interfaces';
+import { Address, categories, OrdersDashboardDto, OrderToReturnDto, RatingSummaryDto, Review, SubmitReviewRequest, workers } from '../modules/main/interfaces/interfaces';
 import {
   CreateOrderRequest,
   CreateOrderResponse,
@@ -81,6 +81,24 @@ export class MainService {
   getWorkerById(workerId: string): Observable<any> {
     return this._HttpClient.get(`${this.baseUrl}Workers/${workerId}`);
   }
+
+  getCurrentWorkerInfo(): Observable<any> {
+    const headers = this.getToken();
+  return this._HttpClient.get(`${this.baseUrl}Workers/GetCurrentWorkerInfo`,{ headers });
+}
+
+
+getWorkerReviews(workerId: string): Observable<any> {
+  const headers = this.getToken();
+  return this._HttpClient.get(`${this.baseUrl}Reviews/GetUserReviews/${workerId}`, { headers });
+}
+
+ updateWorkerInfo(formData: FormData): Observable<any> {
+    const headers = this.getToken();
+    return this._HttpClient.put(`${this.baseUrl}Workers`, formData, { headers });
+  }
+
+
 
   getCurrentWorker(): Observable<any> {
     return this._HttpClient.get(`${this.baseUrl}Workers/me`);

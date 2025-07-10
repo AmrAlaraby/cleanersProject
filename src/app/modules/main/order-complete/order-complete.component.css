@@ -1,0 +1,8 @@
+.loader{
+    height: 30vh;border-radius: 10px;border: 10px;border-color:#22c55e; z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #22c55e;
+}

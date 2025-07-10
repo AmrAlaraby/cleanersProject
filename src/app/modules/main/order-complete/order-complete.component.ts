@@ -11,6 +11,7 @@ import { MainService } from 'src/app/services/main.service';
 export class OrderCompleteComponent implements OnInit {
   orderId: string = '';
   order: Order | null = null;
+  isLoading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,

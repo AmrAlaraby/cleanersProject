@@ -62,7 +62,7 @@
     min-width: 200px;
     display: none;
     z-index: 1000;
-    background-color: var(--bs-light);
+
     border: 1px solid var(--primary, #000000);
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);

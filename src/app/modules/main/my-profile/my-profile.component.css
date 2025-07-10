@@ -1,0 +1,77 @@
+.my-profile-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 4px solid #f1f1f1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  border-radius: 16px;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.form-control.bg-light {
+  background-color: #f8f9fa !important;
+  border: 1px solid #dee2e6;
+  font-weight: 500;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 50px;
+}
+
+button.btn-outline-primary {
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+button.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+/* Modal custom */
+.modal-content {
+  border-radius: 14px;
+}
+.modal-title {
+  font-weight: bold;
+}
+.modal-body .form-label {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.modal-footer button {
+  min-width: 120px;
+}
+
+input[type='file']::file-selector-button {
+  background-color: var(--pr_Color);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+input[type='file']::file-selector-button:hover {
+  background-color: #157e3c;
+}

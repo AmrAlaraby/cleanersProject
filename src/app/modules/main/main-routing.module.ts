@@ -1,3 +1,4 @@
+import { worker } from './interfaces/interfaces';
 import { LayoutDashbordComponent } from './layout-dashbord/layout-dashbord.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChooseCatrgoryComponent } from './choose-catrgory/choose-catrgory.component';
@@ -25,8 +26,12 @@ import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AdminGuard } from 'src/app/Gaurds/admin-guard.guard';
 import { WorkerGuard } from 'src/app/Gaurds/worker-guard.guard';
-import { RegularUserGuard } from 'src/app/Gaurds/regular-user-guard.guard';
+
 import { UserTypeOrGuard } from 'src/app/Gaurds/user-type-or.guard';
+import { WorkerDetailsComponent } from './worker-details/worker-details.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { RegularUserGuard } from 'src/app/Gaurds/regular-user.guard';
+import { PaymentRedirectPageComponent } from './payment-redirect-page/payment-redirect-page.component';
 
 const routes: Routes = [
   {path:"",component:LayoutComponent,
@@ -42,6 +47,9 @@ const routes: Routes = [
         path:'profile',component:ProfileComponent,canActivate: [RegularUserGuard]
       },
       {
+        path:'myProfile',component:MyProfileComponent,canActivate: [WorkerGuard]
+      },
+      {
         path:'about',component:AboutComponent,
       },
       {
@@ -53,11 +61,17 @@ const routes: Routes = [
       {
         path:'orders',component:OrdersComponent,canActivate: [UserTypeOrGuard],
       },
+      {
+        path:'paymentComplete',component:PaymentRedirectPageComponent,canActivate: [UserTypeOrGuard],
+      },
        {
         path:'otp/:id',component:OtpComponent,canActivate: [RegularUserGuard]
       },
       {
-        path:'chat',component:ChatComponent,
+        path:'chat/:id',component:ChatComponent,
+      },
+      {
+        path:'orderComplete/:id',component:OrderCompleteComponent,canActivate: [RegularUserGuard]
       },
       {
         path:'dashboard',component:LayoutDashbordComponent,children:[
@@ -101,7 +115,8 @@ const routes: Routes = [
           },
           {
             path:'payment',component:PaymentComponent
-          }
+          },
+          { path: 'workers/:id', component: WorkerDetailsComponent, canActivate: [RegularUserGuard] },
         ]
       },
       {

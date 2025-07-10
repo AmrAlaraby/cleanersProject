@@ -73,71 +73,71 @@ export class CleanersComponent implements OnInit {
     return Math.ceil(this.totalCount / this.pageSize);
   }
 
-  onBookNow(worker: worker): void {
-    this.selectedWorker = worker;
-    this.modalStep = 1;
-    this.selectedAddressId = null;
-    this.initialPrice = null;
-    this.showModal = true;
-    this.loadUserAddresses();
-  }
+  // onBookNow(worker: worker): void {
+  //   this.selectedWorker = worker;
+  //   this.modalStep = 1;
+  //   this.selectedAddressId = null;
+  //   this.initialPrice = null;
+  //   this.showModal = true;
+  //   this.loadUserAddresses();
+  // }
 
-  loadUserAddresses(): void {
-    this._mainService.getUserAddresses().subscribe({
-      next: (addresses: Address[]) => {
-        this.addresses = addresses;
-      },
-      error: () => this.showToast('Failed to load addresses', 'Error', 'error'),
-    });
-  }
+  // loadUserAddresses(): void {
+  //   this._mainService.getUserAddresses().subscribe({
+  //     next: (addresses: Address[]) => {
+  //       this.addresses = addresses;
+  //     },
+  //     error: () => this.showToast('Failed to load addresses', 'Error', 'error'),
+  //   });
+  // }
 
-  acceptAddress(): void {
-    if (this.selectedAddressId === null) {
-      this.showToast('Please select an address.', 'Warning', 'warning');
-      return;
-    }
-    this.modalStep = 2;
-  }
+  // acceptAddress(): void {
+  //   if (this.selectedAddressId === null) {
+  //     this.showToast('Please select an address.', 'Warning', 'warning');
+  //     return;
+  //   }
+  //   this.modalStep = 2;
+  // }
 
-  acceptPriceAndCreateOrder(): void {
-    if (this.initialPrice === null || this.initialPrice <= 0) {
-      this.showToast('Please enter a valid price.', 'Warning', 'warning');
-      return;
-    }
-    if (!this.selectedWorker || this.selectedAddressId === null) {
-      this.showToast('Invalid state. Please try again.', 'Error', 'error');
-      this.showModal = false;
-      return;
-    }
-    const orderPayload: CreateOrderRequest = {
-      workerId: this.selectedWorker.id,
-      addressId: this.selectedAddressId,
-      totalAmount: this.initialPrice,
-      categoryId: this.categoryId,
-    };
-    this._mainService.createOrder(orderPayload).subscribe({
-      next: () => {
-        this.showToast('Order created successfully!', 'Success', 'success');
-        this.showModal = false;
-      },
-      error: () => this.showToast('Failed to create order', 'Error', 'error'),
-    });
-  }
+  // acceptPriceAndCreateOrder(): void {
+  //   if (this.initialPrice === null || this.initialPrice <= 0) {
+  //     this.showToast('Please enter a valid price.', 'Warning', 'warning');
+  //     return;
+  //   }
+  //   if (!this.selectedWorker || this.selectedAddressId === null) {
+  //     this.showToast('Invalid state. Please try again.', 'Error', 'error');
+  //     this.showModal = false;
+  //     return;
+  //   }
+  //   const orderPayload: CreateOrderRequest = {
+  //     workerId: this.selectedWorker.id,
+  //     addressId: this.selectedAddressId,
+  //     totalAmount: this.initialPrice,
+  //     categoryId: this.categoryId,
+  //   };
+  //   this._mainService.createOrder(orderPayload).subscribe({
+  //     next: () => {
+  //       this.showToast('Order created successfully!', 'Success', 'success');
+  //       this.showModal = false;
+  //     },
+  //     error: () => this.showToast('Failed to create order', 'Error', 'error'),
+  //   });
+  // }
 
-  closeModal(): void {
-    this.showModal = false;
-  }
+  // closeModal(): void {
+  //   this.showModal = false;
+  // }
 
-  showToast(message: string, title = 'Notification', type: 'success' | 'error' | 'warning' | 'info' = 'info', duration = 3000): void {
-    const id = ++this.toastIdCounter;
-    const newToast: Toast = { id, message, title, type };
-    this.toasts.push(newToast);
-    setTimeout(() => {
-      this.toasts = this.toasts.filter(t => t.id !== id);
-    }, duration);
-  }
+  // showToast(message: string, title = 'Notification', type: 'success' | 'error' | 'warning' | 'info' = 'info', duration = 3000): void {
+  //   const id = ++this.toastIdCounter;
+  //   const newToast: Toast = { id, message, title, type };
+  //   this.toasts.push(newToast);
+  //   setTimeout(() => {
+  //     this.toasts = this.toasts.filter(t => t.id !== id);
+  //   }, duration);
+  // }
 
-  removeToast(toast: Toast): void {
-    this.toasts = this.toasts.filter(t => t.id !== toast.id);
-  }
+  // removeToast(toast: Toast): void {
+  //   this.toasts = this.toasts.filter(t => t.id !== toast.id);
+  // }
 }
