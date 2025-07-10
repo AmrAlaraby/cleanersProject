@@ -274,37 +274,358 @@
     }
   },
   "CLEANERS": {
-    "TITLE": "Professionals Experts",
-    "SUBTITLE": "Find the right cleaner for your needs.",
-    "FILTER_BY": "Filter by",
-    "SERVICE": {
-      "TITLE": "Service",
-      "HOME_CLEANING": "Home Cleaning",
-      "OFFICE_CLEANING": "Office Cleaning",
-      "SPRING_CLEANING": "Spring Cleaning",
-      "WINDOW_WASHING": "Window Washing"
-    },
-    "GENDER": {
-      "TITLE": "Gender",
-      "MALE": "Male",
-      "FEMALE": "Female"
-    },
-    "EXPERIENCE": {
-      "TITLE": "Experience",
-      "LESS_THAN_1": "Less than 1 year",
-      "ONE_TO_THREE": "1 to 3 years",
-      "THREE_PLUS": "3+ years"
-    },
-    "LOCATION": {
-      "TITLE": "Location",
-      "NEAR_YOU": "Near you"
-    },
-    "RATINGS": {
-      "TITLE": "Ratings"
-    },
-    "NAME": "John Doe",
-    "PRICE": "$15/h",
-    "REVIEWS": "(15 reviews)",
-    "BOOK_NOW": "Book Now"
+  "TITLE": "Professional Experts",
+  "SUBTITLE": "Find the right cleaner for your needs.",
+  "SEARCH_PLACEHOLDER": "Search by name",
+  "PER_HOUR": "EGP/hr",
+  "BOOK_NOW": "Book Now",
+  "PREVIOUS": "Previous",
+  "NEXT": "Next",
+  "NO_CLEANERS": "There are no available cleaners right now!"
+}
+,
+  "CHANGE_PASSWORD": {
+  "TITLE": "Change Your Password",
+  "OLD_LABEL": "Old Password",
+  "OLD_PLACEHOLDER": "Enter old password",
+  "OLD_REQUIRED": "Old password is required.",
+  
+  "NEW_LABEL": "New Password",
+  "NEW_PLACEHOLDER": "Enter new password",
+  "NEW_REQUIRED": "New password is required.",
+  "NEW_MIN": "Minimum 6 characters.",
+
+  "CONFIRM_LABEL": "Confirm New Password",
+  "CONFIRM_PLACEHOLDER": "Confirm new password",
+  "CONFIRM_REQUIRED": "Confirm password is required.",
+  "MISMATCH": "Passwords do not match.",
+
+  "SUBMIT": "Change Password",
+
+  "TOAST_TITLE": "Change Password",
+  "TOAST_TIME": "Just now"
+},
+"VERIFICATION": {
+  "TITLE": "Enter your verification code !!",
+  "DESCRIPTION": "Verification code sent to your email",
+  "CODE_LABEL": "Verification Code:",
+  "CODE_PLACEHOLDER": "Enter the code you received",
+  "CODE_REQUIRED": "Code is required.",
+  "SUBMIT": "Submit",
+  "SUCCESS_MESSAGE": "Verified successfully!",
+  "RESEND": "Resend Code"
+},
+"FORGOT": {
+  "TITLE": "Forgot Password",
+  "LABEL": "Your email or userName or phoneNumber",
+  "PLACEHOLDER": "Enter your email, username, or phone number",
+  "BUTTON": "Send Reset Link"
+},
+"LOGIN": {
+  "WELCOME": "Welcome Back",
+  "PLACEHOLDER_ID": "Your email or username or phone number",
+  "PLACEHOLDER_PASSWORD": "Your password",
+  "REMEMBER_ME": "Remember Me",
+  "FORGOT_PASSWORD": "Forgot Password?",
+  "BUTTON": "Login",
+  "NO_ACCOUNT": "Don't have an account?",
+  "SIGNUP": "Signup",
+  "TOAST_TITLE": "Login",
+  "TOAST_TIME": "Just now",
+  "ERRORS": {
+    "ID_REQUIRED": "Identifier is required.",
+    "PASSWORD_REQUIRED": "Password is required.",
+    "PASSWORD_PATTERN": "Password must be at least 8 characters and include uppercase, lowercase, number, and special character."
   }
+},"AUTH_LANDING": {
+  "TITLE": "Sign in to your account",
+  "SUBTITLE": "Start your demo version",
+  "SIGN_UP": "Sign up",
+  "LOG_IN": "Log in",
+  "AGREE_TEXT": "By signing up you agree to our",
+  "TERMS": "Terms of Use",
+  "AND": "and",
+  "PRIVACY": "Privacy Policy"
+},"RESET": {
+  "TITLE": "Reset Password",
+  "NEW_PASSWORD": "New Password",
+  "CONFIRM_PASSWORD": "Confirm Password",
+  "MISMATCH": "Passwords do not match",
+  "SUBMIT": "Reset Password",
+  "SUCCESS_LOGIN": "Password changed successfully, login now",
+  "TOAST": "Password reset done successfully ✅"
+},
+ "SIGNUP": {
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "USERNAME": "Username",
+    "DOB_LABEL": "Date of Birth",
+    "DOB_PLACEHOLDER": "Select your date of birth",
+    "PHONE": "Phone Number",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "UPLOAD_IMAGE": "Upload Profile Image",
+    "ACCEPT": "I accept the",
+    "TERMS_LINK": "terms and conditions",
+    "TERMS_TITLE": "Terms & Conditions",
+    "TERMS_HEADER": "Terms of Service",
+    "TERMS_INTRO": "Please read the following terms carefully before registering:",
+    "TERMS": {
+      "L1": "You must be at least 18 years old.",
+      "L2": "Provide accurate and truthful information.",
+      "L3": "Respect other users and service providers.",
+      "L4": "Do not misuse the platform.",
+      "L5": "Your data will be protected under our privacy policy."
+    },
+    "TERMS_OUTRO": "By accepting, you agree to comply with all the above terms.",
+    "CLOSE": "Close",
+    "SUBMIT": "Sign Up",
+    "ALREADY_HAVE": "Already have an account?",
+    "LOGIN_LINK": "Log In"
+  },
+  
+  "register": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "userName": "Username",
+    "dateOfBirthLabel": "Date of Birth",
+    "phoneNumber": "Phone Number",
+    "nationalId": "National ID",
+    "email": "Email Address",
+    "password": "Password",
+    "description": "Description",
+    "hourlyRate": "Hourly Rate",
+    "experienceYears": "Experience Years",
+    "uploadProfileImage": "Upload Profile Image",
+    "acceptTerms": "I accept the",
+    "termsLink": "terms and conditions",
+    "termsModalTitle": "Terms and Conditions",
+    "termsModalHeader": "Please read the terms carefully:",
+    "termsIntro": "By using our service, you agree to the following:",
+    "term1": "Provide accurate and up-to-date information.",
+    "term2": "Respect clients and their privacy.",
+    "term3": "Arrive on time and complete tasks responsibly.",
+    "term4": "Report any issues through the support system.",
+    "term5": "You are responsible for your own taxes and obligations.",
+    "termsContact": "If you have any questions, contact support.",
+    "close": "Close",
+    "signUpBtn": "Sign Up",
+    "alreadyHaveAccount": "Already have an account?",
+    "login": "Login"
+  }
+,
+  "addresses": {
+    "searchPlaceholder": "Search by address or city...",
+    "addNew": "Add New Address",
+    "noResults": "No addresses found.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "editTitle": "Edit Address",
+    "addTitle": "Add New Address",
+    "addressLine": "Address Line",
+    "addressNote": "Address Note",
+    "city": "City",
+    "homeNumber": "Home Number",
+    "floorNumber": "Floor Number",
+    "flatNumber": "Flat Number",
+    "cancel": "Cancel",
+    "save": "Save",
+    "update": "Update"
+  },
+  "categories": {
+    "title": "Categories Management",
+    "searchPlaceholder": "Search by name...",
+    "englishName": "English Name",
+    "arabicName": "Arabic Name",
+    "image": "Image",
+    "actions": "Actions",
+    "addCategory": "Add Category",
+    "edit": "Edit",
+    "delete": "Delete",
+    "editCategory": "Edit Category",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel",
+    "confirmDeleteTitle": "Confirm Delete",
+    "confirmDeleteText": "Are you sure you want to delete this category?"
+  },
+  "orders": {
+    "title": "All Orders",
+    "customer": "Customer",
+    "worker": "Worker",
+    "service": "Service",
+    "address": "Address",
+    "status": "Status",
+    "price": "Price",
+    "createdAt": "Created At",
+    "noOrders": "There are no orders to display."
+  },
+  "workers": {
+    "title": "All Workers",
+    "searchPlaceholder": "Search by name",
+    "allCategories": "All Categories",
+    "loading": "Loading...",
+    "email": "Email",
+    "phone": "Phone",
+    "rate": "Rate",
+    "experience": "Experience",
+    "years": "years",
+    "categories": "Categories",
+    "edit": "Edit",
+    "delete": "Delete",
+    "noWorkers": "No workers found.",
+    "editWorker": "Edit Worker",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "username": "Username",
+    "hourlyRate": "Hourly Rate",
+    "experienceYears": "Experience (Years)",
+    "nationalId": "National ID",
+    "dateOfBirth": "Date of Birth",
+    "description": "Description",
+    "profileImage": "Profile Image",
+    "cancel": "Cancel",
+    "save": "Save"
+  },"chat":{
+    "send": "Send"
+  },
+  "CONTACTA": {
+    "TITLE": "All Contact Messages",
+    "LOADING": "Loading...",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "EMAIL": "Email",
+    "MESSAGE": "Message",
+    "DATE": "Sent Date",
+    "NO_MESSAGES": "There are no messages currently."
+  },
+  "CUSTOMERS": {
+    "SEARCH_PLACEHOLDER": "Search by name",
+    "SORT_BY": "Sort By",
+    "SORT_NAME_ASC": "Name ↑",
+    "SORT_NAME_DESC": "Name ↓",
+    "LOADING": "Loading...",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "NO_CUSTOMERS": "No customers found.",
+    "UPDATE_TITLE": "Update Customer",
+    "USERNAME": "Username",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "EMAIL": "Email",
+    "PHONE": "Phone Number",
+    "DOB": "Date of Birth",
+    "SAVE_CHANGES": "Save Changes"
+  },
+  "DASHBOARD": {
+    "LOADING": "Loading data...",
+    "LOAD_ERROR": "Failed to load data",
+    "AVG_TICKET": "Average Ticket Size",
+    "DAILY_REVENUE": "Daily Revenue",
+    "DAILY_ORDERS": "Daily Orders",
+    "TOP_CATEGORIES": "Top Categories by Revenue",
+    "TOP_WORKERS": "Top Workers by Orders and Revenue",
+    "CATEGORY": "Category",
+    "REVENUE": "Revenue",
+    "WORKER_NAME": "Worker Name",
+    "ORDERS_COUNT": "Orders Count"
+  },
+  "SUBSCRIBERS": {
+    "TITLE": "Send a Message to Subscribers",
+    "PLACEHOLDER": "Type your message here",
+    "SEND": "Send",
+    "LIST_TITLE": "Subscribed Emails",
+    "LOADING": "Loading..."
+  },
+  "SIDEBAR": {
+    "MAIN_MENU": "Main Menu",
+    "DASHBOARD": "Dashboard",
+    "WORKERS": "Workers",
+    "CATEGORIES": "Categories",
+    "EMAIL_SUB": "Email Subscribers",
+    "CONTACTS": "Contacts",
+    "ORDERS": "Orders",
+    "CUSTOMERS": "Customers"
+  }, "PROFILE": {
+    "RATING": "Rating",
+    "REVIEWS": "reviews",
+    "EDIT_BTN": "Edit Info",
+    "USERNAME": "Username",
+    "PHONE": "Phone Number",
+    "ADDRESS": "Address",
+    "DESCRIPTION": "Description",
+    "EXPERIENCE": "Years of Experience",
+    "CLEAN_TIMES": "Cleaning Count",
+    "FEE_PERCENT": "Commission Percentage",
+    "ORDERS_TO_PAY": "Orders Before Payout",
+    "BALANCE": "Platform Balance",
+    "CURRENCY": "EGP",
+    "CATEGORIES": "Categories",
+    "EDIT_MODAL_TITLE": "Edit Profile Information",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "BIRTH_DATE": "Date of Birth",
+    "HOURLY_RATE": "Hourly Rate",
+    "PROFILE_IMAGE": "Profile Picture"
+  },
+  "BUTTONS": {
+    "CANCEL": "Cancel",
+    "SAVE_CHANGES": "Save Changes"
+  }, "ORDER": {
+    "TITLE": "Order Info #",
+    "CUSTOMER": "Customer",
+    "WORKER": "Worker",
+    "PRICE": "Price",
+    "CURRENCY": "EGP",
+    "DATE": "Date",
+    "STATUS": "Status",
+    "ADDRESS": "Address",
+    "PAY_CASH": "Pay with Cash",
+    "PAY_VISA": "Pay with Visa",
+    "LOADING": "Loading order data...",
+    "REDIRECTING": "Redirecting..."
+  },
+  "ORDER_SUCCESS": {
+    "TITLE": "Order Completed ✅",
+    "THANK_YOU": "Thank you for using our service!",
+    "GENERATING_OTP": "Generating OTP...",
+    "OTP_LABEL": "Your OTP Code:",
+    "OTP_FAILED": "Failed to retrieve OTP. Please try again later."
+  },"PAYMENT": {
+    "SUCCESS_TITLE": "Payment Successful",
+    "FAILURE_TITLE": "Payment Failed",
+    "BACK_TO_ORDERS": "Back to Orders",
+    "BACK_TO_ORDER_DETAILS": "Back to Order Details"
+  },
+  "PROFILEC": {
+    "UPDATE_TITLE": "Update Profile",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "USERNAME": "Username",
+    "PHONE_NUMBER": "Phone Number",
+    "DATE_OF_BIRTH": "Date of Birth",
+    "PROFILE_IMAGE": "Profile Image",
+    "SAVE_CHANGES": "Save Changes"
+  }, "WORKER": {
+    "RATE": "Rate",
+    "PER_HOUR": "EGP/hour",
+    "BOOK_NOW": "Book Now",
+    "REVIEWS": "Reviews",
+    "BOOK_CLEANER": "Book Cleaner",
+    "SELECT_ADDRESS": "Select Your Address",
+    "CHOOSE_ADDRESS": "Choose an address",
+    "ENTER_PRICE": "Enter Initial Price",
+    "PRICE_PLACEHOLDER": "Initial Price"
+  },
+  "BUTTON": {
+    "CANCEL": "Cancel",
+    "NEXT": "Next",
+    "BOOK": "Confirm Booking"
+  }
+
+
+
+
+
+
+
   }

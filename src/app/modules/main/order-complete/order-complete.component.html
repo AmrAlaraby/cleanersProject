@@ -1,37 +1,42 @@
 <div class="container py-4 mt-nav" *ngIf="order">
   <div class="card p-3 shadow-sm">
-    <h4 class="mb-3">معلومات الطلب رقم {{ order.id }}</h4>
+    <h4 class="mb-3">
+      {{ 'ORDER.TITLE' | translate }} {{ order.id }}
+    </h4>
     <ul class="list-group mb-3">
-      <li class="list-group-item">👤 العميل: {{ order.customerName }}</li>
-      <li class="list-group-item">🧰 الفني: {{ order.workerName }}</li>
-      <li class="list-group-item">💰 السعر: {{ order.totalAmount }} ج.م</li>
-      <li class="list-group-item">🗓️ التاريخ: {{ order.scheduledDate | date:'short' }}</li>
-      <li class="list-group-item">📌 الحالة: {{ order.status }}</li>
-      <li class="list-group-item">📍 العنوان: {{ order.address }}</li>
+      <li class="list-group-item">👤 {{ 'ORDER.CUSTOMER' | translate }}: {{ order.customerName }}</li>
+      <li class="list-group-item">🧰 {{ 'ORDER.WORKER' | translate }}: {{ order.workerName }}</li>
+      <li class="list-group-item">💰 {{ 'ORDER.PRICE' | translate }}: {{ order.totalAmount }} {{ 'ORDER.CURRENCY' | translate }}</li>
+      <li class="list-group-item">🗓️ {{ 'ORDER.DATE' | translate }}: {{ order.scheduledDate | date:'short' }}</li>
+      <li class="list-group-item">📌 {{ 'ORDER.STATUS' | translate }}: {{ order.status }}</li>
+      <li class="list-group-item">📍 {{ 'ORDER.ADDRESS' | translate }}: {{ order.address }}</li>
     </ul>
 
     <div class="row g-2">
       <div class="col-md-6">
-        <button class="btn btn-outline-success w-100" (click)="payWithCash()" >💵 الدفع نقدًا</button>
+        <button class="btn btn-outline-success w-100" (click)="payWithCash()">
+          💵 {{ 'ORDER.PAY_CASH' | translate }}
+        </button>
       </div>
       <div class="col-md-6">
-        <button class="btn btn-outline-primary w-100" (click)="payWithVisa()">💳 الدفع بالفيزا</button>
+        <button class="btn btn-outline-primary w-100" (click)="payWithVisa()">
+          💳 {{ 'ORDER.PAY_VISA' | translate }}
+        </button>
       </div>
     </div>
   </div>
 </div>
 
 <div class="mt-nav alert alert-info mt-4" *ngIf="!order">
-  جاري تحميل بيانات الطلب...
+  {{ 'ORDER.LOADING' | translate }}
 </div>
 
 <!-- loader -->
-<div *ngIf="isLoading" class="d-flex justify-content-center flex-column align-items-center bg-light  w-25 position-absolute top-50 loader">
-<div class="text-center">
-  <h5 class="mb-3">جاري إعادة التوجيه...</h5>
-</div>
-<div class="">
-
-  <i class="fa fa-spinner fa-spin fs-1 color-pr"></i>
-</div>
+<div *ngIf="isLoading" class="d-flex justify-content-center flex-column align-items-center bg-light w-25 position-absolute top-50 loader">
+  <div class="text-center">
+    <h5 class="mb-3">{{ 'ORDER.REDIRECTING' | translate }}</h5>
+  </div>
+  <div>
+    <i class="fa fa-spinner fa-spin fs-1 color-pr"></i>
+  </div>
 </div>

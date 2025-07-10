@@ -5,42 +5,38 @@
 
   <div *ngIf="!loading">
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="border p-4 rounded shadow">
-      <h4 class="mb-4"><i class="fa fa-user-circle me-2"></i>Update Profile</h4>
+      <h4 class="mb-4">
+        <i class="fa fa-user-circle me-2"></i> {{ 'PROFILEC.UPDATE_TITLE' | translate }}
+      </h4>
 
       <div class="row">
-        <!-- First Name -->
         <div class="mb-3 col-md-6">
-          <label>First Name</label>
+          <label>{{ 'PROFILEC.FIRST_NAME' | translate }}</label>
           <input type="text" class="form-control" formControlName="firstName" />
         </div>
 
-        <!-- Last Name -->
         <div class="mb-3 col-md-6">
-          <label>Last Name</label>
+          <label>{{ 'PROFILEC.LAST_NAME' | translate }}</label>
           <input type="text" class="form-control" formControlName="lastName" />
         </div>
 
-        <!-- Username -->
         <div class="mb-3 col-md-6">
-          <label>Username</label>
+          <label>{{ 'PROFILEC.USERNAME' | translate }}</label>
           <input type="text" class="form-control" formControlName="userName" />
         </div>
 
-        <!-- Phone Number -->
         <div class="mb-3 col-md-6">
-          <label>Phone Number</label>
+          <label>{{ 'PROFILEC.PHONE_NUMBER' | translate }}</label>
           <input type="text" class="form-control" formControlName="phoneNumber" />
         </div>
 
-        <!-- Date of Birth -->
         <div class="mb-3 col-md-6">
-          <label>Date of Birth</label>
+          <label>{{ 'PROFILEC.DATE_OF_BIRTH' | translate }}</label>
           <input type="date" class="form-control" formControlName="dateOfBirth" />
         </div>
 
-        <!-- Profile Image Upload -->
         <div class="mb-3 col-md-6">
-          <label>Profile Image</label>
+          <label>{{ 'PROFILEC.PROFILE_IMAGE' | translate }}</label>
           <input type="file" class="form-control" (change)="onFileChange($event)" />
           <div class="mt-2" *ngIf="previewImageUrl">
             <img [src]="previewImageUrl" class="img-thumbnail" style="max-height: 120px;" />
@@ -48,13 +44,11 @@
         </div>
       </div>
 
-      <!-- Success & Error Messages -->
       <div *ngIf="successMsg" class="alert alert-success">{{ successMsg }}</div>
       <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
 
-      <!-- Submit -->
       <button type="submit" class="btn btn-primary mt-3" [disabled]="loading || profileForm.invalid">
-        <i class="fa fa-save me-1"></i> Save Changes
+        <i class="fa fa-save me-1"></i> {{ 'PROFILEC.SAVE_CHANGES' | translate }}
       </button>
     </form>
   </div>

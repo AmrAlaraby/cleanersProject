@@ -4,16 +4,18 @@
     <input
       type="text"
       class="form-control w-50"
-      placeholder="Search by address or city..."
+      [placeholder]="'addresses.searchPlaceholder' | translate"
       [(ngModel)]="searchTerm"
       (input)="filterAddresses()"
     />
-    <button class="pr-btn" (click)="onAdd()">+ Add New Address</button>
+    <button class="pr-btn" (click)="onAdd()">
+      + {{ 'addresses.addNew' | translate }}
+    </button>
   </div>
 
   <!-- No Results -->
   <div *ngIf="filteredAddresses.length === 0" class="text-muted">
-    No addresses found.
+    {{ 'addresses.noResults' | translate }}
   </div>
 
   <!-- Address Cards -->
@@ -24,8 +26,12 @@
       <p class="card-text mb-0" *ngIf="address.addressNote">{{ address.addressNote }}</p>
 
       <div class="mt-3">
-        <button class="btn btn-sm btn-outline-primary me-2" (click)="onEdit(address)">Edit</button>
-        <button class="btn btn-sm btn-outline-danger" (click)="deleteAddress(address.id)">Delete</button>
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="onEdit(address)">
+          {{ 'addresses.edit' | translate }}
+        </button>
+        <button class="btn btn-sm btn-outline-danger" (click)="deleteAddress(address.id)">
+          {{ 'addresses.delete' | translate }}
+        </button>
       </div>
     </div>
   </div>
@@ -43,42 +49,46 @@
     <div class="modal-content">
       <form [formGroup]="addressForm" (ngSubmit)="submitForm()">
         <div class="modal-header">
-          <h5 class="modal-title">{{ editMode ? 'Edit Address' : 'Add New Address' }}</h5>
+          <h5 class="modal-title">
+            {{ editMode ? ('addresses.editTitle' | translate) : ('addresses.addTitle' | translate) }}
+          </h5>
           <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
         </div>
         <div class="modal-body">
           <!-- FORM FIELDS -->
           <div class="mb-3">
-            <label class="form-label">Address Line</label>
+            <label class="form-label">{{ 'addresses.addressLine' | translate }}</label>
             <input formControlName="addressLine" type="text" class="form-control" />
           </div>
           <div class="mb-3">
-            <label class="form-label">Address Note</label>
+            <label class="form-label">{{ 'addresses.addressNote' | translate }}</label>
             <textarea formControlName="addressNote" class="form-control"></textarea>
           </div>
           <div class="mb-3">
-            <label class="form-label">City</label>
+            <label class="form-label">{{ 'addresses.city' | translate }}</label>
             <input formControlName="city" type="text" class="form-control" />
           </div>
           <div class="row">
             <div class="col">
-              <label class="form-label">Home Number</label>
+              <label class="form-label">{{ 'addresses.homeNumber' | translate }}</label>
               <input formControlName="homeNumber" type="text" class="form-control" />
             </div>
             <div class="col">
-              <label class="form-label">Floor Number</label>
+              <label class="form-label">{{ 'addresses.floorNumber' | translate }}</label>
               <input formControlName="floorNumber" type="text" class="form-control" />
             </div>
             <div class="col">
-              <label class="form-label">Flat Number</label>
+              <label class="form-label">{{ 'addresses.flatNumber' | translate }}</label>
               <input formControlName="flatNumber" type="text" class="form-control" />
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">
+            {{ 'addresses.cancel' | translate }}
+          </button>
           <button type="submit" class="btn btn-primary" [disabled]="addressForm.invalid">
-            {{ editMode ? 'Update' : 'Save' }}
+            {{ editMode ? ('addresses.update' | translate) : ('addresses.save' | translate) }}
           </button>
         </div>
       </form>

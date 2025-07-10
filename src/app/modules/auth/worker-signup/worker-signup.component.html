@@ -2,7 +2,7 @@
   <!-- Left Section (Image/Placeholder) -->
   <div class="signup-image d-none d-md-flex">
     <div class="image-placeholder">
-      <!-- Add an image or leave it blank for now -->
+      <!-- Add image or keep empty -->
     </div>
   </div>
 
@@ -18,7 +18,7 @@
               formControlName="firstName"
               type="text"
               id="firstname"
-              placeholder="First Name"
+              [placeholder]="'register.firstName' | translate"
             />
           </label>
         </div>
@@ -29,54 +29,61 @@
               formControlName="lastName"
               type="text"
               id="lastname"
-              placeholder="Last Name"
+              [placeholder]="'register.lastName' | translate"
             />
           </label>
         </div>
       </div>
 
-      <!-- Age and Gender -->
+      <!-- User Name -->
       <label class="label" for="user-name">
         <input
           class="input"
           formControlName="userName"
           type="text"
           id="user-name"
-          placeholder="user-name"
+          [placeholder]="'register.userName' | translate"
         />
       </label>
-      <label class="pl-20" for="age"> Date of Birth </label>
+
+      <!-- Date of Birth -->
+      <label class="pl-20" for="age">
+        {{ 'register.dateOfBirthLabel' | translate }}
+      </label>
       <label class="label" for="age">
         <input
           class="input"
           formControlName="dateOfBirth"
           type="date"
           id="age"
-          placeholder="dateOfBirth"
         />
       </label>
+
+      <!-- Phone -->
       <label class="label" for="phone">
         <input
           class="input"
           formControlName="phoneNumber"
           type="text"
           id="phone"
-          placeholder="phoneNumber"
+          [placeholder]="'register.phoneNumber' | translate"
         />
       </label>
+
+      <!-- National ID -->
       <label class="label" for="nationalId">
         <input
           class="input"
           formControlName="nationalId"
           type="text"
           id="nationalId"
-          placeholder="nationalId"
+          [placeholder]="'register.nationalId' | translate"
         />
       </label>
 
       <!-- Email -->
       <label class="label" for="email">
-        <svg
+         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
@@ -93,7 +100,7 @@
           formControlName="email"
           type="email"
           id="email"
-          placeholder="Email"
+          [placeholder]="'register.email' | translate"
         />
       </label>
 
@@ -116,7 +123,7 @@
           formControlName="password"
           [type]="showPassword ? 'text' : 'password'"
           id="password"
-          placeholder="Password"
+          [placeholder]="'register.password' | translate"
         />
         <a class="cursor-pointer" (click)="togglePassword()">
           <svg
@@ -139,135 +146,128 @@
           </svg>
         </a>
       </label>
+
+      <!-- Description -->
       <label class="label" for="description">
         <textarea
           class="input"
           formControlName="description"
           id="description"
-          placeholder="description"
+          [placeholder]="'register.description' | translate"
         ></textarea>
       </label>
+
+      <!-- Hourly Rate -->
       <label class="label" for="hourlyRate">
         <input
           class="input"
           formControlName="hourlyRate"
           type="number"
           id="hourlyRate"
-          placeholder="hourlyRate"
+          [placeholder]="'register.hourlyRate' | translate"
         />
       </label>
+
+      <!-- Experience Years -->
       <label class="label" for="experienceYears">
         <input
           class="input"
           formControlName="experienceYears"
           type="number"
           id="experienceYears"
-          placeholder="experienceYears"
+          [placeholder]="'register.experienceYears' | translate"
         />
       </label>
 
-      
+      <!-- Profile Image Upload -->
       <div class="mb-3">
-          <label class="profile-upload-label" for="profileImage">
-            <span class="profile-upload-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-image me-2" viewBox="0 0 16 16">
+        <label class="profile-upload-label" for="profileImage">
+          <span class="profile-upload-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-image me-2" viewBox="0 0 16 16">
                 <path d="M14.002 3H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm0 1v.217l-4.106 4.106a.5.5 0 0 1-.707 0L7 6.207l-4.5 4.5V4h11zM2 13V9.707l4.146-4.147a1.5 1.5 0 0 1 2.121 0L14 11.293V13H2z"/>
               </svg>
-              <span>Upload Profile Image</span>
-            </span>
-            <input type="file" id="profileImage" class="input visually-hidden" (change)="onFileChange($event)" accept="image/*" />
-          </label>
-          <div class="profile-image-preview mt-2 text-center">
-            <img
-              [src]="profileImagePreview ? profileImagePreview : 'https://ui-avatars.com/api/?name=User&background=cccccc&color=ffffff&rounded=true&size=80'"
-              alt="Profile Preview"
-              class="rounded-circle"
-              style="width: 80px; height: 80px; object-fit: cover; border: 2px solid #22c55e; cursor: pointer;"
-              (click)="triggerProfileImageInput()"
-            />
-          </div>
-        </div>
-       <label class="d-flex align-items-center" style="gap: 8px; cursor: pointer;">
-          <input type="checkbox" formControlName="hasAcceptedTerms" />
-          <span>I accept <a class="color-pr" href="#" (click)="openTermsModal($event)">Terms & Conditions</a></span>
+            <span>{{ 'register.uploadProfileImage' | translate }}</span>
+          </span>
+          <input
+            type="file"
+            id="profileImage"
+            class="input visually-hidden"
+            (change)="onFileChange($event)"
+            accept="image/*"
+          />
         </label>
-        <div class="modal" tabindex="-1" [ngClass]="{'show': showTermsModal}" [ngStyle]="{'display': showTermsModal ? 'block' : 'none'}">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Terms & Conditions</h5>
-                <button type="button" class="btn-close" aria-label="Close" (click)="closeTermsModal()"></button>
+        <div class="profile-image-preview mt-2 text-center">
+          <img
+            [src]="profileImagePreview ? profileImagePreview : 'https://ui-avatars.com/api/?name=User&background=cccccc&color=ffffff&rounded=true&size=80'"
+            alt="Profile Preview"
+            class="rounded-circle"
+            style="width: 80px; height: 80px; object-fit: cover; border: 2px solid #22c55e; cursor: pointer;"
+            (click)="triggerProfileImageInput()"
+          />
+        </div>
+      </div>
+
+      <!-- Terms -->
+      <label class="d-flex align-items-center" style="gap: 8px; cursor: pointer;">
+        <input type="checkbox" formControlName="hasAcceptedTerms" />
+        <span>
+          {{ 'register.acceptTerms' | translate }}
+          <a class="color-pr" href="#" (click)="openTermsModal($event)">
+            {{ 'register.termsLink' | translate }}
+          </a>
+        </span>
+      </label>
+
+      <!-- Modal -->
+      <div class="modal" tabindex="-1" [ngClass]="{ show: showTermsModal }" [ngStyle]="{ display: showTermsModal ? 'block' : 'none' }">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ 'register.termsModalTitle' | translate }}</h5>
+              <button type="button" class="btn-close" aria-label="Close" (click)="closeTermsModal()"></button>
+            </div>
+            <div class="modal-body">
+              <div style="max-height: 300px; overflow-y: auto; text-align: left;">
+                <h6>{{ 'register.termsModalHeader' | translate }}</h6>
+                <p>{{ 'register.termsIntro' | translate }}</p>
+                <ul>
+                  <li>{{ 'register.term1' | translate }}</li>
+                  <li>{{ 'register.term2' | translate }}</li>
+                  <li>{{ 'register.term3' | translate }}</li>
+                  <li>{{ 'register.term4' | translate }}</li>
+                  <li>{{ 'register.term5' | translate }}</li>
+                </ul>
+                <p>{{ 'register.termsContact' | translate }}</p>
               </div>
-              <div class="modal-body">
-                <div style="max-height: 300px; overflow-y: auto; text-align: left;">
-                  <h6>Terms & Conditions</h6>
-                  <p>
-                    By creating an account, you agree to the following terms and conditions:
-                  </p>
-                  <ul>
-                    <li>You must provide accurate and complete information during registration.</li>
-                    <li>Your account is personal and should not be shared with others.</li>
-                    <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
-                    <li>Any misuse of the service may result in suspension or termination of your account.</li>
-                    <li>We reserve the right to update these terms at any time. Continued use of the service constitutes acceptance of the new terms.</li>
-                  </ul>
-                  <p>
-                    For more information, please contact our support team.
-                  </p>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="pr-sec-btn" (click)="closeTermsModal()">Close</button>
-              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="pr-sec-btn" (click)="closeTermsModal()">
+                {{ 'register.close' | translate }}
+              </button>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Success/Error Messages -->
       <div class="text-success" *ngIf="successMessage">
         {{ successMessage }}
       </div>
       <div class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
       <!-- Sign-Up Button -->
       <button type="submit" class="pr-btn mt-2">
-        Sign Up <i *ngIf="loading" class="fa-solid fa-spinner fa-spin"></i>
+        {{ 'register.signUpBtn' | translate }}
+        <i *ngIf="loading" class="fa-solid fa-spinner fa-spin"></i>
       </button>
 
-      <!-- Social Options -->
-      <!-- <div class="divider">
-        <span>OR</span>
-      </div>
-
-      <button class="btn-secondary">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-google me-2"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"
-          />
-        </svg>
-        Sign up with Google
-      </button>
-
-      <button class="btn-secondary">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-apple me-2"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.69-1.518 1.008a5.467 5.467 0 0 0 2.424 6.69c.61.34 1.29.663 2.066.638.509-.017.782-.165 1.254-.138.474.027.839.15 1.58.13.741-.019 1.205-.136 1.563-.292.423-.185.891-.386 1.122-.49.231-.104.48-.21.722-.368.243-.159.396-.255.59-.457s.273-.468.22-.566z"
-          />
-        </svg>
-        Sign up with Apple
-      </button> -->
+      <!-- Already have account -->
+      <p>
+        {{ 'register.alreadyHaveAccount' | translate }}
+        <a class="color-pr" [routerLink]="['/auth/login']">
+          {{ 'register.login' | translate }}
+        </a>
+      </p>
     </form>
-    <p>Already have an account? <a class="color-pr" [routerLink]="['/auth/login']">Log in</a></p>
   </div>
 </div>

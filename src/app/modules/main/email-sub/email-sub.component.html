@@ -1,5 +1,5 @@
 <div class="container py-4 mt-nav">
-  <h2 class="text-center mb-4">📨 إرسال رسالة إلى المشتركين</h2>
+  <h2 class="text-center mb-4">📨 {{ 'SUBSCRIBERS.TITLE' | translate }}</h2>
 
   <form (ngSubmit)="sendMessage()" class="mb-4 d-flex gap-2">
     <input
@@ -7,18 +7,19 @@
       [(ngModel)]="message"
       name="message"
       class="form-control"
-      placeholder="اكتب الرسالة هنا"
+      [placeholder]="'SUBSCRIBERS.PLACEHOLDER' | translate"
       required
     />
-    <button class="btn btn-primary px-4" type="submit">إرسال</button>
+    <button class="btn btn-primary px-4" type="submit">
+      {{ 'SUBSCRIBERS.SEND' | translate }}
+    </button>
   </form>
 
-  <h4>📧 الإيميلات المشتركة</h4>
-  <div *ngIf="isLoading">جارٍ التحميل...</div>
+  <h4>📧 {{ 'SUBSCRIBERS.LIST_TITLE' | translate }}</h4>
+  <div *ngIf="isLoading">{{ 'SUBSCRIBERS.LOADING' | translate }}</div>
   <ul class="list-group">
     <li *ngFor="let email of subscribers" class="list-group-item">
       {{ email }}
     </li>
   </ul>
 </div>
-

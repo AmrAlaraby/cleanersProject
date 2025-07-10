@@ -39,6 +39,35 @@ export class OrderCompleteComponent implements OnInit {
   }
 
   payWithVisa(): void {
-    alert('تم اختيار الدفع بالفيزا للطلب #' + this.orderId);
+    this.isLoading = true;
+    this._mainService.payOrderWithCard(this.orderId).subscribe({
+    next: (res) => {
+      console.log(res);
+      
+      this.isLoading = false;
+      if (!res.iframeUrl) {
+        this.router.navigate(['/paymentComplete'], {
+          queryParams: {
+            isError: true,
+            message: res.message,
+            orderId: this.orderId,
+          },
+        });
+      } else {
+        window.location.href = res.iframeUrl;
+      }
+    },
+    error: (err) => {
+      this.isLoading = false;
+      const errorMsg = err?.error?.message || 'حدث خطأ أثناء تنفيذ عملية الدفع';
+      this.router.navigate(['/paymentComplete'], {
+        queryParams: {
+          isError: true,
+          message: errorMsg,
+          orderId: this.orderId,
+        },
+      });
+    }
+  });
   }
 }

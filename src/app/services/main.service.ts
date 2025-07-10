@@ -90,7 +90,7 @@ export class MainService {
 
 getWorkerReviews(workerId: string): Observable<any> {
   const headers = this.getToken();
-  return this._HttpClient.get(`${this.baseUrl}Reviews/GetUserReviews/${workerId}`, { headers });
+  return this._HttpClient.get(`${this.baseUrl}Reviews/GetReceivedReviews/${workerId}`, { headers });
 }
 
  updateWorkerInfo(formData: FormData): Observable<any> {
@@ -347,4 +347,13 @@ rateUser(revieweeId: string, payload: { rating: number, comment: string, orderId
     const headers = { Authorization: `Bearer ${token}` };
     return headers;
   }
+
+ payOrderWithCard(orderId: string): Observable<{ iframeUrl: string; message: string }> {
+  const headers = this.getToken();
+  return this._HttpClient.post<{ iframeUrl: string; message: string }>(
+    `${this.baseUrl}Paymob/order/card-payment/${orderId}`,
+    {},
+    { headers }
+  );
+}
 }

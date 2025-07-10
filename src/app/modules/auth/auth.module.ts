@@ -12,6 +12,7 @@ import { WorkerSignupComponent } from './worker-signup/worker-signup.component';
 import { FotgotPasswordComponent } from './fotgot-password/fotgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -24,11 +25,13 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     WorkerSignupComponent,
     FotgotPasswordComponent,
     ResetPasswordComponent,
+    
     ChangePasswordComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
+    TranslateModule,
     ReactiveFormsModule
   ]
 })

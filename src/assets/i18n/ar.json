@@ -271,38 +271,361 @@
     }
   },
   "CLEANERS": {
-    "TITLE": "الخبراء المحترفون",
-    "SUBTITLE": "ابحث عن عامل التنظيف المناسب لاحتياجاتك.",
-    "FILTER_BY": "تصفية حسب",
-    "SERVICE": {
-      "TITLE": "الخدمة",
-      "HOME_CLEANING": "تنظيف المنازل",
-      "OFFICE_CLEANING": "تنظيف المكاتب",
-      "SPRING_CLEANING": "تنظيف موسمي",
-      "WINDOW_WASHING": "غسيل النوافذ"
-    },
-    "GENDER": {
-      "TITLE": "الجنس",
-      "MALE": "ذكر",
-      "FEMALE": "أنثى"
-    },
-    "EXPERIENCE": {
-      "TITLE": "الخبرة",
-      "LESS_THAN_1": "أقل من سنة",
-      "ONE_TO_THREE": "من 1 إلى 3 سنوات",
-      "THREE_PLUS": "أكثر من 3 سنوات"
-    },
-    "LOCATION": {
-      "TITLE": "الموقع",
-      "NEAR_YOU": "بالقرب منك"
-    },
-    "RATINGS": {
-      "TITLE": "التقييمات"
-    }, 
-    "NAME": "جون دو",
-    "PRICE": "١٥ دولار/ساعة",
-    "REVIEWS": "(١٥ مراجعة)",
-    "BOOK_NOW": "احجز الآن"
+  "TITLE": "الخبراء المحترفون",
+  "SUBTITLE": "ابحث عن المنظف المناسب لاحتياجاتك.",
+  "SEARCH_PLACEHOLDER": "ابحث بالاسم",
+  "PER_HOUR": "جنيه / الساعة",
+  "BOOK_NOW": "احجز الآن",
+  "PREVIOUS": "السابق",
+  "NEXT": "التالي",
+  "NO_CLEANERS": "لا يوجد منظفين متاحين حاليًا!"
+}
+,
+  "CHANGE_PASSWORD": {
+  "TITLE": "تغيير كلمة المرور",
+  "OLD_LABEL": "كلمة المرور القديمة",
+  "OLD_PLACEHOLDER": "أدخل كلمة المرور القديمة",
+  "OLD_REQUIRED": "كلمة المرور القديمة مطلوبة.",
+
+  "NEW_LABEL": "كلمة المرور الجديدة",
+  "NEW_PLACEHOLDER": "أدخل كلمة المرور الجديدة",
+  "NEW_REQUIRED": "كلمة المرور الجديدة مطلوبة.",
+  "NEW_MIN": "الحد الأدنى 6 أحرف.",
+
+  "CONFIRM_LABEL": "تأكيد كلمة المرور الجديدة",
+  "CONFIRM_PLACEHOLDER": "أعد إدخال كلمة المرور الجديدة",
+  "CONFIRM_REQUIRED": "تأكيد كلمة المرور مطلوب.",
+  "MISMATCH": "كلمتا المرور غير متطابقتين.",
+
+  "SUBMIT": "تغيير كلمة المرور",
+
+  "TOAST_TITLE": "تغيير كلمة المرور",
+  "TOAST_TIME": "الآن"
+},
+"VERIFICATION": {
+  "TITLE": "أدخل رمز التحقق !!",
+  "DESCRIPTION": "تم إرسال رمز التحقق إلى بريدك الإلكتروني",
+  "CODE_LABEL": "رمز التحقق:",
+  "CODE_PLACEHOLDER": "أدخل الرمز الذي استلمته",
+  "CODE_REQUIRED": "رمز التحقق مطلوب.",
+  "SUBMIT": "إرسال",
+  "SUCCESS_MESSAGE": "تم التحقق بنجاح!",
+  "RESEND": "إعادة إرسال الرمز"
+},
+"FORGOT": {
+  "TITLE": "نسيت كلمة المرور",
+  "LABEL": "بريدك الإلكتروني أو اسم المستخدم أو رقم الهاتف",
+  "PLACEHOLDER": "أدخل بريدك الإلكتروني أو اسم المستخدم أو رقم الهاتف",
+  "BUTTON": "إرسال رابط إعادة التعيين"
+},
+"LOGIN": {
+  "WELCOME": "مرحبًا بعودتك",
+  "PLACEHOLDER_ID": "البريد الإلكتروني أو اسم المستخدم أو رقم الهاتف",
+  "PLACEHOLDER_PASSWORD": "كلمة المرور",
+  "REMEMBER_ME": "تذكرني",
+  "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+  "BUTTON": "تسجيل الدخول",
+  "NO_ACCOUNT": "ليس لديك حساب؟",
+  "SIGNUP": "إنشاء حساب",
+  "TOAST_TITLE": "تسجيل الدخول",
+  "TOAST_TIME": "الآن",
+  "ERRORS": {
+    "ID_REQUIRED": "المعرف مطلوب.",
+    "PASSWORD_REQUIRED": "كلمة المرور مطلوبة.",
+    "PASSWORD_PATTERN": "كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل وتتضمن حرف كبير وصغير ورقم ورمز خاص."
   }
+},"AUTH_LANDING": {
+  "TITLE": "سجّل الدخول إلى حسابك",
+  "SUBTITLE": "ابدأ النسخة التجريبية",
+  "SIGN_UP": "إنشاء حساب",
+  "LOG_IN": "تسجيل الدخول",
+  "AGREE_TEXT": "بالتسجيل أنت توافق على",
+  "TERMS": "شروط الاستخدام",
+  "AND": "و",
+  "PRIVACY": "سياسة الخصوصية"
+},"RESET": {
+  "TITLE": "إعادة تعيين كلمة المرور",
+  "NEW_PASSWORD": "كلمة المرور الجديدة",
+  "CONFIRM_PASSWORD": "تأكيد كلمة المرور",
+  "MISMATCH": "كلمتا المرور غير متطابقتين",
+  "SUBMIT": "إعادة التعيين",
+  "SUCCESS_LOGIN": "تم تغيير كلمة المرور بنجاح، سجل الدخول الآن",
+  "TOAST": "تمت إعادة التعيين بنجاح ✅"
+},
+ "SIGNUP": {
+    "FIRST_NAME": "الاسم الأول",
+    "LAST_NAME": "اسم العائلة",
+    "USERNAME": "اسم المستخدم",
+    "DOB_LABEL": "تاريخ الميلاد",
+    "DOB_PLACEHOLDER": "اختر تاريخ ميلادك",
+    "PHONE": "رقم الهاتف",
+    "EMAIL": "البريد الإلكتروني",
+    "PASSWORD": "كلمة المرور",
+    "UPLOAD_IMAGE": "تحميل صورة الملف الشخصي",
+    "ACCEPT": "أوافق على",
+    "TERMS_LINK": "الشروط والأحكام",
+    "TERMS_TITLE": "الشروط والأحكام",
+    "TERMS_HEADER": "شروط الاستخدام",
+    "TERMS_INTRO": "يرجى قراءة الشروط التالية بعناية قبل التسجيل:",
+    "TERMS": {
+      "L1": "يجب أن يكون عمرك 18 سنة على الأقل.",
+      "L2": "تقديم معلومات دقيقة وصحيحة.",
+      "L3": "احترام المستخدمين الآخرين ومقدمي الخدمة.",
+      "L4": "عدم إساءة استخدام المنصة.",
+      "L5": "سيتم حماية بياناتك وفقًا لسياسة الخصوصية الخاصة بنا."
+    },
+    "TERMS_OUTRO": "بقبولك، فإنك توافق على الالتزام بجميع الشروط المذكورة أعلاه.",
+    "CLOSE": "إغلاق",
+    "SUBMIT": "إنشاء حساب",
+    "ALREADY_HAVE": "لديك حساب بالفعل؟",
+    "LOGIN_LINK": "تسجيل الدخول"
+  },"register": {
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "userName": "اسم المستخدم",
+    "dateOfBirthLabel": "تاريخ الميلاد",
+    "phoneNumber": "رقم الهاتف",
+    "nationalId": "الرقم القومي",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "description": "نبذة عنك",
+    "hourlyRate": "الأجر بالساعة",
+    "experienceYears": "سنوات الخبرة",
+    "uploadProfileImage": "تحميل صورة شخصية",
+    "acceptTerms": "أوافق على",
+    "termsLink": "الشروط والأحكام",
+    "termsModalTitle": "الشروط والأحكام",
+    "termsModalHeader": "يرجى قراءة الشروط بعناية:",
+    "termsIntro": "باستخدامك للخدمة، فإنك توافق على ما يلي:",
+    "term1": "تقديم معلومات دقيقة ومحدثة.",
+    "term2": "احترام العملاء وخصوصيتهم.",
+    "term3": "الوصول في الوقت المحدد وإتمام المهام بمسؤولية.",
+    "term4": "الإبلاغ عن أي مشكلة من خلال نظام الدعم.",
+    "term5": "أنت مسؤول عن الضرائب والالتزامات الخاصة بك.",
+    "termsContact": "إذا كان لديك أي استفسار، يرجى التواصل مع الدعم.",
+    "close": "إغلاق",
+    "signUpBtn": "تسجيل",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "login": "تسجيل الدخول"
+  },"addresses": {
+    "searchPlaceholder": "ابحث بالعنوان أو المدينة...",
+    "addNew": "إضافة عنوان جديد",
+    "noResults": "لا توجد عناوين.",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "editTitle": "تعديل العنوان",
+    "addTitle": "إضافة عنوان جديد",
+    "addressLine": "العنوان",
+    "addressNote": "ملاحظات العنوان",
+    "city": "المدينة",
+    "homeNumber": "رقم المنزل",
+    "floorNumber": "رقم الدور",
+    "flatNumber": "رقم الشقة",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "update": "تحديث"
+  },
+  "categories": {
+    "title": "إدارة الفئات",
+    "searchPlaceholder": "ابحث بالاسم...",
+    "englishName": "الاسم بالإنجليزية",
+    "arabicName": "الاسم بالعربية",
+    "image": "الصورة",
+    "actions": "الإجراءات",
+    "addCategory": "إضافة فئة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "editCategory": "تعديل الفئة",
+    "saveChanges": "حفظ التغييرات",
+    "cancel": "إلغاء",
+    "confirmDeleteTitle": "تأكيد الحذف",
+    "confirmDeleteText": "هل أنت متأكد أنك تريد حذف هذه الفئة؟"
+  },
+  "orders": {
+    "title": "جميع الطلبات",
+    "customer": "العميل",
+    "worker": "العامل",
+    "service": "الخدمة",
+    "address": "العنوان",
+    "status": "الحالة",
+    "price": "السعر",
+    "createdAt": "تاريخ الإنشاء",
+    "noOrders": "لا توجد طلبات لعرضها حالياً."
+  }, "workers": {
+    "title": "جميع العمال",
+    "searchPlaceholder": "ابحث بالاسم",
+    "allCategories": "كل الفئات",
+    "loading": "جارٍ التحميل...",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "rate": "السعر بالساعة",
+    "experience": "الخبرة",
+    "years": "سنة",
+    "categories": "الفئات",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "noWorkers": "لا يوجد عمال حالياً.",
+    "editWorker": "تعديل بيانات العامل",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "username": "اسم المستخدم",
+    "hourlyRate": "الأجر بالساعة",
+    "experienceYears": "سنوات الخبرة",
+    "nationalId": "الرقم القومي",
+    "dateOfBirth": "تاريخ الميلاد",
+    "description": "الوصف",
+    "profileImage": "صورة الملف الشخصي",
+    "cancel": "إلغاء",
+    "save": "حفظ"
+  },"chat":{
+    "send": "ارسال"
+  },
+  "CONTACTA": {
+    "TITLE": "جميع رسائل التواصل",
+    "LOADING": "جاري التحميل...",
+    "FIRST_NAME": "الاسم الأول",
+    "LAST_NAME": "الاسم الأخير",
+    "EMAIL": "البريد الإلكتروني",
+    "MESSAGE": "الرسالة",
+    "DATE": "تاريخ الإرسال",
+    "NO_MESSAGES": "لا توجد رسائل حالياً."
+  },
+  "CUSTOMERS": {
+    "SEARCH_PLACEHOLDER": "ابحث بالاسم",
+    "SORT_BY": "ترتيب حسب",
+    "SORT_NAME_ASC": "الاسم تصاعديًا",
+    "SORT_NAME_DESC": "الاسم تنازليًا",
+    "LOADING": "جاري التحميل...",
+    "EDIT": "تعديل",
+    "DELETE": "حذف",
+    "NO_CUSTOMERS": "لا يوجد عملاء حاليًا.",
+    "UPDATE_TITLE": "تحديث بيانات العميل",
+    "USERNAME": "اسم المستخدم",
+    "FIRST_NAME": "الاسم الأول",
+    "LAST_NAME": "الاسم الأخير",
+    "EMAIL": "البريد الإلكتروني",
+    "PHONE": "رقم الهاتف",
+    "DOB": "تاريخ الميلاد",
+    "SAVE_CHANGES": "حفظ التغييرات"
+  },
+  "DASHBOARD": {
+    "LOADING": "جاري تحميل البيانات...",
+    "LOAD_ERROR": "فشل تحميل البيانات",
+    "AVG_TICKET": "متوسط الفاتورة",
+    "DAILY_REVENUE": "الإيرادات اليومية",
+    "DAILY_ORDERS": "عدد الطلبات اليومية",
+    "TOP_CATEGORIES": "أفضل التصنيفات حسب الإيرادات",
+    "TOP_WORKERS": "أفضل الفنيين حسب الطلبات والإيرادات",
+    "CATEGORY": "التصنيف",
+    "REVENUE": "الإيرادات",
+    "WORKER_NAME": "اسم الفني",
+    "ORDERS_COUNT": "عدد الطلبات"
+  },
+  "SUBSCRIBERS": {
+    "TITLE": "إرسال رسالة إلى المشتركين",
+    "PLACEHOLDER": "اكتب الرسالة هنا",
+    "SEND": "إرسال",
+    "LIST_TITLE": "الإيميلات المشتركة",
+    "LOADING": "جارٍ التحميل..."
+  },
+  "SIDEBAR": {
+    "MAIN_MENU": "القائمة الرئيسية",
+    "DASHBOARD": "لوحة التحكم",
+    "WORKERS": "الفنيين",
+    "CATEGORIES": "التصنيفات",
+    "EMAIL_SUB": "البريد المشترك",
+    "CONTACTS": "رسائل التواصل",
+    "ORDERS": "الطلبات",
+    "CUSTOMERS": "العملاء"
+  },
+  "PROFILE": {
+    "RATING": "تقييم",
+    "REVIEWS": "تقييم",
+    "EDIT_BTN": "تعديل البيانات",
+    "USERNAME": "اسم المستخدم",
+    "PHONE": "رقم الهاتف",
+    "ADDRESS": "العنوان",
+    "DESCRIPTION": "الوصف",
+    "EXPERIENCE": "سنوات الخبرة",
+    "CLEAN_TIMES": "عدد مرات التنظيف",
+    "FEE_PERCENT": "نسبة العمولة",
+    "ORDERS_TO_PAY": "عدد الطلبات للعمولة",
+    "BALANCE": "رصيد المنصة",
+    "CURRENCY": "جنيه",
+    "CATEGORIES": "التخصصات",
+    "EDIT_MODAL_TITLE": "تعديل البيانات الشخصية",
+    "FIRST_NAME": "الاسم الأول",
+    "LAST_NAME": "الاسم الأخير",
+    "BIRTH_DATE": "تاريخ الميلاد",
+    "HOURLY_RATE": "الأجر بالساعة",
+    "PROFILE_IMAGE": "الصورة الشخصية"
+  },
+  "BUTTONS": {
+    "CANCEL": "إلغاء",
+    "SAVE_CHANGES": "حفظ التعديلات"
+  },
+  "ORDER": {
+    "TITLE": "معلومات الطلب رقم",
+    "CUSTOMER": "العميل",
+    "WORKER": "الفني",
+    "PRICE": "السعر",
+    "CURRENCY": "ج.م",
+    "DATE": "التاريخ",
+    "STATUS": "الحالة",
+    "ADDRESS": "العنوان",
+    "PAY_CASH": "الدفع نقدًا",
+    "PAY_VISA": "الدفع بالفيزا",
+    "LOADING": "جاري تحميل بيانات الطلب...",
+    "REDIRECTING": "جاري إعادة التوجيه..."
+  },
+  "ORDER_SUCCESS": {
+    "TITLE": "تم إكمال الطلب ✅",
+    "THANK_YOU": "شكراً لاستخدامك خدمتنا!",
+    "GENERATING_OTP": "جاري توليد رمز OTP...",
+    "OTP_LABEL": "رمز OTP الخاص بك:",
+    "OTP_FAILED": "فشل في الحصول على رمز OTP. يرجى المحاولة لاحقًا."
+  },
+  "PAYMENT": {
+    "SUCCESS_TITLE": "تم الدفع بنجاح",
+    "FAILURE_TITLE": "فشل في الدفع",
+    "BACK_TO_ORDERS": "العودة إلى الطلبات",
+    "BACK_TO_ORDER_DETAILS": "العودة إلى تفاصيل الطلب"
+  },"PROFILEC": {
+    "UPDATE_TITLE": "تحديث الملف الشخصي",
+    "FIRST_NAME": "الاسم الأول",
+    "LAST_NAME": "الاسم الأخير",
+    "USERNAME": "اسم المستخدم",
+    "PHONE_NUMBER": "رقم الهاتف",
+    "DATE_OF_BIRTH": "تاريخ الميلاد",
+    "PROFILE_IMAGE": "الصورة الشخصية",
+    "SAVE_CHANGES": "حفظ التعديلات"
+  },"WORKER": {
+    "RATE": "السعر",
+    "PER_HOUR": "جنيه/ساعة",
+    "BOOK_NOW": "احجز الآن",
+    "REVIEWS": "المراجعات",
+    "BOOK_CLEANER": "احجز العامل",
+    "SELECT_ADDRESS": "اختر عنوانك",
+    "CHOOSE_ADDRESS": "اختر عنوانًا",
+    "ENTER_PRICE": "أدخل السعر المبدئي",
+    "PRICE_PLACEHOLDER": "السعر المبدئي"
+  },
+  "BUTTON": {
+    "CANCEL": "إلغاء",
+    "NEXT": "التالي",
+    "BOOK": "تأكيد الحجز"
+  }
+
+
+
+
+
+
+
+
+
+
+
+
   }
   

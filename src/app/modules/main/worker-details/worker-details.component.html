@@ -1,13 +1,16 @@
-
+<!-- worker-details.component.html -->
 <div class="container mt-nav py-5">
   <div class="row">
     <div class="col-md-4">
-      <img [src]="worker.profilePictureUrl" class="img-fluid rounded" />
+      <img [src]="worker.profilePictureUrl || 'assets/Team-Member-Male-Placeholder.png'" class="img-fluid rounded" />
     </div>
     <div class="col-md-8">
       <h2>{{ worker.fullName }}</h2>
       <p>{{ worker.description }}</p>
-      <p><strong>Rate:</strong> {{ worker.hourlyRate }} جنيه/ساعة</p>
+      <p>
+        <strong>{{ 'WORKER.RATE' | translate }}:</strong>
+        {{ worker.hourlyRate }} {{ 'WORKER.PER_HOUR' | translate }}
+      </p>
 
       <!-- النجوم -->
       <div class="mb-2">
@@ -23,14 +26,16 @@
         <small class="text-muted">({{ worker.ratingsCount }})</small>
       </div>
 
-      <button class="btn btn-primary mt-3" (click)="openBookingModal()">احجز الآن</button>
+      <button class="btn btn-primary mt-3" (click)="openBookingModal()">
+        {{ 'WORKER.BOOK_NOW' | translate }}
+      </button>
     </div>
   </div>
 
   <hr />
 
-  <div class="mt-4">
-    <h4>المراجعات</h4>
+  <div *ngIf="reviews.length" class="mt-4">
+    <h4>{{ 'WORKER.REVIEWS' | translate }}</h4>
     <div *ngFor="let review of reviews" class="border-bottom py-2">
       <strong>{{ review.reviewerName }}</strong>
       <span class="text-muted">({{ review.createdAt | date:'shortDate' }})</span>
@@ -44,7 +49,7 @@
   </div>
 </div>
 
-
+<!-- مودال الحجز -->
 <div
   class="modal fade show"
   tabindex="-1"
@@ -57,8 +62,7 @@
     <div class="modal-content p-3">
       <div class="modal-header">
         <h5 class="modal-title">
-          Book Cleaner: {{ worker.fullName }}
-
+          {{ 'WORKER.BOOK_CLEANER' | translate }}: {{ worker.fullName }}
         </h5>
         <button type="button" class="btn-close" (click)="closeModal()"></button>
       </div>
@@ -66,9 +70,11 @@
       <div class="modal-body">
         <!-- Step 1: Select Address -->
         <div *ngIf="modalStep === 1">
-          <h6>Select Your Address</h6>
+          <h6>{{ 'WORKER.SELECT_ADDRESS' | translate }}</h6>
           <select class="form-select" [(ngModel)]="selectedAddressId">
-            <option [ngValue]="null" disabled>Select an address</option>
+            <option [ngValue]="null" disabled>
+              {{ 'WORKER.CHOOSE_ADDRESS' | translate }}
+            </option>
             <option *ngFor="let addr of addresses" [value]="addr.id">
               {{ addr.addressLine }}, {{ addr.city }}
             </option>
@@ -77,20 +83,20 @@
 
         <!-- Step 2: Enter Initial Price -->
         <div *ngIf="modalStep === 2">
-          <h6>Enter Initial Price</h6>
+          <h6>{{ 'WORKER.ENTER_PRICE' | translate }}</h6>
           <input
             type="number"
             class="form-control"
             [(ngModel)]="initialPrice"
             min="1"
-            placeholder="Initial Price"
+            [placeholder]="'WORKER.PRICE_PLACEHOLDER' | translate"
           />
         </div>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="closeModal()">
-          Cancel
+          {{ 'BUTTON.CANCEL' | translate }}
         </button>
 
         <button
@@ -100,7 +106,7 @@
           (click)="acceptAddress()"
           [disabled]="!selectedAddressId"
         >
-          Accept
+          {{ 'BUTTON.NEXT' | translate }}
         </button>
 
         <button
@@ -110,42 +116,9 @@
           (click)="acceptPriceAndCreateOrder()"
           [disabled]="!initialPrice || initialPrice <= 0"
         >
-          Accept
+          {{ 'BUTTON.BOOK' | translate }}
         </button>
       </div>
     </div>
-  </div>
-</div>
-
-<div
-  aria-live="polite"
-  aria-atomic="true"
-  class="position-fixed top-0 end-0 p-3"
-  style="z-index: 1080"
->
-  <div
-    *ngFor="let toast of toasts"
-    class="toast show"
-    role="alert"
-    aria-live="assertive"
-    aria-atomic="true"
-    [ngClass]="{
-      'bg-success text-white': toast.type === 'success',
-      'bg-danger text-white': toast.type === 'error',
-      'bg-warning text-dark': toast.type === 'warning',
-      'bg-info text-dark': toast.type === 'info'
-    }"
-    style="min-width: 250px"
-  >
-    <div class="toast-header">
-      <strong class="me-auto">{{ toast.title }}</strong>
-      <button
-        type="button"
-        class="btn-close"
-        (click)="removeToast(toast)"
-        aria-label="Close"
-      ></button>
-    </div>
-    <div class="toast-body">{{ toast.message }}</div>
   </div>
 </div>

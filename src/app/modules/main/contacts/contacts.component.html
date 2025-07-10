@@ -1,20 +1,20 @@
 <div class="container py-4 mt-nav">
-  <h2 class="text-center mb-4">جميع رسائل التواصل</h2>
+  <h2 class="text-center mb-4">{{ 'CONTACTA.TITLE' | translate }}</h2>
 
   <div *ngIf="isLoading" class="text-center">
     <div class="spinner-border text-primary" role="status"></div>
-    <p>جاري التحميل...</p>
+    <p>{{ 'CONTACTA.LOADING' | translate }}</p>
   </div>
 
   <table *ngIf="!isLoading && contacts.length > 0" class="table table-bordered table-striped">
     <thead class="table-dark text-center">
       <tr>
         <th>#</th>
-        <th>الاسم الأول</th>
-        <th>الاسم الأخير</th>
-        <th>البريد الإلكتروني</th>
-        <th>الرسالة</th>
-        <th>تاريخ الإرسال</th>
+        <th>{{ 'CONTACTA.FIRST_NAME' | translate }}</th>
+        <th>{{ 'CONTACTA.LAST_NAME' | translate }}</th>
+        <th>{{ 'CONTACTA.EMAIL' | translate }}</th>
+        <th>{{ 'CONTACTA.MESSAGE' | translate }}</th>
+        <th>{{ 'CONTACTA.DATE' | translate }}</th>
       </tr>
     </thead>
     <tbody>
@@ -30,6 +30,6 @@
   </table>
 
   <div *ngIf="!isLoading && contacts.length === 0" class="text-center text-muted">
-    لا توجد رسائل حالياً.
+    {{ 'CONTACTA.NO_MESSAGES' | translate }}
   </div>
 </div>

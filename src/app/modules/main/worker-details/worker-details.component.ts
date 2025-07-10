@@ -39,7 +39,10 @@ export class WorkerDetailsComponent implements OnInit {
 
   loadReviews(): void {
     this._mainService.getWorkerReviews(this.workerId).subscribe({
-      next: (res: any) => this.reviews = res.data
+      next: (res: any) =>{ this.reviews = res.data
+        console.log('Reviews:', this.reviews);
+        
+      }
     });
   }
 

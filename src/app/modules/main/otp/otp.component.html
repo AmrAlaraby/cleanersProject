@@ -1,21 +1,26 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="text-center">
     <div class="mb-5">
-      <h1 class="display-4 fw-bold text-success">Order Completed ✅</h1>
-      <p class="lead mt-3">شكراً لاستخدامك خدمتنا!</p>
+      <h1 class="display-4 fw-bold text-success">
+        {{ 'ORDER_SUCCESS.TITLE' | translate }}
+      </h1>
+      <p class="lead mt-3">
+        {{ 'ORDER_SUCCESS.THANK_YOU' | translate }}
+      </p>
     </div>
 
     <div *ngIf="loading" class="text-secondary">
-      جاري توليد رمز OTP...
+      {{ 'ORDER_SUCCESS.GENERATING_OTP' | translate }}
     </div>
 
     <div *ngIf="!loading && otpCode">
-      <h4>رمز OTP الخاص بك:</h4>
+      <h4>{{ 'ORDER_SUCCESS.OTP_LABEL' | translate }}</h4>
       <div class="display-5 fw-bold text-success">{{ otpCode }}</div>
     </div>
 
     <div *ngIf="!loading && !otpCode" class="text-danger mt-3">
-      فشل في الحصول على رمز OTP. يرجى المحاولة لاحقًا.
+      {{ 'ORDER_SUCCESS.OTP_FAILED' | translate }}
     </div>
   </div>
 </div>
+

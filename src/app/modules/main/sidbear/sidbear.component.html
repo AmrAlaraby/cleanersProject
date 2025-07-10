@@ -1,34 +1,40 @@
 <div class="bg-light vh-100 p-3" style="width: 250px;">
-  <h5>Main Menu</h5>
+  <h5>{{ 'SIDEBAR.MAIN_MENU' | translate }}</h5>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link " [routerLink]="['/dashboard/home']" [routerLinkActive]="'active bg-success text-white rounded'">Dashboard</a>
-    </li>
-  
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/dashboard/workers']" [routerLinkActive]="'active bg-success text-white rounded'">Workers </a>
+      <a class="nav-link" [routerLink]="['/dashboard/home']" [routerLinkActive]="'active bg-success text-white rounded'">
+        {{ 'SIDEBAR.DASHBOARD' | translate }}
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/dashboard/Categories']" [routerLinkActive]="'active bg-success text-white rounded'">Categories</a>
-
+      <a class="nav-link" [routerLink]="['/dashboard/workers']" [routerLinkActive]="'active bg-success text-white rounded'">
+        {{ 'SIDEBAR.WORKERS' | translate }}
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/dashboard/emailSub']" [routerLinkActive]="'active bg-success text-white rounded'">EmailSub</a>
-      
+      <a class="nav-link" [routerLink]="['/dashboard/Categories']" [routerLinkActive]="'active bg-success text-white rounded'">
+        {{ 'SIDEBAR.CATEGORIES' | translate }}
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/dashboard/contacts']" [routerLinkActive]="'active bg-success text-white rounded'">Contacts</a>
-      
+      <a class="nav-link" [routerLink]="['/dashboard/emailSub']" [routerLinkActive]="'active bg-success text-white rounded'">
+        {{ 'SIDEBAR.EMAIL_SUB' | translate }}
+      </a>
     </li>
-     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/dashboard/orders']" [routerLinkActive]="'active bg-success text-white rounded'">Orders</a>
-      
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/dashboard/contacts']" [routerLinkActive]="'active bg-success text-white rounded'">
+        {{ 'SIDEBAR.CONTACTS' | translate }}
+      </a>
     </li>
-     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/dashboard/customers']" [routerLinkActive]="'active bg-success text-white rounded'">Customers</a>
-      
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/dashboard/orders']" [routerLinkActive]="'active bg-success text-white rounded'">
+        {{ 'SIDEBAR.ORDERS' | translate }}
+      </a>
     </li>
-  
-   
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/dashboard/customers']" [routerLinkActive]="'active bg-success text-white rounded'">
+        {{ 'SIDEBAR.CUSTOMERS' | translate }}
+      </a>
+    </li>
   </ul>
 </div>

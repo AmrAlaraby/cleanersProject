@@ -1,20 +1,23 @@
 <div class="container-fluid p-4">
   <!-- حالة التحميل -->
-  <div *ngIf="isLoading" class="alert alert-info">جاري تحميل البيانات...</div>
+  <div *ngIf="isLoading" class="alert alert-info">
+    {{ 'DASHBOARD.LOADING' | translate }}
+  </div>
 
   <!-- حالة الخطأ -->
-  <div *ngIf="!isLoading && !dashboardData" class="alert alert-danger">فشل تحميل البيانات</div>
+  <div *ngIf="!isLoading && !dashboardData" class="alert alert-danger">
+    {{ 'DASHBOARD.LOAD_ERROR' | translate }}
+  </div>
 
   <!-- عند توفر البيانات -->
   <div *ngIf="dashboardData">
-    
     <!-- بطاقات إحصائية -->
     <div class="row">
       <!-- متوسط الفاتورة -->
       <div class="col-md-4">
         <div class="card text-white bg-primary mb-3">
           <div class="card-body">
-            <h5 class="card-title">متوسط الفاتورة</h5>
+            <h5 class="card-title">{{ 'DASHBOARD.AVG_TICKET' | translate }}</h5>
             <h3 class="card-text">{{ dashboardData.averageTicketSize | currency: 'EGP' }}</h3>
           </div>
         </div>
@@ -37,7 +40,7 @@
       <div class="col-md-6">
         <div class="card mb-4">
           <div class="card-body">
-            <h5>الإيرادات اليومية</h5>
+            <h5>{{ 'DASHBOARD.DAILY_REVENUE' | translate }}</h5>
             <div style="height: 300px;">
               <canvas baseChart
                       [datasets]="revenueChartData"
@@ -54,7 +57,7 @@
       <div class="col-md-6">
         <div class="card mb-4">
           <div class="card-body">
-            <h5>عدد الطلبات اليومية</h5>
+            <h5>{{ 'DASHBOARD.DAILY_ORDERS' | translate }}</h5>
             <div style="height: 300px;">
               <canvas baseChart
                       [datasets]="ordersChartData"
@@ -73,13 +76,13 @@
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-body">
-            <h5>أفضل التصنيفات حسب الإيرادات</h5>
+            <h5>{{ 'DASHBOARD.TOP_CATEGORIES' | translate }}</h5>
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>التصنيف</th>
-                  <th>الإيرادات</th>
+                  <th>{{ 'DASHBOARD.CATEGORY' | translate }}</th>
+                  <th>{{ 'DASHBOARD.REVENUE' | translate }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -100,14 +103,14 @@
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-body">
-            <h5>أفضل الفنيين حسب الطلبات والإيرادات</h5>
+            <h5>{{ 'DASHBOARD.TOP_WORKERS' | translate }}</h5>
             <table class="table table-bordered table-hover">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>اسم الفني</th>
-                  <th>عدد الطلبات</th>
-                  <th>الإيرادات</th>
+                  <th>{{ 'DASHBOARD.WORKER_NAME' | translate }}</th>
+                  <th>{{ 'DASHBOARD.ORDERS_COUNT' | translate }}</th>
+                  <th>{{ 'DASHBOARD.REVENUE' | translate }}</th>
                 </tr>
               </thead>
               <tbody>

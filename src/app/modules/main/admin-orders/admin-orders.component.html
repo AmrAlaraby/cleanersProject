@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h3>جميع الطلبات</h3>
+  <h3>{{ 'orders.title' | translate }}</h3>
 
   <div *ngIf="isLoading" class="text-center my-3">
     <div class="spinner-border text-primary" role="status"></div>
@@ -9,13 +9,13 @@
     <thead class="table-dark">
       <tr>
         <th>#</th>
-        <th>العميل</th>
-        <th>العامل</th>
-        <th>الخدمة</th>
-        <th>العنوان</th>
-        <th>الحالة</th>
-        <th>السعر</th>
-        <th>تاريخ الإنشاء</th>
+        <th>{{ 'orders.customer' | translate }}</th>
+        <th>{{ 'orders.worker' | translate }}</th>
+        <th>{{ 'orders.service' | translate }}</th>
+        <th>{{ 'orders.address' | translate }}</th>
+        <th>{{ 'orders.status' | translate }}</th>
+        <th>{{ 'orders.price' | translate }}</th>
+        <th>{{ 'orders.createdAt' | translate }}</th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +33,6 @@
   </table>
 
   <div *ngIf="!isLoading && orders.length === 0" class="alert alert-warning">
-    لا توجد طلبات لعرضها حالياً.
+    {{ 'orders.noOrders' | translate }}
   </div>
 </div>
