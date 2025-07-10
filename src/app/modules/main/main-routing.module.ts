@@ -62,7 +62,8 @@ const routes: Routes = [
         path:'orders',component:OrdersComponent,canActivate: [UserTypeOrGuard],
       },
       {
-        path:'paymentComplete',component:PaymentRedirectPageComponent,canActivate: [UserTypeOrGuard],
+        path:'paymentComplete',component:PaymentRedirectPageComponent,
+        // canActivate: [UserTypeOrGuard],
       },
        {
         path:'otp/:id',component:OtpComponent,canActivate: [RegularUserGuard]
