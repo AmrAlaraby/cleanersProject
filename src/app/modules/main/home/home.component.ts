@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { MainService } from 'src/app/services/main.service';
 import Swiper from 'swiper';
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
+import { category } from '../interfaces/interfaces';
+import { TranslateService } from '@ngx-translate/core';
 // register Swiper custom elements
 @Component({
   selector: 'app-home',
@@ -9,9 +13,23 @@ import { register } from 'swiper/element/bundle';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+    categories: category[] = [];
+    categoryNameMap: { [id: number]: string } = {};
+  islogin: boolean = false;
+  constructor(private authService: AuthenticationService,private _mainService: MainService,public translate: TranslateService) {}
 ngOnInit(): void {
+  this._mainService.getAllCategories().subscribe({
+    next:(res) => {
+      this.categories = res.slice(0, 3); // نعرض أول 3 فقط
+    },complete:()=>this.updateCategoryNames()
+  });
   this.initSwipers()
   register();
+
+  if (this.authService.userData.getValue() != null) {
+       
+          
+          this.islogin = true;}
 }
 
 initSwipers():void{
@@ -96,6 +114,13 @@ teamMembers = [
       image: '../../../../assets/Testimonial/11/Avatar2.png'
     }
   ];
+
+  updateCategoryNames() {
+    this.categoryNameMap = {};
+    for (let cat of this.categories) {
+      this.categoryNameMap[cat.id] = this.translate.currentLang === 'ar' ? cat.arabicName : cat.englishName;
+}
+}
 }
 
 

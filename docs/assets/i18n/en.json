@@ -1,27 +1,37 @@
 {
     "HOME": {
-      "HERO": {
-        "TITLE": "Your Trusted Partner for Professional Cleaning Services",
-        "DESCRIPTION": "Experience a cleaner, healthier space with our expert cleaning services tailored to your needs. Join us today and discover the difference a professional touch can make.",
-        "LOGIN": "Login",
-        "BECOME_CLEANER": "Become a cleaner"
-      },
-      "USE_SERVICES": {
+        "HERO": {
+    "TITLE": "Swipe - Trusted & Professional Cleaning Services",
+    "DESCRIPTION": "At Swipe, we deliver high-quality, tailored cleaning services for homes and businesses. Join thousands of satisfied clients who trust us to create cleaner, healthier environments.",
+    "LOGIN": "Login",
+    "BECOME_CLEANER": "Become a Cleaner"
+  },
+"USE_SERVICES": {
+  "TITLE": "How to Use Our Cleaning Services",
+  "DESCRIPTION": "Getting started is easy! Follow these simple steps to benefit from our services.",
+  "CLIENT_TITLE": "As a Client",
+  "CLEANER_TITLE": "As a Cleaner",
 
-      "TITLE": "How to Use Our Cleaning Services",
-      "DESCRIPTION": "Getting started is easy! Follow these simple steps to book your cleaning service and enjoy a spotless space.",
-      "CLIENT_TITLE": "As a Client",
-      "CLEANER_TITLE": "As a Cleaner",
-      "STEP1_TITLE": "Step 1: Register Your Account",
-      "STEP1_DESC": "Create an account to access our services.",
-      "STEP2_TITLE": "Step 2: Choose Your Cleaning Service",
-      "STEP2_DESC": "Select from our range of cleaning options.",
-      "STEP3_TITLE": "Step 3: Book Your Cleaning Worker",
-      "STEP3_DESC": "Schedule a time that works for you.",
-      "REGISTER": "Register",
-      "CHOOSE": "Choose",
-      "BOOK": "Book"
-    },
+  "STEP1_TITLE": "Step 1: Register Your Account",
+  "STEP1_DESC": "Create an account to access our services.",
+  "STEP2_TITLE": "Step 2: Choose a Cleaning Service",
+  "STEP2_DESC": "Choose from a variety of our cleaning options.",
+  "STEP3_TITLE": "Step 3: Book a Cleaner",
+  "STEP3_DESC": "Select a time that suits you.",
+
+  "CLEANER_STEP2_TITLE": "Step 2: Choose Service Type",
+  "CLEANER_STEP2_DESC": "Select the type of service you want to offer as a cleaner.",
+  "CLEANER_STEP3_TITLE": "Step 3: Wait for Orders",
+  "CLEANER_STEP3_DESC": "You’ll be notified when clients request your services.",
+
+  "REGISTER": "Register",
+  "CHOOSE": "Choose",
+  "BOOK": "Book",
+  "CLEANER_WAIT": "Wait for Orders"
+
+}
+
+,
     "SERVICES": {
       "TITLE": "Explore Our Comprehensive Cleaning Services",
       "DESCRIPTION": "We offer a variety of cleaning services tailored to meet your needs. From residential to commercial spaces, we ensure a spotless environment.",
@@ -221,29 +231,18 @@
     "HOUSE_CLEANING": "House Cleaning",
     "CHOOSE_CLEANER": "Choose Cleaner"
   },
-  "BEST_CLEANER": {
-    "TITLE": "Best Cleaner",
-    "DESCRIPTION": "Dedicated professionals ready to serve you.",
-    "SEE_ALL": "See All",
-    "ALICE_NAME": "Alice Johnson",
-    "ALICE_ROLE": "Cleaning Expert",
-    "ALICE_DESC": "Passionate about delivering spotless results with a friendly touch.",
-    "MARK_NAME": "Mark Smith",
-    "MARK_ROLE": "Service Manager",
-    "MARK_DESC": "Ensures quality and satisfaction in every cleaning service provided.",
-    "SARAH_NAME": "Sarah Lee",
-    "SARAH_ROLE": "Field Supervisor",
-    "SARAH_DESC": "Oversees operations to maintain high service standards and efficiency.",
-    "EMMA_NAME": "Emma Brown",
-    "EMMA_ROLE": "Customer Liaison",
-    "EMMA_DESC": "Communicates with clients to ensure their needs are met effectively.",
-    "DAVID_NAME": "David White",
-    "DAVID_ROLE": "Quality Inspector",
-    "DAVID_DESC": "Reviews services to guarantee the highest quality for our clients.",
-    "LINDA_NAME": "Linda Green",
-    "LINDA_ROLE": "Team Leader",
-    "LINDA_DESC": "Guides our team to success with motivation and support."
-  },
+"BEST_CLEANER": {
+  "TITLE": "Best Cleaners for You",
+  "DESCRIPTION": "Here are the most recommended cleaners based on your preferences.",
+  "BOOK_NOW": "Book Now",
+  "SEE_ALL": "See All"
+},
+"CLEANERSA": {
+  "PER_HOUR": "EGP/hour"
+}
+
+
+,
   "CONTACT": {
     "HEADER_TITLE": "We're Here to Help",
     "HEADER_DESC": "Reach out to us for any questions or support. We're eager to assist you.",

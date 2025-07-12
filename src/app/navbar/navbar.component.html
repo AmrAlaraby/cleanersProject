@@ -1,8 +1,8 @@
 
   <nav class="navbar navbar-expand-lg px-lg-5 px-2 fixed-top bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand">
-        <img src="assets/logo.png" class="img-fluid max" alt="logo">
+      <a [routerLink]="['/home']" class="navbar-brand">
+        <img src="assets/Group 30.png" class="img-fluid max" alt="logo">
       </a>
   
       <!-- Language Toggle -->
@@ -86,7 +86,7 @@
 </div>
   </nav>
 
- <div *ngIf="!isActive" class="w-100 text-center py-3 text-white bg-danger fixed-top" style="top: 56px; z-index: 1040;">
+ <div *ngIf="!isActive" class="w-100 text-center py-3 text-white bg-danger fixed-top" style="top: 66px; z-index: 1040;">
   <div class="container d-flex justify-content-between align-items-center flex-column flex-md-row">
     <div class="mb-2 mb-md-0">
       {{ 'PLATFORM_PAYMENT_REQUIRED' | translate }}
@@ -97,7 +97,7 @@
   </div>
 </div>
 
-<div *ngIf="!isAccountVerified" class="alert alert-warning text-center m-0 rounded-0" style="top: 56px; z-index: 1040;">
+<div *ngIf="!isAccountVerified" class="alert alert-warning text-center m-0 rounded-0" style="top: 66px; z-index: 1040;">
   {{ 'ALERT.ACCOUNT_NOT_VERIFIED' | translate }}
   <button class="btn btn-sm btn-warning ms-2" (click)="goToVerify()">
     {{ 'ALERT.VERIFY_NOW' | translate }}

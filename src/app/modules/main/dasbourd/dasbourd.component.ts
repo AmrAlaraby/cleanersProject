@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
   constructor(private mainService: MainService) {}
 
   ngOnInit(): void {
-    this.mainService.getOrdersDashboard(7).subscribe({
+    this.mainService.getOrdersDashboard(90).subscribe({
       next: (res) => {
         this.dashboardData = res;
         this.prepareRevenueChart(res.revenuePerDay);

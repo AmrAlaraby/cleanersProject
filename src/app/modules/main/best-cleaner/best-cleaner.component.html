@@ -1,142 +1,61 @@
-<!-- <section class="py-5 section">
-    <div class="container text-center">
-      <h1 class="fw-bold gradient-pr">Best Cleaner</h1>
-      <p class="text-muted">Dedicated professionals ready to serve you.</p>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+<section class="py-5 section">
+  <div class="container text-center">
+    <h1 class="fw-bold gradient-pr">{{ 'BEST_CLEANER.TITLE' | translate }}</h1>
+    <p class="text-muted">{{ 'BEST_CLEANER.DESCRIPTION' | translate }}</p>
 
-        <div class="col">
-          <div class="card h-100 border-0">
-            <div class="card-body text-start">
-              <img
-                src="https://via.placeholder.com/100"
-                class="rounded-circle mb-3"
-                alt="Alice Johnson"
-              />
-              <h5 class="card-title text-start">Alice Johnson</h5>
-              <p class="card-text text-start">Cleaning Expert</p>
-              <p class="text-muted text-start">
-                Passionate about delivering spotless results with a friendly
-                touch.
-              </p>
+    <div class="row">
+      <div class="col-lg-4 col-md-6" *ngFor="let worker of cleaners">
+        <div class="card border-0 shadow-sm">
+          <img
+            [src]="worker.profilePictureUrl || 'assets/Team-Member-Male-Placeholder.png'"
+            alt="Professional Image"
+            class="card-img-top mx-auto mt-3 w-100 img-fluid"
+            style="height: 330px; object-fit: cover"
+          />
+          <div class="card-body text-center">
+            <h5 class="fw-bold mb-0">{{ worker.fullName }}</h5>
+            <p class="text-success mb-2">
+              {{ worker.hourlyRate }} {{ 'CLEANERSA.PER_HOUR' | translate }}
+            </p>
+
+            <!-- الكاتيجوريز -->
+            <div class="mb-2">
+              <ng-container *ngFor="let category of worker.categories">
+                <span class="badge bg-secondary me-1">
+                  {{ getCategoryName(category) }}
+                </span>
+              </ng-container>
             </div>
+
+            <!-- النجوم -->
+            <div class="d-flex justify-content-center align-items-center mb-2">
+              <ng-container *ngFor="let _ of [].constructor(math.floor(worker.averageRating))">
+                <i class="fas fa-star text-warning me-1"></i>
+              </ng-container>
+
+              <ng-container *ngIf="worker.averageRating % 1 >= 0.25 && worker.averageRating % 1 < 0.75">
+                <i class="fas fa-star-half-alt text-warning me-1"></i>
+              </ng-container>
+
+              <ng-container *ngFor="let _ of [].constructor(5 - math.ceil(worker.averageRating))">
+                <i class="far fa-star text-muted me-1"></i>
+              </ng-container>
+
+              <small class="text-muted">({{ worker.ratingsCount || 0 }})</small>
+            </div>
+
+            <button [routerLink]="['/services/workers', worker.id]" class="pr-btn w-100">
+              {{ 'BEST_CLEANER.BOOK_NOW' | translate }}
+            </button>
           </div>
         </div>
-    
-        <div class="col">
-          <div class="card h-100 border-0">
-            <div class="card-body text-start">
-              <img
-                src="https://via.placeholder.com/100"
-                class="rounded-circle mb-3"
-                alt="Mark Smith"
-              />
-              <h5 class="card-title text-start">Mark Smith</h5>
-              <p class="card-text text-start">Service Manager</p>
-              <p class="text-muted text-start">
-                Ensures quality and satisfaction in every cleaning service
-                provided.
-              </p>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col">
-          <div class="card h-100 border-0">
-            <div class="card-body text-start">
-              <img
-                src="https://via.placeholder.com/100"
-                class="rounded-circle mb-3"
-                alt="Sarah Lee"
-              />
-              <h5 class="card-title text-start">Sarah Lee</h5>
-              <p class="card-text text-start">Field Supervisor</p>
-              <p class="text-muted text-start">
-                Oversees operations to maintain high service standards and
-                efficiency.
-              </p>
-            </div>
-          </div>
-        </div>
-   
-        <div class="col">
-          <div class="card h-100 border-0">
-            <div class="card-body text-start">
-              <img
-                src="https://via.placeholder.com/100"
-                class="rounded-circle mb-3"
-                alt="Emma Brown"
-              />
-              <h5 class="card-title text-start">Emma Brown</h5>
-              <p class="card-text text-start">Customer Liaison</p>
-              <p class="text-muted text-start">
-                Communicates with clients to ensure their needs are met
-                effectively.
-              </p>
-            </div>
-          </div>
-        </div>
-   
-        <div class="col">
-          <div class="card h-100 border-0">
-            <div class="card-body text-start">
-              <img
-                src="https://via.placeholder.com/100"
-                class="rounded-circle mb-3"
-                alt="David White"
-              />
-              <h5 class="card-title text-start">David White</h5>
-              <p class="card-text text-start">Quality Inspector</p>
-              <p class="text-muted text-start">
-                Reviews services to guarantee the highest quality for our clients.
-              </p>
-            </div>
-          </div>
-        </div>
- 
-        <div class="col">
-          <div class="card h-100 border-0">
-            <div class="card-body text-start">
-              <img
-                src="https://via.placeholder.com/100"
-                class="rounded-circle mb-3"
-                alt="Linda Green"
-              />
-              <h5 class="card-title text-start">Linda Green</h5>
-              <p class="card-text text-start">Team Leader</p>
-              <p class="text-muted text-start">
-                Guides our team to success with motivation and support.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mt-4">
-        <button class="pr-btn px-5">See All</button>
       </div>
     </div>
-  </section> -->
 
-  <section class="py-5 section">
-    <div class="container text-center">
-      <h1 class="fw-bold gradient-pr">{{ 'BEST_CLEANER.TITLE' | translate }}</h1>
-      <p class="text-muted">{{ 'BEST_CLEANER.DESCRIPTION' | translate }}</p>
-  
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        <div class="col" *ngFor="let cleaner of cleaners">
-          <div class="card h-100 border-0">
-            <div class="card-body text-start">
-              <img [src]="cleaner.image" class="rounded-circle mb-3" [alt]="cleaner.alt" />
-              <h5 class="card-title text-start">{{ cleaner.name | translate }}</h5>
-              <p class="card-text text-start">{{ cleaner.role | translate }}</p>
-              <p class="text-muted text-start">{{ cleaner.description | translate }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="mt-4">
-        <button class="pr-btn px-5">{{ 'BEST_CLEANER.SEE_ALL' | translate }}</button>
-      </div>
+    <div class="mt-4">
+      <button class="pr-btn px-5" [routerLink]="['/services']">
+        {{ 'BEST_CLEANER.SEE_ALL' | translate }}
+      </button>
     </div>
-  </section>
-  
+  </div>
+</section>

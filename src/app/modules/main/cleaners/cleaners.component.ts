@@ -32,6 +32,15 @@ export class CleanersComponent implements OnInit {
   toasts: Toast[] = [];
   private toastIdCounter = 0;
 
+  randomImages: string[] = [
+  'https://res.cloudinary.com/ducftdiug/image/upload/userImage_e8xgpm.png',
+  'https://res.cloudinary.com/ducftdiug/image/upload/userImage1_swvrns.png',
+  'https://res.cloudinary.com/ducftdiug/image/upload/userImage4_rbf730.png',
+  'https://res.cloudinary.com/ducftdiug/image/upload/userImage3_mwc4rn.png',
+  'https://res.cloudinary.com/ducftdiug/image/upload/userImage2_bln0bn.png',
+  'https://res.cloudinary.com/ducftdiug/image/upload/userImage5_dxefya.png'
+];
+
 
   constructor(private route: ActivatedRoute, private _mainService: MainService) {}
 
@@ -40,17 +49,23 @@ export class CleanersComponent implements OnInit {
     this.loadWorkers();
   }
 
-  loadWorkers(): void {
-    this.Loader = true;
-    this._mainService.getAllWorkers(this.pageIndex, this.pageSize, this.search, this.categoryId)
-      .subscribe((res: any) => {
-        this.workers = res.data;
-        this.totalCount = res.count;
-        this.Loader = false;
-        console.log(res);
-        
+
+loadWorkers(): void {
+  this.Loader = true;
+  this._mainService.getAllWorkers(this.pageIndex, this.pageSize, this.search, this.categoryId)
+    .subscribe((res: any) => {
+      this.workers = res.data.map((worker: worker) => {
+        if (!worker.profilePictureUrl || worker.profilePictureUrl.trim() === '') {
+          const randomIndex = Math.floor(Math.random() * this.randomImages.length);
+          worker.profilePictureUrl = this.randomImages[randomIndex];
+        }
+        return worker;
       });
-  }
+      this.totalCount = res.count;
+      this.Loader = false;
+    });
+}
+
 
   onSearchChange(event: Event): void {
     const input = event.target as HTMLInputElement;

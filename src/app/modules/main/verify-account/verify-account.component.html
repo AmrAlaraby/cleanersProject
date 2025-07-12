@@ -8,13 +8,13 @@
       <div class="col-md-6 text-center">
         <label class="form-label d-block">{{ 'VERIFY_ACCOUNT.ID_IMAGE' | translate }}</label>
         <input type="file" accept="image/*" (change)="onIdImageSelected($event)" class="form-control" />
-        <img *ngIf="idImagePreview" [src]="idImagePreview" alt="ID Preview" class="img-thumbnail mt-2 w-100">
+        <img *ngIf="idImagePreview" [src]="idImagePreview" alt="ID Preview" class="img-thumbnail mt-2 w-100"style="height: 420px; object-fit: cover;">
       </div>
 
       <div class="col-md-6 text-center">
         <label class="form-label d-block">{{ 'VERIFY_ACCOUNT.SELFIE_IMAGE' | translate }}</label>
         <input type="file" accept="image/*" (change)="onSelfieImageSelected($event)" class="form-control" />
-        <img *ngIf="selfieImagePreview" [src]="selfieImagePreview" alt="Selfie Preview" class="img-thumbnail mt-2 w-100">
+        <img *ngIf="selfieImagePreview" [src]="selfieImagePreview" alt="Selfie Preview" class="img-thumbnail mt-2 w-100"style="height: 420px; object-fit: cover;">
       </div>
     </div>
 

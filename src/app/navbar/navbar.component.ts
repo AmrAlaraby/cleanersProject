@@ -107,6 +107,9 @@ export class NavbarComponent implements OnInit {
     sessionStorage.removeItem('userToken');
     this.authService.userData.next(null);
     this._router.navigate(['/home']);
+    this.isActive = true; 
+  
+  this.isAccountVerified = true;
   }
 
   toggleLanguage(): void {

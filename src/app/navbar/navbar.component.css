@@ -1,3 +1,6 @@
+.navbar{
+    z-index: 1105;
+}
 .nav-link {
     font-family: Roboto;
     font-size: 16px;
@@ -53,6 +56,8 @@
   
   .dropdown {
     position: relative;
+      z-index: 1100 !important;
+
   }
   
   .dropdown-menu {
@@ -61,7 +66,7 @@
     right: 0;
     min-width: 200px;
     display: none;
-    z-index: 1000;
+    z-index: 2000;
 
     border: 1px solid var(--primary, #000000);
     border-radius: 4px;

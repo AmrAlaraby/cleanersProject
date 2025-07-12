@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Address, categories, OrdersDashboardDto, OrderToReturnDto, RatingSummaryDto, Review, SubmitReviewRequest, workers } from '../modules/main/interfaces/interfaces';
+import { Address, categories, OrdersDashboardDto, OrderToReturnDto, RatingSummaryDto, Review, SubmitReviewRequest, worker, workers } from '../modules/main/interfaces/interfaces';
 import {
   CreateOrderRequest,
   CreateOrderResponse,
@@ -24,6 +24,11 @@ export class MainService {
   getAllCategories(): Observable<categories> {
     return this._HttpClient.get<categories>(`${this.baseUrl}Categories`);
   }
+
+  getRecommendedWorkersByCategory(categoryId: number) {
+  return this._HttpClient.get<worker[]>(`https://swipe-backend.tryasp.net/api/Ai/get-category-workers-recommendations/${categoryId}`);
+}
+
 
   getCategoryById(id: number): Observable<any> {
     return this._HttpClient.get<any>(`${this.baseUrl}Categories/${id}`);
@@ -371,5 +376,10 @@ verifyAccount(formData: FormData) {
     headers
   });
 }
+
+getRecommendedWorkers() {
+  return this._HttpClient.get<worker[]>(`${this.baseUrl}Workers/recommendations`);
+}
+
 
 }
